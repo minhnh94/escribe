@@ -69,14 +69,30 @@
 		640917D91E535368002C7F2B /* EScribe */ = {
 			isa = PBXGroup;
 			children = (
+				64F8EFCF1E63309900550369 /* Helpers */,
+				64F8EFCE1E63308F00550369 /* Controllers */,
 				640917DA1E535368002C7F2B /* AppDelegate.swift */,
-				640917DC1E535368002C7F2B /* ViewController.swift */,
 				640917DE1E535368002C7F2B /* Main.storyboard */,
 				640917E11E535368002C7F2B /* Assets.xcassets */,
 				640917E31E535368002C7F2B /* LaunchScreen.storyboard */,
 				640917E61E535368002C7F2B /* Info.plist */,
 			);
 			path = EScribe;
+			sourceTree = "<group>";
+		};
+		64F8EFCE1E63308F00550369 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				640917DC1E535368002C7F2B /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		64F8EFCF1E63309900550369 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		9D1654BD8E41F08436BF8690 /* Pods */ = {
@@ -378,6 +394,7 @@
 				640917EB1E535368002C7F2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
