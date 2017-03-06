@@ -23,6 +23,11 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
     var skSession: SKSession?
     var skTransaction: SKTransaction?
     var currentProcessingText: UIView?
+    var isRecording: Bool = false
+    var accumulatedResultText: String = ""
+    
+    // MARK: - UI properties
+    @IBOutlet weak var recordButton: UIButton!
     
     // MARK: - Controller functions
     
@@ -38,44 +43,51 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Text field delegates
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        voiceRecognitionTransactionStarted()
-    }
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        voiceRecognitionTransactionStarted()
+    @IBAction func toggleRecord(_ sender: UIButton) {
+        isRecording = !isRecording
+        if isRecording {
+            recordButton.setBackgroundImage(#imageLiteral(resourceName: "pause"), for: .normal)
+            voiceRecognitionTransactionStarted()
+            accumulatedResultText = ""
+        } else {
+            recordButton.setBackgroundImage(#imageLiteral(resourceName: "record"), for: .normal)
+            skTransaction?.stopRecording()
+        }
     }
     
     func voiceRecognitionTransactionStarted() {
-        skTransaction = skSession!.recognize(withType: SKTransactionSpeechTypeDictation, detection: .none, language: "eng-USA", options: nil, delegate: self)
+        let options = [SKTransactionResultDeliveryKey: SKTransactionResultDeliveryProgressive];
+        skTransaction = skSession!.recognize(withType: SKTransactionSpeechTypeDictation, detection: .none, language: "eng-USA", options: options, delegate: self)
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
-        skTransaction?.stopRecording()
-        currentProcessingText = textView
-    }
+    // MARK: - Text field delegates
     
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
-        skTransaction?.stopRecording()
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         currentProcessingText = textField
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        currentProcessingText = textView
     }
     
     // MARK: - SKTransaction delegates
     
     func transaction(_ transaction: SKTransaction!, didReceive recognition: SKRecognition!) {
         let topRecognitionText = recognition.text
+        let diffPart = (topRecognitionText?.replacingOccurrences(of: accumulatedResultText, with: ""))!
+        accumulatedResultText = accumulatedResultText + diffPart
         
         if let currentProcessingElement = currentProcessingText {
             if currentProcessingElement is UITextField {
                 let textField = currentProcessingElement as! UITextField
-                textField.text = topRecognitionText
+                textField.text = diffPart
             } else if currentProcessingElement is UITextView {
                 let textView = currentProcessingElement as! UITextView
-                textView.text = topRecognitionText
+                textView.text = diffPart
             }
         }
     }
+    
+    
 }
 
