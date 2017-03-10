@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -58,7 +59,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dIP-6N-1RT">
+                                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dIP-6N-1RT">
                                                 <rect key="frame" x="65" y="128" width="214" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -79,7 +80,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rFC-Fu-zZL">
+                                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rFC-Fu-zZL">
                                                 <rect key="frame" x="62" y="163" width="229" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -546,7 +547,7 @@
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fw4-UW-oMK">
-                                <rect key="frame" x="135" y="1174" width="50" height="50"/>
+                                <rect key="frame" x="46" y="1174" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="NFe-kI-clb"/>
                                     <constraint firstAttribute="height" constant="50" id="gjL-Ld-8GW"/>
@@ -556,14 +557,23 @@
                                     <action selector="toggleRecord:" destination="BYZ-38-t0r" eventType="touchUpInside" id="blA-YP-NVP"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The recorder is inactive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Bp-Xr-aSh">
+                                <rect key="frame" x="104" y="1190.5" width="200" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="jlt-Dq-eTx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="3Gr-we-bRf"/>
                             <constraint firstItem="jlt-Dq-eTx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4zS-Be-hWa"/>
+                            <constraint firstItem="3Bp-Xr-aSh" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="DZm-C3-eMm"/>
                             <constraint firstItem="Fw4-UW-oMK" firstAttribute="top" secondItem="jlt-Dq-eTx" secondAttribute="bottom" constant="8" id="GOS-ow-DWi"/>
-                            <constraint firstItem="Fw4-UW-oMK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NWE-sj-44G"/>
+                            <constraint firstItem="3Bp-Xr-aSh" firstAttribute="leading" secondItem="Fw4-UW-oMK" secondAttribute="trailing" constant="8" id="Le4-dj-C8o"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jlt-Dq-eTx" secondAttribute="bottom" constant="70" id="VmF-Ki-fgo"/>
+                            <constraint firstItem="Fw4-UW-oMK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="Wbh-D1-aSS"/>
+                            <constraint firstItem="3Bp-Xr-aSh" firstAttribute="centerY" secondItem="Fw4-UW-oMK" secondAttribute="centerY" id="XZi-dO-yzK"/>
                             <constraint firstAttribute="trailing" secondItem="jlt-Dq-eTx" secondAttribute="trailing" id="rvX-A4-Svw"/>
                         </constraints>
                     </view>
@@ -576,6 +586,7 @@
                     <size key="freeformSize" width="320" height="1300"/>
                     <connections>
                         <outlet property="recordButton" destination="Fw4-UW-oMK" id="J8P-WI-PrA"/>
+                        <outlet property="statusNotifyTextField" destination="3Bp-Xr-aSh" id="Ixd-xT-WnG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

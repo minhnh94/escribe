@@ -12,6 +12,9 @@
 		640917E01E535368002C7F2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 640917DE1E535368002C7F2B /* Main.storyboard */; };
 		640917E21E535368002C7F2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 640917E11E535368002C7F2B /* Assets.xcassets */; };
 		640917E51E535368002C7F2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 640917E31E535368002C7F2B /* LaunchScreen.storyboard */; };
+		64E947181E72CEE3009E232C /* NameTagAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E947171E72CEE3009E232C /* NameTagAssociation.swift */; };
+		64E9471A1E730CCC009E232C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E947191E730CCC009E232C /* AVFoundation.framework */; };
+		64E9471C1E73270E009E232C /* AudioRecordHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E9471B1E73270E009E232C /* AudioRecordHelper.swift */; };
 		6B737F898659D5C1DCB9A9CF /* Pods_EScribe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0679408E1B091A3190AA6917 /* Pods_EScribe.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +28,9 @@
 		640917E11E535368002C7F2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		640917E41E535368002C7F2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		640917E61E535368002C7F2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64E947171E72CEE3009E232C /* NameTagAssociation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameTagAssociation.swift; sourceTree = "<group>"; };
+		64E947191E730CCC009E232C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		64E9471B1E73270E009E232C /* AudioRecordHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecordHelper.swift; sourceTree = "<group>"; };
 		B0975C0CF86EFAEA80FE4F6E /* Pods-EScribe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EScribe.release.xcconfig"; path = "Pods/Target Support Files/Pods-EScribe/Pods-EScribe.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -33,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64E9471A1E730CCC009E232C /* AVFoundation.framework in Frameworks */,
 				6B737F898659D5C1DCB9A9CF /* Pods_EScribe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,6 +50,7 @@
 		5890955465CC14ED1F7B6C09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				64E947191E730CCC009E232C /* AVFoundation.framework */,
 				0679408E1B091A3190AA6917 /* Pods_EScribe.framework */,
 			);
 			name = Frameworks;
@@ -84,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				640917DC1E535368002C7F2B /* ViewController.swift */,
+				64E947171E72CEE3009E232C /* NameTagAssociation.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -91,6 +100,7 @@
 		64F8EFCF1E63309900550369 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				64E9471B1E73270E009E232C /* AudioRecordHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -227,8 +237,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64E947181E72CEE3009E232C /* NameTagAssociation.swift in Sources */,
 				640917DD1E535368002C7F2B /* ViewController.swift in Sources */,
 				640917DB1E535368002C7F2B /* AppDelegate.swift in Sources */,
+				64E9471C1E73270E009E232C /* AudioRecordHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
