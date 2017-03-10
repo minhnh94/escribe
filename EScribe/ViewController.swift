@@ -8,9 +8,8 @@
 
 import UIKit
 import SpeechKit
-import AVFoundation
 
-class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate, SKTransactionDelegate, AVAudioRecorderDelegate {
+class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate, SKTransactionDelegate {
 
     // MARK: - API related data
     let API_URL = "nmsps://NMDPTRIAL_minhnh_da_gmail_com20170206055537@sslsandbox-nmdp.nuancemobility.net:443"
@@ -23,8 +22,6 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
     // MARK: - Controller properties
     var skSession: SKSession?
     var skTransaction: SKTransaction?
-    var audioSession: AVAudioSession?
-    var audioRec: AVAudioRecorder?
     var currentProcessingText: UIView?
     var isRecording: Bool = false
     
@@ -39,24 +36,6 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
         // Init Speech-to-text session
         SERVER_URL = String(format: "nmsps://%@@%@:%@", APP_ID, SSL_HOST, SSL_PORT)
         skSession = SKSession(url: URL(string: SERVER_URL), appToken: APP_KEY)
-        
-        // Init recorder session
-        audioSession = AVAudioSession.sharedInstance()
-        
-        do {
-            try audioSession?.setCategory(AVAudioSessionCategoryPlayAndRecord, with: .defaultToSpeaker)
-            try audioSession?.setActive(true)
-            
-            audioSession?.requestRecordPermission({ (allowed) in
-                if allowed {
-                    print("Mic authorized")
-                } else {
-                    print("Mic access declined")
-                }
-            })
-        } catch {
-            print("Failed to init AV session")
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,41 +61,6 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
         skTransaction = skSession!.recognize(withType: SKTransactionSpeechTypeDictation, detection: .none, language: "eng-USA", options: options, delegate: self)
     }
     
-    func audioRecording() {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let docDirect = paths[0]
-        
-        let writePath = docDirect.appendingPathComponent("fileName.aac")
-        let audioUrl = URL.init(fileURLWithPath: writePath.path)
-        
-        let settings: [String: Any] = [
-            AVFormatIDKey: NSNumber(value: kAudioFormatMPEG4AAC),
-            AVNumberOfChannelsKey: 1,
-            AVSampleRateKey: 16000.0,
-            AVEncoderAudioQualityKey: AVAudioQuality.low.rawValue
-        ]
-        
-        do {
-            audioRec = try AVAudioRecorder(url: audioUrl, settings: settings)
-            audioRec?.delegate = self
-            audioRec?.isMeteringEnabled = true
-            audioRec?.prepareToRecord()
-            audioRec?.record()
-        } catch let error {
-            print(error)
-        }
-    }
-    
-    // MARK: - Audio delegates
-    
-    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        print("Success lol")
-    }
-    
-    func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
-        print("Fail lol")
-    }
-    
     // MARK: - Text field delegates
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -131,11 +75,11 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
     
     func transactionDidBeginRecording(_ transaction: SKTransaction!) {
         statusNotifyTextField.text = "Now recording, please speak..."
-        audioRecording()
+        AudioRecordHelper.shared.record(filename: "test")
     }
     
     func transactionDidFinishRecording(_ transaction: SKTransaction!) {
-        audioRec?.stop()
+        AudioRecordHelper.shared.stop()
     }
     
     func transaction(_ transaction: SKTransaction!, didReceive recognition: SKRecognition!) {
