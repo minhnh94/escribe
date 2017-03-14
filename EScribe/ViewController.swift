@@ -24,6 +24,8 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
     var skTransaction: SKTransaction?
     var currentProcessingText: UIView?
     var isRecording: Bool = false
+    var startSelectingField = true
+    
     
     // MARK: - UI properties
     @IBOutlet weak var recordButton: UIButton!
@@ -82,14 +84,33 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
         AudioRecordHelper.shared.stop()
     }
     
+    func transaction(_ transaction: SKTransaction!, didFinishWithSuggestion suggestion: String!) {
+        startSelectingField = true
+        currentProcessingText?.resignFirstResponder()
+        currentProcessingText = nil
+    }
+    
     func transaction(_ transaction: SKTransaction!, didReceive recognition: SKRecognition!) {
         let topRecognitionText = recognition.text
         
-        // Testing
-        let lastObj = recognition.details.first as! SKRecognizedPhrase
-        let word = lastObj.words.first as! SKRecognizedWord
-        print(word.text)
-        
+        if startSelectingField {
+            for (key, tag) in NameTagAssociation.nameTagDictionary {
+                if topRecognitionText!.lowercased().range(of: key) != nil {
+                    let inputField = view.viewWithTag(tag)
+                    if inputField is UITextView {
+                        let txtView = inputField as! UITextView
+                        txtView.becomeFirstResponder()
+                        
+                        startSelectingField = false
+                    } else if inputField is UITextField {
+                        let txtField = inputField as! UITextField
+                        txtField.becomeFirstResponder()
+                        
+                        startSelectingField = false
+                    }
+                }
+            }
+        }
         
         if let currentProcessingElement = currentProcessingText {
             if currentProcessingElement is UITextField {
