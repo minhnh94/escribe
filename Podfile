@@ -7,4 +7,6 @@ target 'EScribe' do
 
   # Pods for EScribe
 	pod 'SpeechKit'
+    pod 'SwiftDate'
+    pod 'SQLite.swift'
 end

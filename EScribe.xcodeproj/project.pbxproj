@@ -12,6 +12,12 @@
 		640917E01E535368002C7F2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 640917DE1E535368002C7F2B /* Main.storyboard */; };
 		640917E21E535368002C7F2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 640917E11E535368002C7F2B /* Assets.xcassets */; };
 		640917E51E535368002C7F2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 640917E31E535368002C7F2B /* LaunchScreen.storyboard */; };
+		64C774551E77F35100751936 /* PatientListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C774541E77F35100751936 /* PatientListCell.swift */; };
+		64C774581E77F40A00751936 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C774571E77F40A00751936 /* Patient.swift */; };
+		64C7745A1E77F5C900751936 /* PatientListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C774591E77F5C900751936 /* PatientListController.swift */; };
+		64C7745C1E78015B00751936 /* escribe.db in Resources */ = {isa = PBXBuildFile; fileRef = 64C7745B1E78015B00751936 /* escribe.db */; };
+		64C7745E1E780EE000751936 /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C7745D1E780EE000751936 /* DatabaseHelper.swift */; };
+		64C774601E7817A800751936 /* VariousHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C7745F1E7817A800751936 /* VariousHelper.swift */; };
 		64E947181E72CEE3009E232C /* NameTagAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E947171E72CEE3009E232C /* NameTagAssociation.swift */; };
 		64E9471A1E730CCC009E232C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E947191E730CCC009E232C /* AVFoundation.framework */; };
 		64E9471C1E73270E009E232C /* AudioRecordHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E9471B1E73270E009E232C /* AudioRecordHelper.swift */; };
@@ -28,6 +34,12 @@
 		640917E11E535368002C7F2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		640917E41E535368002C7F2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		640917E61E535368002C7F2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64C774541E77F35100751936 /* PatientListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientListCell.swift; sourceTree = "<group>"; };
+		64C774571E77F40A00751936 /* Patient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
+		64C774591E77F5C900751936 /* PatientListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientListController.swift; sourceTree = "<group>"; };
+		64C7745B1E78015B00751936 /* escribe.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = escribe.db; sourceTree = "<group>"; };
+		64C7745D1E780EE000751936 /* DatabaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
+		64C7745F1E7817A800751936 /* VariousHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariousHelper.swift; sourceTree = "<group>"; };
 		64E947171E72CEE3009E232C /* NameTagAssociation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameTagAssociation.swift; sourceTree = "<group>"; };
 		64E947191E730CCC009E232C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		64E9471B1E73270E009E232C /* AudioRecordHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecordHelper.swift; sourceTree = "<group>"; };
@@ -77,6 +89,8 @@
 		640917D91E535368002C7F2B /* EScribe */ = {
 			isa = PBXGroup;
 			children = (
+				64C774561E77F3FB00751936 /* Models */,
+				64C774531E77F32800751936 /* Views */,
 				64F8EFCF1E63309900550369 /* Helpers */,
 				64F8EFCE1E63308F00550369 /* Controllers */,
 				640917DA1E535368002C7F2B /* AppDelegate.swift */,
@@ -88,11 +102,28 @@
 			path = EScribe;
 			sourceTree = "<group>";
 		};
+		64C774531E77F32800751936 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				64C774541E77F35100751936 /* PatientListCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		64C774561E77F3FB00751936 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				64C7745B1E78015B00751936 /* escribe.db */,
+				64C774571E77F40A00751936 /* Patient.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		64F8EFCE1E63308F00550369 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				640917DC1E535368002C7F2B /* ViewController.swift */,
-				64E947171E72CEE3009E232C /* NameTagAssociation.swift */,
+				64C774591E77F5C900751936 /* PatientListController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -101,6 +132,9 @@
 			isa = PBXGroup;
 			children = (
 				64E9471B1E73270E009E232C /* AudioRecordHelper.swift */,
+				64E947171E72CEE3009E232C /* NameTagAssociation.swift */,
+				64C7745D1E780EE000751936 /* DatabaseHelper.swift */,
+				64C7745F1E7817A800751936 /* VariousHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -179,6 +213,7 @@
 				640917E51E535368002C7F2B /* LaunchScreen.storyboard in Resources */,
 				640917E21E535368002C7F2B /* Assets.xcassets in Resources */,
 				640917E01E535368002C7F2B /* Main.storyboard in Resources */,
+				64C7745C1E78015B00751936 /* escribe.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,8 +274,13 @@
 			files = (
 				64E947181E72CEE3009E232C /* NameTagAssociation.swift in Sources */,
 				640917DD1E535368002C7F2B /* ViewController.swift in Sources */,
+				64C774551E77F35100751936 /* PatientListCell.swift in Sources */,
+				64C7745A1E77F5C900751936 /* PatientListController.swift in Sources */,
+				64C7745E1E780EE000751936 /* DatabaseHelper.swift in Sources */,
 				640917DB1E535368002C7F2B /* AppDelegate.swift in Sources */,
 				64E9471C1E73270E009E232C /* AudioRecordHelper.swift in Sources */,
+				64C774581E77F40A00751936 /* Patient.swift in Sources */,
+				64C774601E7817A800751936 /* VariousHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

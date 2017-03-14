@@ -1,12 +1,20 @@
 PODS:
   - SpeechKit (2.2.1)
+  - SQLite.swift (0.11.0):
+    - SQLite.swift/standard (= 0.11.0)
+  - SQLite.swift/standard (0.11.0)
+  - SwiftDate (4.0.6)
 
 DEPENDENCIES:
   - SpeechKit
+  - SQLite.swift
+  - SwiftDate
 
 SPEC CHECKSUMS:
   SpeechKit: 9c5c02d89eed7aa0cdb384b7ea384f7e5c65232c
+  SQLite.swift: 9a26273607d3077a2e5a8d33486e9989f8404c7d
+  SwiftDate: 549729eaa54bd9f64fd80abfd12ddd3d44ff5098
 
-PODFILE CHECKSUM: 19ef8f1fd5272a894f4aa54191f51c8ebe9bfb08
+PODFILE CHECKSUM: 3079b99b517818145046a5e92eed9fd45a3977a2
 
 COCOAPODS: 1.1.1
