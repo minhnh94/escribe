@@ -12,6 +12,8 @@
 		640917E01E535368002C7F2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 640917DE1E535368002C7F2B /* Main.storyboard */; };
 		640917E21E535368002C7F2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 640917E11E535368002C7F2B /* Assets.xcassets */; };
 		640917E51E535368002C7F2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 640917E31E535368002C7F2B /* LaunchScreen.storyboard */; };
+		64A6D9AD1E7AADE20010C482 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64A6D9AC1E7AADE20010C482 /* QuartzCore.framework */; };
+		64A6D9AF1E7AAE250010C482 /* PatientDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6D9AE1E7AAE250010C482 /* PatientDetailController.swift */; };
 		64C774551E77F35100751936 /* PatientListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C774541E77F35100751936 /* PatientListCell.swift */; };
 		64C774581E77F40A00751936 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C774571E77F40A00751936 /* Patient.swift */; };
 		64C7745A1E77F5C900751936 /* PatientListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C774591E77F5C900751936 /* PatientListController.swift */; };
@@ -34,6 +36,8 @@
 		640917E11E535368002C7F2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		640917E41E535368002C7F2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		640917E61E535368002C7F2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64A6D9AC1E7AADE20010C482 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		64A6D9AE1E7AAE250010C482 /* PatientDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientDetailController.swift; sourceTree = "<group>"; };
 		64C774541E77F35100751936 /* PatientListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientListCell.swift; sourceTree = "<group>"; };
 		64C774571E77F40A00751936 /* Patient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		64C774591E77F5C900751936 /* PatientListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientListController.swift; sourceTree = "<group>"; };
@@ -51,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64A6D9AD1E7AADE20010C482 /* QuartzCore.framework in Frameworks */,
 				64E9471A1E730CCC009E232C /* AVFoundation.framework in Frameworks */,
 				6B737F898659D5C1DCB9A9CF /* Pods_EScribe.framework in Frameworks */,
 			);
@@ -62,6 +67,7 @@
 		5890955465CC14ED1F7B6C09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				64A6D9AC1E7AADE20010C482 /* QuartzCore.framework */,
 				64E947191E730CCC009E232C /* AVFoundation.framework */,
 				0679408E1B091A3190AA6917 /* Pods_EScribe.framework */,
 			);
@@ -124,6 +130,7 @@
 			children = (
 				640917DC1E535368002C7F2B /* ViewController.swift */,
 				64C774591E77F5C900751936 /* PatientListController.swift */,
+				64A6D9AE1E7AAE250010C482 /* PatientDetailController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -272,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64A6D9AF1E7AAE250010C482 /* PatientDetailController.swift in Sources */,
 				64E947181E72CEE3009E232C /* NameTagAssociation.swift in Sources */,
 				640917DD1E535368002C7F2B /* ViewController.swift in Sources */,
 				64C774551E77F35100751936 /* PatientListCell.swift in Sources */,

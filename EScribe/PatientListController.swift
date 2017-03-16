@@ -35,10 +35,11 @@ class PatientListController: UIViewController, UITableViewDataSource, UITableVie
         let patientObj = arrayPatients[indexPath.row]
         
         cell.patientNameLabel.text = "\(patientObj.firstName!) \(patientObj.lastName!)"
-        cell.amdidLabel.text = "AMDID: \(patientObj.amdid!)"
-        cell.internalIdLabel.text = "Internal ID: \(patientObj.internalId!)"
+        cell.amdidLabel.text = "\(patientObj.amdid!)"
+        cell.internalIdLabel.text = "\(patientObj.internalId!)"
         cell.addressLabel.text = "\(patientObj.address!), \(patientObj.city!), \(patientObj.state!), \(patientObj.zipcode!)"
-        cell.dateOfBirthLabel.text = "DoB: \(patientObj.dob!) (\(VariousHelper.shared.getYearOldFromDateOfBirthString(dob: patientObj.dob))yo)"
+        cell.dateOfBirthLabel.text = "\(patientObj.dob!)"
+        cell.yearOldLabel.text = "(\(VariousHelper.shared.getYearOldFromDateOfBirthString(dob: patientObj.dob)))"
         
         return cell
     }

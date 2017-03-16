@@ -12,6 +12,7 @@ class PatientListCell: UITableViewCell {
 
     @IBOutlet weak var patientNameLabel: UILabel!
     @IBOutlet weak var dateOfBirthLabel: UILabel!
+    @IBOutlet weak var yearOldLabel: UILabel!
     @IBOutlet weak var amdidLabel: UILabel!
     @IBOutlet weak var internalIdLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
