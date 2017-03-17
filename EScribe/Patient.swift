@@ -34,4 +34,8 @@ class Patient: NSObject {
         self.phone = phone
         self.address = address
     }
+    
+    func allNotes() -> [PatientNote] {
+        return []
+    }
 }

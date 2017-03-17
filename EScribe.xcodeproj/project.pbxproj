@@ -23,6 +23,9 @@
 		64E947181E72CEE3009E232C /* NameTagAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E947171E72CEE3009E232C /* NameTagAssociation.swift */; };
 		64E9471A1E730CCC009E232C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E947191E730CCC009E232C /* AVFoundation.framework */; };
 		64E9471C1E73270E009E232C /* AudioRecordHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E9471B1E73270E009E232C /* AudioRecordHelper.swift */; };
+		64F6AD9A1E7C1E3600ED8509 /* NoteInPatientDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F6AD991E7C1E3600ED8509 /* NoteInPatientDetailCell.swift */; };
+		64F6AD9C1E7C21DA00ED8509 /* PatientNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F6AD9B1E7C21DA00ED8509 /* PatientNote.swift */; };
+		64F6AD9E1E7C21EB00ED8509 /* NoteContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F6AD9D1E7C21EB00ED8509 /* NoteContent.swift */; };
 		6B737F898659D5C1DCB9A9CF /* Pods_EScribe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0679408E1B091A3190AA6917 /* Pods_EScribe.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +50,9 @@
 		64E947171E72CEE3009E232C /* NameTagAssociation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameTagAssociation.swift; sourceTree = "<group>"; };
 		64E947191E730CCC009E232C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		64E9471B1E73270E009E232C /* AudioRecordHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecordHelper.swift; sourceTree = "<group>"; };
+		64F6AD991E7C1E3600ED8509 /* NoteInPatientDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteInPatientDetailCell.swift; sourceTree = "<group>"; };
+		64F6AD9B1E7C21DA00ED8509 /* PatientNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientNote.swift; sourceTree = "<group>"; };
+		64F6AD9D1E7C21EB00ED8509 /* NoteContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteContent.swift; sourceTree = "<group>"; };
 		B0975C0CF86EFAEA80FE4F6E /* Pods-EScribe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EScribe.release.xcconfig"; path = "Pods/Target Support Files/Pods-EScribe/Pods-EScribe.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				64C774541E77F35100751936 /* PatientListCell.swift */,
+				64F6AD991E7C1E3600ED8509 /* NoteInPatientDetailCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -121,6 +128,8 @@
 			children = (
 				64C7745B1E78015B00751936 /* escribe.db */,
 				64C774571E77F40A00751936 /* Patient.swift */,
+				64F6AD9B1E7C21DA00ED8509 /* PatientNote.swift */,
+				64F6AD9D1E7C21EB00ED8509 /* NoteContent.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -284,11 +293,14 @@
 				640917DD1E535368002C7F2B /* ViewController.swift in Sources */,
 				64C774551E77F35100751936 /* PatientListCell.swift in Sources */,
 				64C7745A1E77F5C900751936 /* PatientListController.swift in Sources */,
+				64F6AD9A1E7C1E3600ED8509 /* NoteInPatientDetailCell.swift in Sources */,
 				64C7745E1E780EE000751936 /* DatabaseHelper.swift in Sources */,
 				640917DB1E535368002C7F2B /* AppDelegate.swift in Sources */,
+				64F6AD9C1E7C21DA00ED8509 /* PatientNote.swift in Sources */,
 				64E9471C1E73270E009E232C /* AudioRecordHelper.swift in Sources */,
 				64C774581E77F40A00751936 /* Patient.swift in Sources */,
 				64C774601E7817A800751936 /* VariousHelper.swift in Sources */,
+				64F6AD9E1E7C21EB00ED8509 /* NoteContent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
