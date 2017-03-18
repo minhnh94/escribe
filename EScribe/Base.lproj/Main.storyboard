@@ -105,14 +105,14 @@
                                 </state>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0EB-4e-zuK">
-                                <rect key="frame" x="0.0" y="273" width="320" height="246"/>
+                                <rect key="frame" x="0.0" y="273" width="320" height="251"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoteInPatientDetailCell" rowHeight="58" id="CX1-RN-lo1" customClass="NoteInPatientDetailCell" customModule="EScribe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CX1-RN-lo1" id="trw-Rr-ida">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017/01/29-21:16:05" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B45-re-K8c">
@@ -228,6 +228,8 @@
                             <constraint firstItem="3jH-Oj-Rwg" firstAttribute="leading" secondItem="Vwq-Mx-liO" secondAttribute="leadingMargin" id="xc3-v6-vY9"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="newNoteButton" destination="2sv-ng-l8K" id="yAI-AD-Ho5"/>
                     </connections>

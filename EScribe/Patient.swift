@@ -35,6 +35,10 @@ class Patient: NSObject {
         self.address = address
     }
     
+    static func allPatients() -> [Patient] {
+        return DatabaseHelper.shared.loadAllPatients()
+    }
+    
     func allNotes() -> [PatientNote] {
         return []
     }

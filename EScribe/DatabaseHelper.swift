@@ -50,4 +50,50 @@ class DatabaseHelper: NSObject {
         
         return arrayPatients
     }
+    
+    func loadAllPatientNotes(patientId: Int) -> [PatientNote] {
+        let patientNotesTable = Table("notes")
+        let noteContentsTable = Table("note_contents")
+        
+        // Patient notes
+        let noteId = Expression<Int>("note_id")
+        let author = Expression<String>("author")
+        
+        // Note content
+        let patientNoteId = Expression<Int>("big_note_id")
+        
+        var arrayPatientNotes: [PatientNote] = []
+        
+        for patientNote in try! db.prepare(patientNotesTable) {
+            let filterNoteContentsTable = noteContentsTable.filter(patientNoteId == noteId)
+            let allNoteContents = loadNoteContentsFromResult(result: filterNoteContentsTable)
+            
+            let patientNoteObj = PatientNote(bigNoteId: patientNote[noteId], patientId: patientId, author: patientNote[author])
+            patientNoteObj.allNoteContents = allNoteContents
+            
+            arrayPatientNotes.append(patientNoteObj)
+        }
+        
+        return arrayPatientNotes
+    }
+    
+    // MARK: - Privates
+    
+    func loadNoteContentsFromResult(result: Table) -> [NoteContent] {
+        var arrayResult: [NoteContent] = []
+        
+        // Note content
+        let patientNoteId = Expression<Int>("big_note_id")
+        let noteContentId = Expression<Int>("note_content_id")
+        let noteType = Expression<String>("note_type")
+        let noteContentString = Expression<String>("content")
+        
+        for noteContent in try! db.prepare(result) {
+            let noteContentObj = NoteContent(noteId: noteContent[noteContentId], bigNoteId: noteContent[patientNoteId], noteType: noteContent[noteType])
+            noteContentObj.content = noteContent[noteContentString]
+            arrayResult.append(noteContentObj)
+        }
+        
+        return arrayResult
+    }
 }

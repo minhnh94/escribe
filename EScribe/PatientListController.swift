@@ -10,7 +10,7 @@ import UIKit
 
 class PatientListController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var arrayPatients = DatabaseHelper.shared.loadAllPatients()
+    var arrayPatients = Patient.allPatients()
     
     override func viewDidLoad() {
         super.viewDidLoad()

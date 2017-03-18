@@ -12,14 +12,11 @@ class PatientNote: NSObject {
     var bigNoteId: Int!
     var patientId: Int!
     var author: String!
+    var allNoteContents: [NoteContent] = []
     
     init(bigNoteId: Int, patientId: Int, author: String) {
         self.bigNoteId = bigNoteId
         self.patientId = patientId
         self.author = author
-    }
-    
-    func allNoteContents() -> [NoteContent] {
-        return []
     }
 }
