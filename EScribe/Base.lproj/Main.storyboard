@@ -971,7 +971,7 @@
                                             <outlet property="internalIdLabel" destination="vaA-I3-bMm" id="5hh-Iu-jm5"/>
                                             <outlet property="patientNameLabel" destination="X7T-3Y-H9K" id="z0P-07-X4O"/>
                                             <outlet property="yearOldLabel" destination="RZj-2Q-jMr" id="au6-an-rR4"/>
-                                            <segue destination="XrX-nH-vjp" kind="show" id="OMY-CA-MMx"/>
+                                            <segue destination="XrX-nH-vjp" kind="show" identifier="ToPatientDetailVC" id="OMY-CA-MMx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -996,6 +996,7 @@
                         <barButtonItem key="rightBarButtonItem" image="ico_new patient" id="ZC4-CG-QHD"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="patientTableView" destination="uRr-HQ-0pl" id="DIg-DT-aab"/>
                         <outlet property="searchDisplayController" destination="VNc-5J-SGf" id="R3N-Wx-TYj"/>
                     </connections>
                 </viewController>

@@ -40,6 +40,6 @@ class Patient: NSObject {
     }
     
     func allNotes() -> [PatientNote] {
-        return []
+        return DatabaseHelper.shared.loadAllPatientNotes(patientId: internalId)
     }
 }

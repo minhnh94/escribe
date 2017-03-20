@@ -12,11 +12,26 @@ class PatientNote: NSObject {
     var bigNoteId: Int!
     var patientId: Int!
     var author: String!
+    var datetime: String!
     var allNoteContents: [NoteContent] = []
     
-    init(bigNoteId: Int, patientId: Int, author: String) {
+    init(bigNoteId: Int, patientId: Int, author: String, datetime: String) {
         self.bigNoteId = bigNoteId
         self.patientId = patientId
         self.author = author
+        self.datetime = datetime
+    }
+    
+    func joinAllNoteContentTypeIntoString() -> String {
+        var result = ""
+        
+        for noteContent in allNoteContents {
+            result += noteContent.noteType
+            if allNoteContents.last != noteContent {
+                result += ", "
+            }
+        }
+        
+        return result
     }
 }

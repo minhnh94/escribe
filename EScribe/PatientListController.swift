@@ -10,7 +10,10 @@ import UIKit
 
 class PatientListController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    let PatientDetailSegue = "ToPatientDetailVC"
     var arrayPatients = Patient.allPatients()
+    
+    @IBOutlet weak var patientTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,4 +47,15 @@ class PatientListController: UIViewController, UITableViewDataSource, UITableVie
         return cell
     }
 
+    // MARK: - Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == PatientDetailSegue {
+            let indexPath = patientTableView.indexPath(for: sender as! UITableViewCell)
+            let currentPatient = arrayPatients[indexPath!.row]
+            
+            let vc = segue.destination as! PatientDetailController
+            vc.currentPatient = currentPatient
+        }
+    }
 }

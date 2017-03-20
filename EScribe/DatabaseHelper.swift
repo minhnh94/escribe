@@ -52,23 +52,27 @@ class DatabaseHelper: NSObject {
     }
     
     func loadAllPatientNotes(patientId: Int) -> [PatientNote] {
-        let patientNotesTable = Table("notes")
-        let noteContentsTable = Table("note_contents")
-        
         // Patient notes
         let noteId = Expression<Int>("note_id")
         let author = Expression<String>("author")
+        let datetime = Expression<String>("datetime")
         
         // Note content
-        let patientNoteId = Expression<Int>("big_note_id")
+        let parentNoteId = Expression<Int>("big_note_id")
+        
+        // Preparing queries
+        let ownedPatientId = Expression<Int>("patient_id")
+        let noteContentsTable = Table("note_contents")
+        let patientNotesTable = Table("notes").filter(ownedPatientId == patientId)
         
         var arrayPatientNotes: [PatientNote] = []
         
         for patientNote in try! db.prepare(patientNotesTable) {
-            let filterNoteContentsTable = noteContentsTable.filter(patientNoteId == noteId)
+            let patientNoteObj = PatientNote(bigNoteId: patientNote[noteId], patientId: patientId, author: patientNote[author], datetime: patientNote[datetime])
+            
+            let filterNoteContentsTable = noteContentsTable.filter(parentNoteId == patientNoteObj.bigNoteId)
             let allNoteContents = loadNoteContentsFromResult(result: filterNoteContentsTable)
             
-            let patientNoteObj = PatientNote(bigNoteId: patientNote[noteId], patientId: patientId, author: patientNote[author])
             patientNoteObj.allNoteContents = allNoteContents
             
             arrayPatientNotes.append(patientNoteObj)
