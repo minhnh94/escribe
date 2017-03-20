@@ -11,22 +11,44 @@ import QuartzCore
 
 class PatientDetailController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    let NewNoteSegue = "ToNewNoteVC"
+    
     var currentPatient: Patient!
     var allNotes: [PatientNote]!
     
+    // Interface
+    @IBOutlet weak var patientNameLabel: UILabel!
+    @IBOutlet weak var dobLabel: UILabel!
+    @IBOutlet weak var yearsOldLabel: UILabel!
+    @IBOutlet weak var amdiLabel: UILabel!
+    @IBOutlet weak var internalIdLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    
     @IBOutlet weak var newNoteButton: UIButton!
+    
+    // MARK: - VC lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         allNotes = currentPatient.allNotes()
+        setupInterface()
         additionalStyling()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setupInterface() {
+        patientNameLabel.text = "\(currentPatient.firstName!) \(currentPatient.lastName!)"
+        amdiLabel.text = "\(currentPatient.amdid!)"
+        internalIdLabel.text = "\(currentPatient.internalId!)"
+        addressLabel.text = "\(currentPatient.address!), \(currentPatient.city!), \(currentPatient.state!), \(currentPatient.zipcode!)"
+        dobLabel.text = "\(currentPatient.dob!)"
+        yearsOldLabel.text = "(\(currentPatient.getYearsOld()))"
     }
     
     func additionalStyling() {
@@ -52,4 +74,13 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
         return cell
     }
 
+    // MARK: - Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == NewNoteSegue {
+            let vc = segue.destination as! NewNoteController
+            vc.currentPatient = currentPatient
+        }
+    }
+    
 }

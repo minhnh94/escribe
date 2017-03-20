@@ -12,6 +12,7 @@
 		640917E01E535368002C7F2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 640917DE1E535368002C7F2B /* Main.storyboard */; };
 		640917E21E535368002C7F2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 640917E11E535368002C7F2B /* Assets.xcassets */; };
 		640917E51E535368002C7F2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 640917E31E535368002C7F2B /* LaunchScreen.storyboard */; };
+		640B19671E7FDF0B0032B242 /* NewNoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640B19661E7FDF0B0032B242 /* NewNoteController.swift */; };
 		64A6D9AD1E7AADE20010C482 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64A6D9AC1E7AADE20010C482 /* QuartzCore.framework */; };
 		64A6D9AF1E7AAE250010C482 /* PatientDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6D9AE1E7AAE250010C482 /* PatientDetailController.swift */; };
 		64C774551E77F35100751936 /* PatientListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C774541E77F35100751936 /* PatientListCell.swift */; };
@@ -39,6 +40,7 @@
 		640917E11E535368002C7F2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		640917E41E535368002C7F2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		640917E61E535368002C7F2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		640B19661E7FDF0B0032B242 /* NewNoteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewNoteController.swift; sourceTree = "<group>"; };
 		64A6D9AC1E7AADE20010C482 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		64A6D9AE1E7AAE250010C482 /* PatientDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientDetailController.swift; sourceTree = "<group>"; };
 		64C774541E77F35100751936 /* PatientListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientListCell.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				640917DC1E535368002C7F2B /* ViewController.swift */,
 				64C774591E77F5C900751936 /* PatientListController.swift */,
 				64A6D9AE1E7AAE250010C482 /* PatientDetailController.swift */,
+				640B19661E7FDF0B0032B242 /* NewNoteController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				64C774551E77F35100751936 /* PatientListCell.swift in Sources */,
 				64C7745A1E77F5C900751936 /* PatientListController.swift in Sources */,
 				64F6AD9A1E7C1E3600ED8509 /* NoteInPatientDetailCell.swift in Sources */,
+				640B19671E7FDF0B0032B242 /* NewNoteController.swift in Sources */,
 				64C7745E1E780EE000751936 /* DatabaseHelper.swift in Sources */,
 				640917DB1E535368002C7F2B /* AppDelegate.swift in Sources */,
 				64F6AD9C1E7C21DA00ED8509 /* PatientNote.swift in Sources */,

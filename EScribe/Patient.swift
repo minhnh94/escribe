@@ -42,4 +42,8 @@ class Patient: NSObject {
     func allNotes() -> [PatientNote] {
         return DatabaseHelper.shared.loadAllPatientNotes(patientId: internalId)
     }
+    
+    func getYearsOld() -> Int {
+        return VariousHelper.shared.getYearOldFromDateOfBirthString(dob: dob)
+    }
 }

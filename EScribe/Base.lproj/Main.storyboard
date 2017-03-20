@@ -103,6 +103,9 @@
                                 <state key="normal" title="New note">
                                     <color key="titleColor" red="0.0" green="0.47843137254901957" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="EbK-ge-idF" kind="show" identifier="ToNewNoteVC" id="hvY-Ny-ZxY"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0EB-4e-zuK">
                                 <rect key="frame" x="0.0" y="273" width="320" height="251"/>
@@ -231,12 +234,103 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addressLabel" destination="aee-J4-45S" id="46Z-sF-r5F"/>
+                        <outlet property="amdiLabel" destination="yff-8W-u9y" id="4cA-tS-EFK"/>
+                        <outlet property="dobLabel" destination="c6f-H3-c4s" id="gy5-KX-55H"/>
+                        <outlet property="internalIdLabel" destination="QMn-AJ-fW2" id="ziK-3H-aDc"/>
                         <outlet property="newNoteButton" destination="2sv-ng-l8K" id="yAI-AD-Ho5"/>
+                        <outlet property="patientNameLabel" destination="qWJ-HF-Nh5" id="4aL-8k-8we"/>
+                        <outlet property="yearsOldLabel" destination="S8h-UI-2YK" id="Hjs-LW-B03"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I3a-Oj-cDP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="847.5" y="771.12676056338034"/>
+        </scene>
+        <!--New note-->
+        <scene sceneID="xwB-lA-CrD">
+            <objects>
+                <viewController title="New note" id="EbK-ge-idF" customClass="NewNoteController" customModule="EScribe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="R4j-lW-EJI"/>
+                        <viewControllerLayoutGuide type="bottom" id="NZr-NW-gfQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qbp-TE-FBk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patient 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kh6-lD-JeB">
+                                <rect key="frame" x="16" y="104" width="94" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="06-09-1969" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="617-6R-4PA">
+                                <rect key="frame" x="16" y="141" width="85" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(43)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYb-Aa-fav">
+                                <rect key="frame" x="109" y="141" width="28.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.52941176469999995" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d0b-2a-B7T">
+                                <rect key="frame" x="0.0" y="167" width="320" height="176"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="176" id="6Bp-XE-9yS"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewNoteTypeCell" textLabel="SZ5-S3-Lqa" style="IBUITableViewCellStyleDefault" id="KZG-xE-sgX">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KZG-xE-sgX" id="CaA-fm-hsc">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="PCP / Cardiology" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SZ5-S3-Lqa">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="EbK-ge-idF" id="Whx-mM-gz2"/>
+                                    <outlet property="delegate" destination="EbK-ge-idF" id="DgC-3b-wb4"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="d0b-2a-B7T" firstAttribute="leading" secondItem="qbp-TE-FBk" secondAttribute="leading" id="EzF-7i-ux4"/>
+                            <constraint firstItem="617-6R-4PA" firstAttribute="top" secondItem="kh6-lD-JeB" secondAttribute="bottom" constant="8" id="GPd-Nk-Qgi"/>
+                            <constraint firstItem="aYb-Aa-fav" firstAttribute="centerY" secondItem="617-6R-4PA" secondAttribute="centerY" id="Kdv-PS-U8a"/>
+                            <constraint firstItem="617-6R-4PA" firstAttribute="leading" secondItem="qbp-TE-FBk" secondAttribute="leadingMargin" id="OFB-hH-fg3"/>
+                            <constraint firstItem="d0b-2a-B7T" firstAttribute="top" secondItem="aYb-Aa-fav" secondAttribute="bottom" constant="8" id="VZT-Ff-DAy"/>
+                            <constraint firstAttribute="trailing" secondItem="d0b-2a-B7T" secondAttribute="trailing" id="gWd-bO-VF5"/>
+                            <constraint firstItem="kh6-lD-JeB" firstAttribute="leading" secondItem="qbp-TE-FBk" secondAttribute="leadingMargin" id="ggD-rl-h7b"/>
+                            <constraint firstItem="aYb-Aa-fav" firstAttribute="leading" secondItem="617-6R-4PA" secondAttribute="trailing" constant="8" id="iwC-rd-aYB"/>
+                            <constraint firstItem="kh6-lD-JeB" firstAttribute="top" secondItem="R4j-lW-EJI" secondAttribute="bottom" constant="40" id="rQM-2T-f01"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dobLabel" destination="617-6R-4PA" id="gqD-y7-YJ4"/>
+                        <outlet property="patientNameLabel" destination="kh6-lD-JeB" id="ZYF-q8-w8f"/>
+                        <outlet property="yearsOldLabel" destination="aYb-Aa-fav" id="L8u-jk-sAP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Ym-if-QJX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1740" y="772.18309859154931"/>
         </scene>
         <!--Patient note-->
         <scene sceneID="tne-QT-ifu">
@@ -835,7 +929,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1671" y="771"/>
+            <point key="canvasLocation" x="-1339" y="1931"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="f8h-0f-IaR">

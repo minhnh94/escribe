@@ -42,7 +42,7 @@ class PatientListController: UIViewController, UITableViewDataSource, UITableVie
         cell.internalIdLabel.text = "\(patientObj.internalId!)"
         cell.addressLabel.text = "\(patientObj.address!), \(patientObj.city!), \(patientObj.state!), \(patientObj.zipcode!)"
         cell.dateOfBirthLabel.text = "\(patientObj.dob!)"
-        cell.yearOldLabel.text = "(\(VariousHelper.shared.getYearOldFromDateOfBirthString(dob: patientObj.dob)))"
+        cell.yearOldLabel.text = "(\(patientObj.getYearsOld()))"
         
         return cell
     }
