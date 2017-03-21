@@ -25,11 +25,14 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
     var currentProcessingText: UIView?
     var isRecording: Bool = false
     var startSelectingField = true
-    
+    var currentPatient: Patient!
     
     // MARK: - UI properties
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var statusNotifyTextField: UILabel!
+    @IBOutlet weak var patientNameLabel: UILabel!
+    @IBOutlet weak var dobLabel: UILabel!
+    @IBOutlet weak var yearsOldLabel: UILabel!
     
     // MARK: - Controller functions
     
@@ -49,11 +52,11 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
         isRecording = !isRecording
         if isRecording {
             statusNotifyTextField.text = "Preparing..."
-            recordButton.setBackgroundImage(#imageLiteral(resourceName: "pause"), for: .normal)
+            recordButton.setBackgroundImage(#imageLiteral(resourceName: "bt_stop record"), for: .normal)
             voiceRecognitionTransactionStarted()
         } else {
-            statusNotifyTextField.text = "The recorder is inactive"
-            recordButton.setBackgroundImage(#imageLiteral(resourceName: "record"), for: .normal)
+            statusNotifyTextField.text = "Inactive"
+            recordButton.setBackgroundImage(#imageLiteral(resourceName: "bt_start record"), for: .normal)
             skTransaction?.stopRecording()
         }
     }
@@ -76,7 +79,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
     // MARK: - SKTransaction delegates
     
     func transactionDidBeginRecording(_ transaction: SKTransaction!) {
-        statusNotifyTextField.text = "Now recording, please speak..."
+        statusNotifyTextField.text = "00:00:00"
         AudioRecordHelper.shared.record(filename: "test")
     }
     

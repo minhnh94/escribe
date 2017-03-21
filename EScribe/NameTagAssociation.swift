@@ -11,7 +11,7 @@ import UIKit
 class NameTagAssociation: NSObject {
     static let nameTagDictionary = [
         "chief complaint": 100,
-        "weight": 200,
-        "height": 300
+        "weight": 101,
+        "height": 102
     ]
 }

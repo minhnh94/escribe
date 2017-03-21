@@ -48,4 +48,14 @@ class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDel
         
         return cell
     }
+    
+    // MARK: - Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToInputNoteVC" {
+            let vc = segue.destination as! ViewController
+            vc.title = "PCP / Cardiology"
+            vc.currentPatient = currentPatient
+        }
+    }
 }
