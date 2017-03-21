@@ -359,17 +359,17 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="52s-tu-B07">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="52s-tu-B07" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="40" width="288" height="100"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chief complaint" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVf-pA-O6M">
-                                                        <rect key="frame" x="0.0" y="0.0" width="107" height="18"/>
+                                                        <rect key="frame" x="5" y="2" width="107" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="scaleToFill" text="What did the client complain ?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ocM-PS-qbZ">
-                                                        <rect key="frame" x="0.0" y="18" width="288" height="82"/>
+                                                        <rect key="frame" x="0.0" y="20" width="288" height="80"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -387,39 +387,28 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstItem="rVf-pA-O6M" firstAttribute="top" secondItem="52s-tu-B07" secondAttribute="top" id="1Vd-Qn-JBq"/>
+                                                    <constraint firstItem="rVf-pA-O6M" firstAttribute="top" secondItem="52s-tu-B07" secondAttribute="top" constant="2" id="1Vd-Qn-JBq"/>
                                                     <constraint firstItem="ocM-PS-qbZ" firstAttribute="leading" secondItem="52s-tu-B07" secondAttribute="leading" id="2TC-Uz-CuU"/>
                                                     <constraint firstItem="ocM-PS-qbZ" firstAttribute="top" secondItem="rVf-pA-O6M" secondAttribute="bottom" id="HLN-Ro-JX0"/>
                                                     <constraint firstAttribute="height" constant="100" id="KkD-qZ-awy"/>
                                                     <constraint firstAttribute="trailing" secondItem="ocM-PS-qbZ" secondAttribute="trailing" id="Sge-KQ-xOJ"/>
-                                                    <constraint firstItem="rVf-pA-O6M" firstAttribute="leading" secondItem="52s-tu-B07" secondAttribute="leading" id="dDx-yH-JSB"/>
+                                                    <constraint firstItem="rVf-pA-O6M" firstAttribute="leading" secondItem="52s-tu-B07" secondAttribute="leading" constant="5" id="dDx-yH-JSB"/>
                                                     <constraint firstAttribute="bottom" secondItem="ocM-PS-qbZ" secondAttribute="bottom" id="kW3-Ii-UwN"/>
                                                 </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <integer key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PhM-Iu-Rmx">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PhM-Iu-Rmx" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="148" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xOr-zt-A9B">
-                                                        <rect key="frame" x="0.0" y="0.0" width="48" height="18"/>
+                                                        <rect key="frame" x="5" y="2" width="48" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E.g. 69 kg" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iQs-kC-B5M">
-                                                        <rect key="frame" x="0.0" y="26" width="288" height="30"/>
+                                                        <rect key="frame" x="8" y="28" width="272" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -427,26 +416,15 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="iQs-kC-B5M" secondAttribute="trailing" id="27k-hQ-gOJ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="iQs-kC-B5M" secondAttribute="trailing" constant="8" id="27k-hQ-gOJ"/>
                                                     <constraint firstAttribute="height" constant="76" id="971-8d-hNZ"/>
                                                     <constraint firstItem="iQs-kC-B5M" firstAttribute="top" secondItem="xOr-zt-A9B" secondAttribute="bottom" constant="8" id="TAd-Tr-beZ"/>
-                                                    <constraint firstItem="iQs-kC-B5M" firstAttribute="leading" secondItem="PhM-Iu-Rmx" secondAttribute="leading" id="b4t-wh-Dm4"/>
-                                                    <constraint firstItem="xOr-zt-A9B" firstAttribute="top" secondItem="PhM-Iu-Rmx" secondAttribute="top" id="bex-NV-mi7"/>
-                                                    <constraint firstItem="xOr-zt-A9B" firstAttribute="leading" secondItem="PhM-Iu-Rmx" secondAttribute="leading" id="q9Z-u7-FYc"/>
+                                                    <constraint firstItem="iQs-kC-B5M" firstAttribute="leading" secondItem="PhM-Iu-Rmx" secondAttribute="leading" constant="8" id="b4t-wh-Dm4"/>
+                                                    <constraint firstItem="xOr-zt-A9B" firstAttribute="top" secondItem="PhM-Iu-Rmx" secondAttribute="top" constant="2" id="bex-NV-mi7"/>
+                                                    <constraint firstItem="xOr-zt-A9B" firstAttribute="leading" secondItem="PhM-Iu-Rmx" secondAttribute="leading" constant="5" id="q9Z-u7-FYc"/>
                                                 </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <integer key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jHB-yJ-ici">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jHB-yJ-ici" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="232" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWp-xg-9YG">
@@ -471,19 +449,8 @@
                                                     <constraint firstAttribute="trailing" secondItem="g1D-f9-QkO" secondAttribute="trailing" id="oY4-ma-x3e"/>
                                                     <constraint firstItem="QWp-xg-9YG" firstAttribute="leading" secondItem="jHB-yJ-ici" secondAttribute="leading" id="rD7-Qs-jvg"/>
                                                 </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <integer key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pqY-Uy-It8">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pqY-Uy-It8" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="316" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXr-PC-2qV">
@@ -508,19 +475,8 @@
                                                     <constraint firstItem="tXr-PC-2qV" firstAttribute="top" secondItem="pqY-Uy-It8" secondAttribute="top" id="n53-ys-u8m"/>
                                                     <constraint firstItem="IaI-ej-YEc" firstAttribute="top" secondItem="tXr-PC-2qV" secondAttribute="bottom" constant="8" id="xH2-HQ-fhJ"/>
                                                 </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <integer key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dGl-mH-fmt">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dGl-mH-fmt" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="400" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pulse" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ror-Vc-RbU">
@@ -545,19 +501,8 @@
                                                     <constraint firstItem="hXB-7D-SPP" firstAttribute="top" secondItem="ror-Vc-RbU" secondAttribute="bottom" constant="8" id="rOy-ol-dvO"/>
                                                     <constraint firstItem="ror-Vc-RbU" firstAttribute="top" secondItem="dGl-mH-fmt" secondAttribute="top" id="rqV-rd-LqM"/>
                                                 </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <integer key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PnH-sh-vVK">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PnH-sh-vVK" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="484" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfy-YG-wUe">
@@ -582,19 +527,8 @@
                                                     <constraint firstItem="sfy-YG-wUe" firstAttribute="top" secondItem="PnH-sh-vVK" secondAttribute="top" id="oGW-gg-VXV"/>
                                                     <constraint firstItem="GG5-m1-1i7" firstAttribute="leading" secondItem="PnH-sh-vVK" secondAttribute="leading" id="q5b-bx-4BJ"/>
                                                 </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <integer key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c43-0W-IOl">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c43-0W-IOl" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="568" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shoe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufs-P4-NoS">
@@ -619,19 +553,8 @@
                                                     <constraint firstItem="vTo-Es-iIB" firstAttribute="leading" secondItem="c43-0W-IOl" secondAttribute="leading" id="fWj-OM-aDc"/>
                                                     <constraint firstItem="ufs-P4-NoS" firstAttribute="leading" secondItem="c43-0W-IOl" secondAttribute="leading" id="w30-Vt-ULR"/>
                                                 </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <integer key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4LS-Pr-h5Q">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4LS-Pr-h5Q" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="652" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDy-06-5MX">
@@ -656,19 +579,8 @@
                                                     <constraint firstAttribute="trailing" secondItem="a81-hY-XQl" secondAttribute="trailing" id="lgp-B1-fwe"/>
                                                     <constraint firstItem="NDy-06-5MX" firstAttribute="leading" secondItem="4LS-Pr-h5Q" secondAttribute="leading" id="vHL-2u-vdf"/>
                                                 </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <integer key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJm-dS-CxP">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJm-dS-CxP" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="736" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Site" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2s-ka-wE7">
@@ -693,19 +605,8 @@
                                                     <constraint firstItem="g2s-ka-wE7" firstAttribute="top" secondItem="PJm-dS-CxP" secondAttribute="top" id="avV-hi-euv"/>
                                                     <constraint firstItem="g2s-ka-wE7" firstAttribute="leading" secondItem="PJm-dS-CxP" secondAttribute="leading" id="quB-X2-Kjm"/>
                                                 </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <integer key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ei-MJ-VJU">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ei-MJ-VJU" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="820" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rhythm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Mj-Ta-ip3">
@@ -730,19 +631,8 @@
                                                     <constraint firstItem="5Mj-Ta-ip3" firstAttribute="leading" secondItem="9ei-MJ-VJU" secondAttribute="leading" id="TYc-vf-txh"/>
                                                     <constraint firstItem="5Mj-Ta-ip3" firstAttribute="top" secondItem="9ei-MJ-VJU" secondAttribute="top" id="aMS-Zx-p1a"/>
                                                 </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <integer key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9tw-Cp-IpY">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9tw-Cp-IpY" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="904" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O2 saturation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1g-yx-gUS">
@@ -767,19 +657,8 @@
                                                     <constraint firstItem="Y1g-yx-gUS" firstAttribute="top" secondItem="9tw-Cp-IpY" secondAttribute="top" id="TOI-tg-Qc7"/>
                                                     <constraint firstAttribute="trailing" secondItem="Jix-yS-bRZ" secondAttribute="trailing" id="ZxV-Ha-j7I"/>
                                                 </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <integer key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSi-1X-462">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSi-1X-462" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="988" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Previous weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axu-T4-prA">
@@ -804,19 +683,8 @@
                                                     <constraint firstItem="bd1-Hx-Cqk" firstAttribute="leading" secondItem="aSi-1X-462" secondAttribute="leading" id="WfW-L3-6Bu"/>
                                                     <constraint firstItem="bd1-Hx-Cqk" firstAttribute="top" secondItem="axu-T4-prA" secondAttribute="bottom" constant="8" id="Y38-lf-VRX"/>
                                                 </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <integer key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pkx-e0-N3E">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pkx-e0-N3E" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="1072" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight change" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hB-65-fxc">
@@ -841,19 +709,8 @@
                                                     <constraint firstItem="0hB-65-fxc" firstAttribute="leading" secondItem="Pkx-e0-N3E" secondAttribute="leading" id="kAD-Br-JWG"/>
                                                     <constraint firstItem="n4i-KP-95X" firstAttribute="leading" secondItem="Pkx-e0-N3E" secondAttribute="leading" id="sFi-jF-DdE"/>
                                                 </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <integer key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QPj-RJ-Mqd">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QPj-RJ-Mqd" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="1156" width="288" height="340"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blood pressure" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nV-uO-gKt">
@@ -1037,17 +894,6 @@
                                                     <constraint firstAttribute="trailing" secondItem="gYl-zS-8A7" secondAttribute="trailing" id="yF4-0j-o8F"/>
                                                     <constraint firstItem="rIx-h8-Ozv" firstAttribute="top" secondItem="1nV-uO-gKt" secondAttribute="bottom" constant="8" id="ypa-CX-hZC"/>
                                                 </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <integer key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
