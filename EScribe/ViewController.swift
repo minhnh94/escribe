@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 import SpeechKit
 
 class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate, SKTransactionDelegate {
@@ -26,8 +27,11 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
     var isRecording: Bool = false
     var startSelectingField = true
     var currentPatient: Patient!
+    var numOfRecording: Int = 0
     
     // MARK: - UI properties
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var statusNotifyTextField: UILabel!
     @IBOutlet weak var patientNameLabel: UILabel!
@@ -41,13 +45,13 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
         // Init Speech-to-text session
         SERVER_URL = String(format: "nmsps://%@@%@:%@", APP_ID, SSL_HOST, SSL_PORT)
         skSession = SKSession(url: URL(string: SERVER_URL), appToken: APP_KEY)
+        additionalStyling()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func additionalStyling() {
+        submitButton.layer.cornerRadius = 14.0
     }
-
+    
     @IBAction func toggleRecord(_ sender: UIButton) {
         isRecording = !isRecording
         if isRecording {
@@ -69,6 +73,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
     // MARK: - Text field delegates
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        scrollView.scrollRectToVisible(textField.frame, animated: true)
         currentProcessingText = textField
     }
     
@@ -80,7 +85,8 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
     
     func transactionDidBeginRecording(_ transaction: SKTransaction!) {
         statusNotifyTextField.text = "00:00:00"
-        AudioRecordHelper.shared.record(filename: "test")
+        AudioRecordHelper.shared.record(filename: "\(currentPatient.internalId!)-\(currentPatient.amdid!)-p\(numOfRecording)")
+        numOfRecording += 1
     }
     
     func transactionDidFinishRecording(_ transaction: SKTransaction!) {

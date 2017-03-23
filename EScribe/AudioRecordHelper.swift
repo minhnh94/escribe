@@ -43,10 +43,10 @@ class AudioRecordHelper: NSObject, AVAudioRecorderDelegate {
         let audioUrl = URL.init(fileURLWithPath: writePath.path)
         
         let settings: [String: Any] = [
-            AVFormatIDKey: NSNumber(value: kAudioFormatMPEG4AAC),
+            AVFormatIDKey: NSNumber(value: kAudioFormatLinearPCM),
             AVNumberOfChannelsKey: 1,
             AVSampleRateKey: 16000.0,
-            AVEncoderAudioQualityKey: AVAudioQuality.low.rawValue
+            AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
         ]
         
         do {

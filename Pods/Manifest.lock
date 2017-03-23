@@ -1,4 +1,6 @@
 PODS:
+  - AEXML (4.0.1)
+  - IQKeyboardManagerSwift (4.0.7)
   - SpeechKit (2.2.1)
   - SQLite.swift (0.11.0):
     - SQLite.swift/standard (= 0.11.0)
@@ -6,15 +8,19 @@ PODS:
   - SwiftDate (4.0.6)
 
 DEPENDENCIES:
+  - AEXML
+  - IQKeyboardManagerSwift
   - SpeechKit
   - SQLite.swift
   - SwiftDate
 
 SPEC CHECKSUMS:
+  AEXML: 905e50474c0a261d335aa8be4ee32d22d69b6fd5
+  IQKeyboardManagerSwift: 58bbcf46b5cf9fd4ed625d28a60cb2fbae4ab0f4
   SpeechKit: 9c5c02d89eed7aa0cdb384b7ea384f7e5c65232c
   SQLite.swift: 9a26273607d3077a2e5a8d33486e9989f8404c7d
   SwiftDate: 549729eaa54bd9f64fd80abfd12ddd3d44ff5098
 
-PODFILE CHECKSUM: 3079b99b517818145046a5e92eed9fd45a3977a2
+PODFILE CHECKSUM: 7819e0be2482a8862e4dc8f7ae23dba70c5cea58
 
 COCOAPODS: 1.1.1

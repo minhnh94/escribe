@@ -9,4 +9,6 @@ target 'EScribe' do
 	pod 'SpeechKit'
     pod 'SwiftDate'
     pod 'SQLite.swift'
+    pod 'AEXML'
+    pod 'IQKeyboardManagerSwift'
 end
