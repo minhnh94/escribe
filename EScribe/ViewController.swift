@@ -28,6 +28,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
     var startSelectingField = true
     var currentPatient: Patient!
     var numOfRecording: Int = 0
+    let uuid = UUID().uuidString    // Unique ID for naming audio files
     
     // MARK: - UI properties
     @IBOutlet weak var scrollView: UIScrollView!
@@ -52,6 +53,8 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
         submitButton.layer.cornerRadius = 14.0
     }
     
+    // MARK: - Actions
+    
     @IBAction func toggleRecord(_ sender: UIButton) {
         isRecording = !isRecording
         if isRecording {
@@ -70,6 +73,10 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
         skTransaction = skSession!.recognize(withType: SKTransactionSpeechTypeDictation, detection: .none, language: "eng-USA", options: options, delegate: self)
     }
     
+    @IBAction func submitClicked(_ sender: UIButton) {
+        AudioRecordHelper.shared.mergeAudioFiles(uuid: uuid, numOfParts: numOfRecording)
+    }
+    
     // MARK: - Text field delegates
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -85,8 +92,8 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
     
     func transactionDidBeginRecording(_ transaction: SKTransaction!) {
         statusNotifyTextField.text = "00:00:00"
-        AudioRecordHelper.shared.record(filename: "\(currentPatient.internalId!)-\(currentPatient.amdid!)-p\(numOfRecording)")
         numOfRecording += 1
+        AudioRecordHelper.shared.record(filename: "\(uuid)-p\(numOfRecording)")
     }
     
     func transactionDidFinishRecording(_ transaction: SKTransaction!) {

@@ -36,14 +36,13 @@ class AudioRecordHelper: NSObject, AVAudioRecorderDelegate {
     }
     
     func record(filename: String) {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let docDirect = paths[0]
+        let docDirect = VariousHelper.shared.getDocumentPath()
         
         let writePath = docDirect.appendingPathComponent(filename + ".aac")
         let audioUrl = URL.init(fileURLWithPath: writePath.path)
         
         let settings: [String: Any] = [
-            AVFormatIDKey: NSNumber(value: kAudioFormatLinearPCM),
+            AVFormatIDKey: NSNumber(value: kAudioFormatMPEG4AAC),
             AVNumberOfChannelsKey: 1,
             AVSampleRateKey: 16000.0,
             AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
@@ -64,6 +63,50 @@ class AudioRecordHelper: NSObject, AVAudioRecorderDelegate {
         if audioRec!.isRecording {
             audioRec?.stop()
         }
+    }
+    
+    func mergeAudioFiles(uuid: String, numOfParts: Int) {
+        let composition = AVMutableComposition()
+        
+        for i in 1 ... numOfParts {
+            
+            let compositionAudioTrack :AVMutableCompositionTrack = composition.addMutableTrack(withMediaType: AVMediaTypeAudio, preferredTrackID: CMPersistentTrackID())
+            
+            let partURL = VariousHelper.shared.getDocumentPath().appendingPathComponent("\(uuid)-p\(i).aac")
+            
+            let asset = AVURLAsset(url: partURL)
+            
+            let track = asset.tracks(withMediaType: AVMediaTypeAudio)[0]
+            
+            let timeRange = CMTimeRange(start: CMTimeMake(0, 600), duration: track.timeRange.duration)
+            
+            try! compositionAudioTrack.insertTimeRange(timeRange, of: track, at: composition.duration)
+        }
+        
+        let documentDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! as NSURL
+        let mergeAudioURL = documentDirectoryURL.appendingPathComponent("\(uuid).m4a")! as URL as NSURL
+        
+        let assetExport = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetAppleM4A)
+        assetExport?.outputFileType = AVFileTypeAppleM4A
+        assetExport?.outputURL = mergeAudioURL as URL
+        assetExport?.exportAsynchronously(completionHandler:
+            {
+                switch assetExport!.status
+                {
+                case AVAssetExportSessionStatus.failed:
+                    print("failed \(assetExport?.error)")
+                case AVAssetExportSessionStatus.cancelled:
+                    print("cancelled \(assetExport?.error)")
+                case AVAssetExportSessionStatus.unknown:
+                    print("unknown\(assetExport?.error)")
+                case AVAssetExportSessionStatus.waiting:
+                    print("waiting\(assetExport?.error)")
+                case AVAssetExportSessionStatus.exporting:
+                    print("exporting\(assetExport?.error)")
+                default:
+                    print("Audio Concatenation Complete")
+                }
+        })
     }
     
     // Delegate

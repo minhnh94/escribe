@@ -22,4 +22,11 @@ class VariousHelper: NSObject {
         
         return now.year - dobDate.year
     }
+    
+    func getDocumentPath() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let docDirect = paths[0]
+        
+        return docDirect
+    }
 }
