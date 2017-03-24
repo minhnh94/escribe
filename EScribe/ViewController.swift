@@ -49,7 +49,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
         additionalStyling()
     }
 
-    func additionalStyling() {
+    private func additionalStyling() {
         submitButton.layer.cornerRadius = 14.0
     }
     
@@ -75,6 +75,8 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
     
     @IBAction func submitClicked(_ sender: UIButton) {
         AudioRecordHelper.shared.mergeAudioFiles(uuid: uuid, numOfParts: numOfRecording)
+        let result = PatientNote.createNewPatientNote(patient: currentPatient)
+        print(result)
     }
     
     // MARK: - Text field delegates

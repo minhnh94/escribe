@@ -15,13 +15,16 @@ class DatabaseHelper: NSObject {
     var db: Connection!
     
     override init() {
-        //         Uncomment these codes in production
-        //        let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        let docDir = VariousHelper.shared.getDocumentPath().appendingPathComponent("escribe.db")
         // For testing, we load from bundle
-        let path = Bundle.main.path(forResource: "escribe", ofType: "db")!
+        
+        if !FileManager.default.fileExists(atPath: docDir.path) {
+            let path = Bundle.main.path(forResource: "escribe", ofType: "db")!
+            try! FileManager.default.copyItem(atPath: path, toPath: docDir.path)
+        }
         
         do {
-            db = try Connection(path)
+            db = try Connection(docDir.path)
         } catch let error {
             print("Error loading database: \(error)")
         }
@@ -81,9 +84,19 @@ class DatabaseHelper: NSObject {
         return arrayPatientNotes
     }
     
+    func createNewPatientNote(patient: Patient) -> Int {
+        let patientNoteTable = Table("notes")
+        let patientId = Expression<Int>("patient_id")
+        let author = Expression<String>("author")
+        let datetime = Expression<String>("datetime")
+        let rowId = try! db.run(patientNoteTable.insert(patientId <- patient.internalId, author <- "Dr Thanh", datetime <- "2017/01/06-21:55:33"))
+        
+        return Int(rowId)
+    }
+    
     // MARK: - Privates
     
-    func loadNoteContentsFromResult(result: Table) -> [NoteContent] {
+    private func loadNoteContentsFromResult(result: Table) -> [NoteContent] {
         var arrayResult: [NoteContent] = []
         
         // Note content

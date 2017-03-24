@@ -29,7 +29,7 @@ class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDel
         // Dispose of any resources that can be recreated.
     }
     
-    func setupInterface() {
+    private func setupInterface() {
         patientNameLabel.text = currentPatient.firstName + " " + currentPatient.lastName
         dobLabel.text = currentPatient.dob
         yearsOldLabel.text = "(\(currentPatient.getYearsOld()))"
