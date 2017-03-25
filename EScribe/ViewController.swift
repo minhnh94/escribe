@@ -9,8 +9,9 @@
 import UIKit
 import QuartzCore
 import SpeechKit
+import AEXML
 
-class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate, SKTransactionDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, SKTransactionDelegate {
 
     // MARK: - API related data
     let API_URL = "nmsps://NMDPTRIAL_minhnh_da_gmail_com20170206055537@sslsandbox-nmdp.nuancemobility.net:443"
@@ -23,7 +24,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
     // MARK: - Controller properties
     var skSession: SKSession?
     var skTransaction: SKTransaction?
-    var currentProcessingText: UIView?
+    var currentProcessingText: UITextField?
     var isRecording: Bool = false
     var startSelectingField = true
     var currentPatient: Patient!
@@ -77,6 +78,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
         AudioRecordHelper.shared.mergeAudioFiles(uuid: uuid, numOfParts: numOfRecording)
         let result = PatientNote.createNewPatientNote(patient: currentPatient)
         print(result)
+        writeXMLToDisk()
     }
     
     // MARK: - Text field delegates
@@ -84,10 +86,6 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
     func textFieldDidBeginEditing(_ textField: UITextField) {
         scrollView.scrollRectToVisible(textField.frame, animated: true)
         currentProcessingText = textField
-    }
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        currentProcessingText = textView
     }
     
     // MARK: - SKTransaction delegates
@@ -114,32 +112,32 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
         if startSelectingField {
             for (key, tag) in NameTagAssociation.nameTagDictionary {
                 if topRecognitionText!.lowercased().range(of: key) != nil {
-                    let inputField = view.viewWithTag(tag)
-                    if inputField is UITextView {
-                        let txtView = inputField as! UITextView
-                        txtView.becomeFirstResponder()
-                        
-                        startSelectingField = false
-                    } else if inputField is UITextField {
-                        let txtField = inputField as! UITextField
-                        txtField.becomeFirstResponder()
-                        
-                        startSelectingField = false
-                    }
+                    let inputField = view.viewWithTag(tag) as! UITextField
+                    inputField.becomeFirstResponder()
+                    
+                    startSelectingField = false
                 }
             }
         }
         
         if let currentProcessingElement = currentProcessingText {
-            if currentProcessingElement is UITextField {
-                let textField = currentProcessingElement as! UITextField
-                textField.text = topRecognitionText
-            } else if currentProcessingElement is UITextView {
-                let textView = currentProcessingElement as! UITextView
-                textView.text = topRecognitionText
-            }
+            currentProcessingElement.text = topRecognitionText
         }
     }
     
+    // MARK: - Privates
+    
+    private func writeXMLToDisk() {
+        let patientNote = AEXMLDocument()
+        
+        for (key, tag) in NameTagAssociation.nameTagDictionary {
+            let inputField = view.viewWithTag(tag) as! UITextField
+            if inputField.text != "" {
+                patientNote.addChild(name: key, value: inputField.text)
+            }
+        }
+        
+        print(patientNote.xml)
+    }
 }
 

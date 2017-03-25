@@ -68,6 +68,10 @@ class AudioRecordHelper: NSObject, AVAudioRecorderDelegate {
     func mergeAudioFiles(uuid: String, numOfParts: Int) {
         let composition = AVMutableComposition()
         
+        guard numOfParts > 0 else {
+            return
+        }
+        
         for i in 1 ... numOfParts {
             
             let compositionAudioTrack :AVMutableCompositionTrack = composition.addMutableTrack(withMediaType: AVMediaTypeAudio, preferredTrackID: CMPersistentTrackID())
