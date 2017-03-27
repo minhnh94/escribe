@@ -94,6 +94,16 @@ class DatabaseHelper: NSObject {
         return Int(rowId)
     }
     
+    func createNewNoteContent(patientNoteId: Int, noteContentUid: String, noteType: String, content: String) {
+        let noteContentTable = Table("note_contents")
+        let noteContentId = Expression<String>("note_content_id")
+        let patientNoteKeyId = Expression<Int>("big_note_id")
+        let noteTypeKey = Expression<String>("note_type")
+        let contentKey = Expression<String>("content")
+        
+        try! db.run(noteContentTable.insert(noteContentId <- noteContentUid, patientNoteKeyId <- patientNoteId, noteTypeKey <- noteType, contentKey <- content))
+    }
+    
     // MARK: - Privates
     
     private func loadNoteContentsFromResult(result: Table) -> [NoteContent] {
@@ -101,7 +111,7 @@ class DatabaseHelper: NSObject {
         
         // Note content
         let patientNoteId = Expression<Int>("big_note_id")
-        let noteContentId = Expression<Int>("note_content_id")
+        let noteContentId = Expression<String>("note_content_id")
         let noteType = Expression<String>("note_type")
         let noteContentString = Expression<String>("content")
         

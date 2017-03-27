@@ -77,8 +77,8 @@ class ViewController: UIViewController, UITextFieldDelegate, SKTransactionDelega
     @IBAction func submitClicked(_ sender: UIButton) {
         AudioRecordHelper.shared.mergeAudioFiles(uuid: uuid, numOfParts: numOfRecording, completionHandler: {            
             let result = PatientNote.createNewPatientNote(patient: self.currentPatient)
-            print(result)
-            self.writeXMLToDisk()
+            let xmlString = self.getXMLResultString()
+            NoteContent.createNoteContent(patientNoteId: result, noteContentId: self.uuid, content: xmlString)
         })
     }
     
@@ -134,7 +134,7 @@ class ViewController: UIViewController, UITextFieldDelegate, SKTransactionDelega
     
     // MARK: - Privates
     
-    private func writeXMLToDisk() {
+    private func getXMLResultString() -> String {
         let patientNote = AEXMLDocument()
         
         for (key, tag) in NameTagAssociation.nameTagDictionary {
@@ -144,10 +144,7 @@ class ViewController: UIViewController, UITextFieldDelegate, SKTransactionDelega
             }
         }
         
-        // Write to file
-        let filename = "\(uuid).xml"
-        let savePath = VariousHelper.shared.getDocumentPath().appendingPathComponent(filename)
-        try! patientNote.xml.write(toFile: savePath.path, atomically: false, encoding: .utf8)
+        return patientNote.xml
     }
 }
 
