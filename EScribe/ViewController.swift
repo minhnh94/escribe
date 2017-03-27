@@ -75,10 +75,11 @@ class ViewController: UIViewController, UITextFieldDelegate, SKTransactionDelega
     }
     
     @IBAction func submitClicked(_ sender: UIButton) {
-        AudioRecordHelper.shared.mergeAudioFiles(uuid: uuid, numOfParts: numOfRecording)
-        let result = PatientNote.createNewPatientNote(patient: currentPatient)
-        print(result)
-        writeXMLToDisk()
+        AudioRecordHelper.shared.mergeAudioFiles(uuid: uuid, numOfParts: numOfRecording, completionHandler: {            
+            let result = PatientNote.createNewPatientNote(patient: self.currentPatient)
+            print(result)
+            self.writeXMLToDisk()
+        })
     }
     
     // MARK: - Text field delegates
@@ -86,6 +87,12 @@ class ViewController: UIViewController, UITextFieldDelegate, SKTransactionDelega
     func textFieldDidBeginEditing(_ textField: UITextField) {
         scrollView.scrollRectToVisible(textField.frame, animated: true)
         currentProcessingText = textField
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        currentProcessingText = nil
+        return true
     }
     
     // MARK: - SKTransaction delegates
@@ -133,11 +140,14 @@ class ViewController: UIViewController, UITextFieldDelegate, SKTransactionDelega
         for (key, tag) in NameTagAssociation.nameTagDictionary {
             let inputField = view.viewWithTag(tag) as! UITextField
             if inputField.text != "" {
-                patientNote.addChild(name: key, value: inputField.text)
+                patientNote.addChild(name: key.replacingOccurrences(of: " ", with: "_"), value: inputField.text)
             }
         }
         
-        print(patientNote.xml)
+        // Write to file
+        let filename = "\(uuid).xml"
+        let savePath = VariousHelper.shared.getDocumentPath().appendingPathComponent(filename)
+        try! patientNote.xml.write(toFile: savePath.path, atomically: false, encoding: .utf8)
     }
 }
 

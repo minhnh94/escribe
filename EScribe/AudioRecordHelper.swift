@@ -65,7 +65,7 @@ class AudioRecordHelper: NSObject, AVAudioRecorderDelegate {
         }
     }
     
-    func mergeAudioFiles(uuid: String, numOfParts: Int) {
+    func mergeAudioFiles(uuid: String, numOfParts: Int, completionHandler: @escaping () -> Void) {
         let composition = AVMutableComposition()
         
         guard numOfParts > 0 else {
@@ -85,6 +85,8 @@ class AudioRecordHelper: NSObject, AVAudioRecorderDelegate {
             let timeRange = CMTimeRange(start: CMTimeMake(0, 600), duration: track.timeRange.duration)
             
             try! compositionAudioTrack.insertTimeRange(timeRange, of: track, at: composition.duration)
+            
+            try! FileManager.default.removeItem(at: partURL)
         }
         
         let documentDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! as NSURL
@@ -93,23 +95,8 @@ class AudioRecordHelper: NSObject, AVAudioRecorderDelegate {
         let assetExport = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetAppleM4A)
         assetExport?.outputFileType = AVFileTypeAppleM4A
         assetExport?.outputURL = mergeAudioURL as URL
-        assetExport?.exportAsynchronously(completionHandler:
-            {
-                switch assetExport!.status
-                {
-                case AVAssetExportSessionStatus.failed:
-                    print("failed \(assetExport?.error)")
-                case AVAssetExportSessionStatus.cancelled:
-                    print("cancelled \(assetExport?.error)")
-                case AVAssetExportSessionStatus.unknown:
-                    print("unknown\(assetExport?.error)")
-                case AVAssetExportSessionStatus.waiting:
-                    print("waiting\(assetExport?.error)")
-                case AVAssetExportSessionStatus.exporting:
-                    print("exporting\(assetExport?.error)")
-                default:
-                    print("Audio Concatenation Complete")
-                }
+        assetExport?.exportAsynchronously(completionHandler: {
+            completionHandler()
         })
     }
     
