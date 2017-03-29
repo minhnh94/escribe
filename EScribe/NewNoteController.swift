@@ -53,7 +53,7 @@ class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDel
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToInputNoteVC" {
-            let vc = segue.destination as! ViewController
+            let vc = segue.destination as! ViewControllerWithDragonSDK
             vc.title = "PCP / Cardiology"
             vc.currentPatient = currentPatient
         }
