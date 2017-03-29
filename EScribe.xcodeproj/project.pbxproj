@@ -14,6 +14,16 @@
 		640917E51E535368002C7F2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 640917E31E535368002C7F2B /* LaunchScreen.storyboard */; };
 		640B19671E7FDF0B0032B242 /* NewNoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640B19661E7FDF0B0032B242 /* NewNoteController.swift */; };
 		644E72DE1E83864D00857D3A /* InputWrapperTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644E72DD1E83864D00857D3A /* InputWrapperTextView.swift */; };
+		6479DD001E8BACF50032CA79 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6479DCFF1E8BACF50032CA79 /* AudioToolbox.framework */; };
+		6479DD021E8BACFE0032CA79 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6479DD011E8BACFE0032CA79 /* CoreGraphics.framework */; };
+		6479DD041E8BAD0C0032CA79 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6479DD031E8BAD0C0032CA79 /* CFNetwork.framework */; };
+		6479DD061E8BAD240032CA79 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6479DD051E8BAD240032CA79 /* SystemConfiguration.framework */; };
+		6479DD081E8BAD350032CA79 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6479DD071E8BAD350032CA79 /* Security.framework */; };
+		6479DD0A1E8BAD3B0032CA79 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6479DD091E8BAD3B0032CA79 /* WebKit.framework */; };
+		6479DD0C1E8BAD4D0032CA79 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6479DD0B1E8BAD4D0032CA79 /* libz.tbd */; };
+		6479DD0E1E8BAD5A0032CA79 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6479DD0D1E8BAD5A0032CA79 /* libc++.tbd */; };
+		6479DD101E8BAD690032CA79 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6479DD0F1E8BAD690032CA79 /* libstdc++.tbd */; };
+		6479DD161E8BB1BC0032CA79 /* libNuanceSpeechAnywhere.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6479DD151E8BB1BC0032CA79 /* libNuanceSpeechAnywhere.a */; };
 		64A6D9AD1E7AADE20010C482 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64A6D9AC1E7AADE20010C482 /* QuartzCore.framework */; };
 		64A6D9AF1E7AAE250010C482 /* PatientDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6D9AE1E7AAE250010C482 /* PatientDetailController.swift */; };
 		64C4CCB81E81569F0023F548 /* InputWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4CCB71E81569F0023F548 /* InputWrapperView.swift */; };
@@ -44,6 +54,31 @@
 		640917E61E535368002C7F2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		640B19661E7FDF0B0032B242 /* NewNoteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewNoteController.swift; sourceTree = "<group>"; };
 		644E72DD1E83864D00857D3A /* InputWrapperTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputWrapperTextView.swift; sourceTree = "<group>"; };
+		6479DCFF1E8BACF50032CA79 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		6479DD011E8BACFE0032CA79 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6479DD031E8BAD0C0032CA79 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		6479DD051E8BAD240032CA79 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6479DD071E8BAD350032CA79 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		6479DD091E8BAD3B0032CA79 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		6479DD0B1E8BAD4D0032CA79 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		6479DD0D1E8BAD5A0032CA79 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		6479DD0F1E8BAD690032CA79 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		6479DD111E8BB1300032CA79 /* EScribe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EScribe-Bridging-Header.h"; sourceTree = "<group>"; };
+		6479DD151E8BB1BC0032CA79 /* libNuanceSpeechAnywhere.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNuanceSpeechAnywhere.a; path = NuanceSpeechAnywhere/Library/Universal/libNuanceSpeechAnywhere.a; sourceTree = "<group>"; };
+		6479DD181E8BB2A30032CA79 /* NUSACommandPlaceholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NUSACommandPlaceholder.h; path = NuanceSpeechAnywhere/Headers/NUSACommandPlaceholder.h; sourceTree = SOURCE_ROOT; };
+		6479DD191E8BB2A30032CA79 /* NUSACommandSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NUSACommandSet.h; path = NuanceSpeechAnywhere/Headers/NUSACommandSet.h; sourceTree = SOURCE_ROOT; };
+		6479DD1A1E8BB2A30032CA79 /* NUSACustomVuiController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NUSACustomVuiController.h; path = NuanceSpeechAnywhere/Headers/NUSACustomVuiController.h; sourceTree = SOURCE_ROOT; };
+		6479DD1B1E8BB2A30032CA79 /* NUSACustomVuiControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NUSACustomVuiControllerDelegate.h; path = NuanceSpeechAnywhere/Headers/NUSACustomVuiControllerDelegate.h; sourceTree = SOURCE_ROOT; };
+		6479DD1C1E8BB2A30032CA79 /* NUSASession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NUSASession.h; path = NuanceSpeechAnywhere/Headers/NUSASession.h; sourceTree = SOURCE_ROOT; };
+		6479DD1D1E8BB2A30032CA79 /* NUSASessionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NUSASessionDelegate.h; path = NuanceSpeechAnywhere/Headers/NUSASessionDelegate.h; sourceTree = SOURCE_ROOT; };
+		6479DD1E1E8BB2A30032CA79 /* NUSASpeechView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NUSASpeechView.h; path = NuanceSpeechAnywhere/Headers/NUSASpeechView.h; sourceTree = SOURCE_ROOT; };
+		6479DD1F1E8BB2A30032CA79 /* NUSATextControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NUSATextControl.h; path = NuanceSpeechAnywhere/Headers/NUSATextControl.h; sourceTree = SOURCE_ROOT; };
+		6479DD201E8BB2A30032CA79 /* NUSATypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NUSATypes.h; path = NuanceSpeechAnywhere/Headers/NUSATypes.h; sourceTree = SOURCE_ROOT; };
+		6479DD211E8BB2A30032CA79 /* NUSAVuiController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NUSAVuiController.h; path = NuanceSpeechAnywhere/Headers/NUSAVuiController.h; sourceTree = SOURCE_ROOT; };
+		6479DD221E8BB2A30032CA79 /* NUSAVuiControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NUSAVuiControllerDelegate.h; path = NuanceSpeechAnywhere/Headers/NUSAVuiControllerDelegate.h; sourceTree = SOURCE_ROOT; };
+		6479DD231E8BB2A30032CA79 /* UIView+NUSAConceptName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+NUSAConceptName.h"; path = "NuanceSpeechAnywhere/Headers/UIView+NUSAConceptName.h"; sourceTree = SOURCE_ROOT; };
+		6479DD241E8BB2A30032CA79 /* UIView+NUSADocumentFieldId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+NUSADocumentFieldId.h"; path = "NuanceSpeechAnywhere/Headers/UIView+NUSADocumentFieldId.h"; sourceTree = SOURCE_ROOT; };
+		6479DD251E8BB2A30032CA79 /* UIView+NUSAEnabled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+NUSAEnabled.h"; path = "NuanceSpeechAnywhere/Headers/UIView+NUSAEnabled.h"; sourceTree = SOURCE_ROOT; };
 		64A6D9AC1E7AADE20010C482 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		64A6D9AE1E7AAE250010C482 /* PatientDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientDetailController.swift; sourceTree = "<group>"; };
 		64C4CCB71E81569F0023F548 /* InputWrapperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputWrapperView.swift; sourceTree = "<group>"; };
@@ -67,6 +102,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6479DD101E8BAD690032CA79 /* libstdc++.tbd in Frameworks */,
+				6479DD161E8BB1BC0032CA79 /* libNuanceSpeechAnywhere.a in Frameworks */,
+				6479DD0E1E8BAD5A0032CA79 /* libc++.tbd in Frameworks */,
+				6479DD0C1E8BAD4D0032CA79 /* libz.tbd in Frameworks */,
+				6479DD0A1E8BAD3B0032CA79 /* WebKit.framework in Frameworks */,
+				6479DD081E8BAD350032CA79 /* Security.framework in Frameworks */,
+				6479DD061E8BAD240032CA79 /* SystemConfiguration.framework in Frameworks */,
+				6479DD041E8BAD0C0032CA79 /* CFNetwork.framework in Frameworks */,
+				6479DD021E8BACFE0032CA79 /* CoreGraphics.framework in Frameworks */,
+				6479DD001E8BACF50032CA79 /* AudioToolbox.framework in Frameworks */,
 				64A6D9AD1E7AADE20010C482 /* QuartzCore.framework in Frameworks */,
 				64E9471A1E730CCC009E232C /* AVFoundation.framework in Frameworks */,
 				6B737F898659D5C1DCB9A9CF /* Pods_EScribe.framework in Frameworks */,
@@ -79,6 +124,15 @@
 		5890955465CC14ED1F7B6C09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6479DD0F1E8BAD690032CA79 /* libstdc++.tbd */,
+				6479DD0D1E8BAD5A0032CA79 /* libc++.tbd */,
+				6479DD0B1E8BAD4D0032CA79 /* libz.tbd */,
+				6479DD091E8BAD3B0032CA79 /* WebKit.framework */,
+				6479DD071E8BAD350032CA79 /* Security.framework */,
+				6479DD051E8BAD240032CA79 /* SystemConfiguration.framework */,
+				6479DD031E8BAD0C0032CA79 /* CFNetwork.framework */,
+				6479DD011E8BACFE0032CA79 /* CoreGraphics.framework */,
+				6479DCFF1E8BACF50032CA79 /* AudioToolbox.framework */,
 				64A6D9AC1E7AADE20010C482 /* QuartzCore.framework */,
 				64E947191E730CCC009E232C /* AVFoundation.framework */,
 				0679408E1B091A3190AA6917 /* Pods_EScribe.framework */,
@@ -89,10 +143,12 @@
 		640917CE1E535367002C7F2B = {
 			isa = PBXGroup;
 			children = (
+				6479DD151E8BB1BC0032CA79 /* libNuanceSpeechAnywhere.a */,
 				640917D91E535368002C7F2B /* EScribe */,
 				640917D81E535368002C7F2B /* Products */,
 				9D1654BD8E41F08436BF8690 /* Pods */,
 				5890955465CC14ED1F7B6C09 /* Frameworks */,
+				6479DD111E8BB1300032CA79 /* EScribe-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +163,7 @@
 		640917D91E535368002C7F2B /* EScribe */ = {
 			isa = PBXGroup;
 			children = (
+				6479DD171E8BB2940032CA79 /* NuanceHeader */,
 				64C774561E77F3FB00751936 /* Models */,
 				64C774531E77F32800751936 /* Views */,
 				64F8EFCF1E63309900550369 /* Helpers */,
@@ -118,6 +175,27 @@
 				640917E61E535368002C7F2B /* Info.plist */,
 			);
 			path = EScribe;
+			sourceTree = "<group>";
+		};
+		6479DD171E8BB2940032CA79 /* NuanceHeader */ = {
+			isa = PBXGroup;
+			children = (
+				6479DD181E8BB2A30032CA79 /* NUSACommandPlaceholder.h */,
+				6479DD191E8BB2A30032CA79 /* NUSACommandSet.h */,
+				6479DD1A1E8BB2A30032CA79 /* NUSACustomVuiController.h */,
+				6479DD1B1E8BB2A30032CA79 /* NUSACustomVuiControllerDelegate.h */,
+				6479DD1C1E8BB2A30032CA79 /* NUSASession.h */,
+				6479DD1D1E8BB2A30032CA79 /* NUSASessionDelegate.h */,
+				6479DD1E1E8BB2A30032CA79 /* NUSASpeechView.h */,
+				6479DD1F1E8BB2A30032CA79 /* NUSATextControl.h */,
+				6479DD201E8BB2A30032CA79 /* NUSATypes.h */,
+				6479DD211E8BB2A30032CA79 /* NUSAVuiController.h */,
+				6479DD221E8BB2A30032CA79 /* NUSAVuiControllerDelegate.h */,
+				6479DD231E8BB2A30032CA79 /* UIView+NUSAConceptName.h */,
+				6479DD241E8BB2A30032CA79 /* UIView+NUSADocumentFieldId.h */,
+				6479DD251E8BB2A30032CA79 /* UIView+NUSAEnabled.h */,
+			);
+			name = NuanceHeader;
 			sourceTree = "<group>";
 		};
 		64C774531E77F32800751936 /* Views */ = {
@@ -208,6 +286,7 @@
 					640917D61E535368002C7F2B = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = PPZPA52SDJ;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -436,11 +515,19 @@
 			baseConfigurationReference = 124BE651028E7797A39D0A6A /* Pods-EScribe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = PPZPA52SDJ;
 				INFOPLIST_FILE = EScribe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/NuanceSpeechAnywhere/Library/Universal",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.EScribe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EScribe-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -450,11 +537,18 @@
 			baseConfigurationReference = B0975C0CF86EFAEA80FE4F6E /* Pods-EScribe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = PPZPA52SDJ;
 				INFOPLIST_FILE = EScribe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/NuanceSpeechAnywhere/Library/Universal",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.EScribe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EScribe-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
