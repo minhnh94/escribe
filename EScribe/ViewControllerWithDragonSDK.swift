@@ -148,41 +148,5 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
         
         return patientNote.xml
     }
-    
-    //    func transactionDidBeginRecording(_ transaction: SKTransaction!) {
-    //        statusNotifyTextField.text = "00:00:00"
-    //        numOfRecording += 1
-    //        AudioRecordHelper.shared.record(filename: "\(uuid)-p\(numOfRecording)")
-    //    }
-    //
-    //    func transactionDidFinishRecording(_ transaction: SKTransaction!) {
-    //        AudioRecordHelper.shared.stop()
-    //    }
-    //
-    //    func transaction(_ transaction: SKTransaction!, didFinishWithSuggestion suggestion: String!) {
-    //        startSelectingField = true
-    //        currentProcessingText?.resignFirstResponder()
-    //        currentProcessingText = nil
-    //    }
-    //
-    //    func transaction(_ transaction: SKTransaction!, didReceive recognition: SKRecognition!) {
-    //        let topRecognitionText = recognition.text
-    //
-    //        if startSelectingField {
-    //            for (key, tag) in NameTagAssociation.nameTagDictionary {
-    //                if topRecognitionText!.lowercased().range(of: key) != nil {
-    //                    let inputField = view.viewWithTag(tag) as! UITextField
-    //                    inputField.becomeFirstResponder()
-    //
-    //                    startSelectingField = false
-    //                }
-    //            }
-    //        }
-    //
-    //        if let currentProcessingElement = currentProcessingText {
-    //            currentProcessingElement.text = topRecognitionText
-    //        }
-    //    }
-
 }
 
