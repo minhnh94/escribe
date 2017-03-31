@@ -69,6 +69,12 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
     
     @IBAction func toggleRecord(_ sender: UIButton) {
         isRecording = !isRecording
+        changeInterface()
+        
+        voiceRecognitionTransactionStarted()
+    }
+    
+    func changeInterface() {
         if isRecording {
             statusNotifyTextField.text = "Preparing..."
             recordButton.setBackgroundImage(#imageLiteral(resourceName: "bt_stop record"), for: .normal)
@@ -76,8 +82,6 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
             statusNotifyTextField.text = "Inactive"
             recordButton.setBackgroundImage(#imageLiteral(resourceName: "bt_start record"), for: .normal)
         }
-        
-        voiceRecognitionTransactionStarted()
     }
     
     func voiceRecognitionTransactionStarted() {
@@ -89,6 +93,7 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
             }
         } else {
             NUSASession.shared().stopRecording()
+            AudioRecordHelper.shared.stop()
         }
     }
     
@@ -116,7 +121,17 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
     // MARK: - SpeechKit Delegates
     
     func sessionDidStartRecording() {
+        isRecording = true
+        changeInterface()
         statusNotifyTextField.text = "00:00:00"
+        AudioRecordHelper.shared.record(filename: "\(uuid)-p\(numOfRecording)")
+    }
+    
+    func sessionDidStopRecording() {
+        isRecording = false
+        changeInterface()
+        currentProcessingText?.resignFirstResponder()
+        currentProcessingText = nil
     }
     
     // MARK: - Privates
