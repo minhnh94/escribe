@@ -61,7 +61,7 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
     private func setupDictateCommandForTextFields() {
         for (key, tag) in NameTagAssociation.nameTagDictionary {
             let inputField = view.viewWithTag(tag) as! UITextField
-            inputField.setVuiConceptName("go to \(key)")
+            inputField.setVuiConceptName("\(key)")
         }
     }
 
