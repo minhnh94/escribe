@@ -50,8 +50,19 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
         super.viewDidAppear(animated)
         
         vuiController =  NUSAVuiController(view: self.view)
+        
+        setupDictateCommandForTextFields()
+        
         vuiController.synchronizeWithView()
         vuiController.delegate = self
+        
+    }
+    
+    private func setupDictateCommandForTextFields() {
+        for (key, tag) in NameTagAssociation.nameTagDictionary {
+            let inputField = view.viewWithTag(tag) as! UITextField
+            inputField.setVuiConceptName("go to \(key)")
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
