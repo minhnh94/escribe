@@ -69,6 +69,7 @@ class AudioRecordHelper: NSObject, AVAudioRecorderDelegate {
         let composition = AVMutableComposition()
         
         guard numOfParts > 0 else {
+            completionHandler()
             return
         }
         

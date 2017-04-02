@@ -113,6 +113,8 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
             let result = PatientNote.createNewPatientNote(patient: self.currentPatient)
             let xmlString = self.getXMLResultString()
             NoteContent.createNoteContent(patientNoteId: result, noteContentId: self.uuid, content: xmlString)
+//            self.view.addSubview(VariousHelper.shared.getAlertView(message: "Finish"))
+            VariousHelper.shared.getAlertView(message: "Finish")
         })
     }
     

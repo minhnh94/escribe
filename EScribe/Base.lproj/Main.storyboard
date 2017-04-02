@@ -239,6 +239,7 @@
                         <outlet property="dobLabel" destination="c6f-H3-c4s" id="gy5-KX-55H"/>
                         <outlet property="internalIdLabel" destination="QMn-AJ-fW2" id="ziK-3H-aDc"/>
                         <outlet property="newNoteButton" destination="2sv-ng-l8K" id="yAI-AD-Ho5"/>
+                        <outlet property="notetableView" destination="0EB-4e-zuK" id="hfF-4u-iU6"/>
                         <outlet property="patientNameLabel" destination="qWJ-HF-Nh5" id="4aL-8k-8we"/>
                         <outlet property="yearsOldLabel" destination="S8h-UI-2YK" id="Hjs-LW-B03"/>
                     </connections>
@@ -288,11 +289,11 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KZG-xE-sgX" id="CaA-fm-hsc">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="PCP / Cardiology" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SZ5-S3-Lqa">
-                                                    <rect key="frame" x="15" y="0.0" width="270" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <nil key="textColor"/>

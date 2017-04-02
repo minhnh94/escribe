@@ -15,6 +15,7 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
     
     var currentPatient: Patient!
     var allNotes: [PatientNote]!
+    var alreadyLoaded: Bool!
     
     // Interface
     @IBOutlet weak var patientNameLabel: UILabel!
@@ -25,6 +26,7 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var addressLabel: UILabel!
     
     @IBOutlet weak var newNoteButton: UIButton!
+    @IBOutlet weak var notetableView: UITableView!
     
     // MARK: - VC lifecycle
     
@@ -35,11 +37,24 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
         allNotes = currentPatient.allNotes()
         setupInterface()
         additionalStyling()
+        
+        alreadyLoaded = false
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if alreadyLoaded == true {
+            allNotes = currentPatient.allNotes()
+            notetableView.reloadData()
+        } else {
+            alreadyLoaded = true
+        }
     }
     
     private func setupInterface() {
