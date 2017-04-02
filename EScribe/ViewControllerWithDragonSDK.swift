@@ -135,6 +135,7 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
         isRecording = true
         changeInterface()
         statusNotifyTextField.text = "00:00:00"
+        numOfRecording += 1
         AudioRecordHelper.shared.record(filename: "\(uuid)-p\(numOfRecording)")
     }
     
