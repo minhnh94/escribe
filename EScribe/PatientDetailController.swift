@@ -9,13 +9,15 @@
 import UIKit
 import QuartzCore
 
-class PatientDetailController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class PatientDetailController: UIViewController, UITableViewDataSource, UITableViewDelegate, MiniPlayerButtonActionDelegate {
     
     let NewNoteSegue = "ToNewNoteVC"
     
     var currentPatient: Patient!
     var allNotes: [PatientNote]!
     var alreadyLoaded: Bool!
+    var filenameToPlay: String = ""
+    var isPausing: Bool = false
     
     // Interface
     @IBOutlet weak var patientNameLabel: UILabel!
@@ -27,6 +29,8 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet weak var newNoteButton: UIButton!
     @IBOutlet weak var notetableView: UITableView!
+    
+    var playerView: MiniPlayerView?
     
     // MARK: - VC lifecycle
     
@@ -70,6 +74,54 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
         newNoteButton.layer.borderWidth = 1
         newNoteButton.layer.borderColor = UIColor(red: 0.0/255, green: 122.0/255, blue: 206.0/255, alpha: 1.0).cgColor
         newNoteButton.layer.cornerRadius = 14.0
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func recordFileClicked(_ sender: UIButton) {
+        let indexPath = notetableView.indexPath(for: sender.superview?.superview as! UITableViewCell)
+        filenameToPlay = allNotes[indexPath!.row].allNoteContents.first!.noteId
+        isPausing = false
+        
+        if playerView != nil {
+            playerView?.isHidden = false
+            updateInterfaceOfMiniPlayer(playerView: playerView!)
+        } else {
+            playerView = UINib(nibName: "MiniPlayerView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? MiniPlayerView
+            
+            if playerView != nil {
+                playerView?.delegate = self
+                playerView?.frame = CGRect(x: 0, y: view.frame.size.height - 160 - tabBarController!.tabBar.bounds.size.height, width: view.frame.size.width, height: 160)
+                updateInterfaceOfMiniPlayer(playerView: playerView!)
+                view.addSubview(playerView!)
+            }
+        }
+        
+        notetableView.isUserInteractionEnabled = false
+    }
+    
+    func updateInterfaceOfMiniPlayer(playerView: MiniPlayerView) {
+        
+    }
+    
+    func didClickPlayButton(sender: UIButton) {
+        if isPausing {
+            AudioRecordHelper.shared.resumeAudio()
+        } else {
+            AudioRecordHelper.shared.playAudio(filename: filenameToPlay)
+        }
+    }
+    
+    func didClickPauseButton(sender: UIButton) {
+        AudioRecordHelper.shared.pauseAudio()
+        isPausing = true
+    }
+    
+    func didClickCloseButton(sender: UIButton) {
+        playerView?.isHidden = true
+        isPausing = false
+        AudioRecordHelper.shared.stopAudio()
+        notetableView.isUserInteractionEnabled = true
     }
     
     // MARK: - Table view delegates

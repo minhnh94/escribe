@@ -25,6 +25,8 @@
 		6479DD101E8BAD690032CA79 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6479DD0F1E8BAD690032CA79 /* libstdc++.tbd */; };
 		6479DD161E8BB1BC0032CA79 /* libNuanceSpeechAnywhere.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6479DD151E8BB1BC0032CA79 /* libNuanceSpeechAnywhere.a */; };
 		6479DD271E8BB5000032CA79 /* ViewControllerWithDragonSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6479DD261E8BB5000032CA79 /* ViewControllerWithDragonSDK.swift */; };
+		6497B4E51E92373A0070DC35 /* MiniPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6497B4E41E92373A0070DC35 /* MiniPlayerView.xib */; };
+		6497B4E71E9239800070DC35 /* MiniPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6497B4E61E9239800070DC35 /* MiniPlayerView.swift */; };
 		64A6D9AD1E7AADE20010C482 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64A6D9AC1E7AADE20010C482 /* QuartzCore.framework */; };
 		64A6D9AF1E7AAE250010C482 /* PatientDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6D9AE1E7AAE250010C482 /* PatientDetailController.swift */; };
 		64C4CCB81E81569F0023F548 /* InputWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4CCB71E81569F0023F548 /* InputWrapperView.swift */; };
@@ -81,6 +83,8 @@
 		6479DD241E8BB2A30032CA79 /* UIView+NUSADocumentFieldId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+NUSADocumentFieldId.h"; path = "NuanceSpeechAnywhere/Headers/UIView+NUSADocumentFieldId.h"; sourceTree = SOURCE_ROOT; };
 		6479DD251E8BB2A30032CA79 /* UIView+NUSAEnabled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+NUSAEnabled.h"; path = "NuanceSpeechAnywhere/Headers/UIView+NUSAEnabled.h"; sourceTree = SOURCE_ROOT; };
 		6479DD261E8BB5000032CA79 /* ViewControllerWithDragonSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWithDragonSDK.swift; sourceTree = "<group>"; };
+		6497B4E41E92373A0070DC35 /* MiniPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MiniPlayerView.xib; sourceTree = "<group>"; };
+		6497B4E61E9239800070DC35 /* MiniPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniPlayerView.swift; sourceTree = "<group>"; };
 		64A6D9AC1E7AADE20010C482 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		64A6D9AE1E7AAE250010C482 /* PatientDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientDetailController.swift; sourceTree = "<group>"; };
 		64C4CCB71E81569F0023F548 /* InputWrapperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputWrapperView.swift; sourceTree = "<group>"; };
@@ -207,6 +211,8 @@
 				64F6AD991E7C1E3600ED8509 /* NoteInPatientDetailCell.swift */,
 				64C4CCB71E81569F0023F548 /* InputWrapperView.swift */,
 				644E72DD1E83864D00857D3A /* InputWrapperTextView.swift */,
+				6497B4E41E92373A0070DC35 /* MiniPlayerView.xib */,
+				6497B4E61E9239800070DC35 /* MiniPlayerView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -317,6 +323,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6497B4E51E92373A0070DC35 /* MiniPlayerView.xib in Resources */,
 				640917E51E535368002C7F2B /* LaunchScreen.storyboard in Resources */,
 				640917E21E535368002C7F2B /* Assets.xcassets in Resources */,
 				640917E01E535368002C7F2B /* Main.storyboard in Resources */,
@@ -379,6 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6497B4E71E9239800070DC35 /* MiniPlayerView.swift in Sources */,
 				64A6D9AF1E7AAE250010C482 /* PatientDetailController.swift in Sources */,
 				64E947181E72CEE3009E232C /* NameTagAssociation.swift in Sources */,
 				640917DD1E535368002C7F2B /* ViewController.swift in Sources */,

@@ -104,7 +104,7 @@ class ViewController: UIViewController, UITextFieldDelegate, SKTransactionDelega
     }
     
     func transactionDidFinishRecording(_ transaction: SKTransaction!) {
-        AudioRecordHelper.shared.stop()
+        AudioRecordHelper.shared.stopRecording()
     }
     
     func transaction(_ transaction: SKTransaction!, didFinishWithSuggestion suggestion: String!) {

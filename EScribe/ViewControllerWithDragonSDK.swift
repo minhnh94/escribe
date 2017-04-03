@@ -104,7 +104,7 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
             }
         } else {
             NUSASession.shared().stopRecording()
-            AudioRecordHelper.shared.stop()
+            AudioRecordHelper.shared.stopRecording()
         }
     }
     

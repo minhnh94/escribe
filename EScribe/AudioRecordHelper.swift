@@ -8,12 +8,14 @@
 
 import UIKit
 import AVFoundation
+import AudioToolbox
 
 class AudioRecordHelper: NSObject, AVAudioRecorderDelegate {
     static let shared = AudioRecordHelper()
     
     var audioSession: AVAudioSession?
     var audioRec: AVAudioRecorder?
+    var audioPlayer: AVAudioPlayer?
     
     func setup() {
         // Init recorder session
@@ -59,7 +61,7 @@ class AudioRecordHelper: NSObject, AVAudioRecorderDelegate {
         }
     }
     
-    func stop() {
+    func stopRecording() {
         if audioRec!.isRecording {
             audioRec?.stop()
         }
@@ -101,7 +103,30 @@ class AudioRecordHelper: NSObject, AVAudioRecorderDelegate {
         })
     }
     
-    // Delegate
+    func playAudio(filename: String) {
+        let url = VariousHelper.shared.getDocumentPath().appendingPathComponent("\(filename).m4a")
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.prepareToPlay()
+            audioPlayer?.play()
+        } catch let error {
+            print("Cannot play audio: \(error.localizedDescription)")
+        }
+    }
+    
+    func pauseAudio() {
+        audioPlayer?.pause()
+    }
+    
+    func resumeAudio() {
+        audioPlayer?.play()
+    }
+    
+    func stopAudio() {
+        audioPlayer?.stop()
+    }
+    
+    // MARK: - Delegate
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         print("Yay ok all")
