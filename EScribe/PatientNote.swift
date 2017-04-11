@@ -38,4 +38,8 @@ class PatientNote: NSObject {
     static func createNewPatientNote(patient: Patient) -> Int {
         return DatabaseHelper.shared.createNewPatientNote(patient: patient)
     }
+    
+    static func deletePatientNoteWithId(bigNoteId: Int) {
+        DatabaseHelper.shared.deletePatientNoteWithId(bigNoteId: bigNoteId)
+    }
 }

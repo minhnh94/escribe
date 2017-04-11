@@ -12,6 +12,7 @@ import QuartzCore
 class PatientDetailController: UIViewController, UITableViewDataSource, UITableViewDelegate, MiniPlayerButtonActionDelegate {
     
     let NewNoteSegue = "ToNewNoteVC"
+    let NoteDetailSegue = "ToNoteDetailController"
     
     var currentPatient: Patient!
     var allNotes: [PatientNote]!
@@ -100,6 +101,15 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
         notetableView.isUserInteractionEnabled = false
     }
     
+    @IBAction func trashFileClicked(_ sender: UIButton) {
+        let indexPath = notetableView.indexPath(for: sender.superview?.superview as! UITableViewCell)
+        let noteId = allNotes[indexPath!.row].bigNoteId!
+        
+        PatientNote.deletePatientNoteWithId(bigNoteId: noteId)
+        allNotes = currentPatient.allNotes()
+        notetableView.reloadData()
+    }
+
     func updateInterfaceOfMiniPlayer(playerView: MiniPlayerView) {
         
     }
@@ -147,6 +157,11 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
         if segue.identifier == NewNoteSegue {
             let vc = segue.destination as! NewNoteController
             vc.currentPatient = currentPatient
+        } else if segue.identifier == NoteDetailSegue {
+            let vc = segue.destination as! NoteDetailController
+            vc.currentPatient = currentPatient
+            let indexPath = notetableView.indexPath(for: sender as! UITableViewCell)
+            vc.noteDetail = allNotes[indexPath!.row].allNoteContents.first!.content
         }
     }
     

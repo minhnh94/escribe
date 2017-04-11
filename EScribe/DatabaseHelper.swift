@@ -122,6 +122,20 @@ class DatabaseHelper: NSObject {
         try! db.run(noteContentTable.insert(noteContentId <- noteContentUid, patientNoteKeyId <- patientNoteId, noteTypeKey <- noteType, contentKey <- content))
     }
     
+    func deletePatientNoteWithId(bigNoteId: Int) {
+        let notesTable = Table("notes")
+        let notesContentTable = Table("note_contents")
+        
+        let kBigNoteId = Expression<Int>("note_id")
+        let kNoteContentBigNoteId = Expression<Int>("big_note_id")
+        
+        let deletedNoteContents = notesContentTable.filter(kNoteContentBigNoteId == bigNoteId)
+        let deletedBigNotes = notesTable.filter(kBigNoteId == bigNoteId)
+        
+        try! db.run(deletedNoteContents.delete())
+        try! db.run(deletedBigNotes.delete())
+    }
+    
     // MARK: - Privates
     
     private func loadNoteContentsFromResult(result: Table) -> [NoteContent] {

@@ -125,7 +125,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PCP, Cardiology, Demacolog" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVe-c9-iiz">
-                                                    <rect key="frame" x="8" y="14.5" width="203.5" height="19.5"/>
+                                                    <rect key="frame" x="8" y="14.5" width="210.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -153,10 +153,13 @@
                                                         <constraint firstAttribute="height" constant="25" id="j1Q-XT-S6D"/>
                                                         <constraint firstAttribute="width" constant="20" id="vY1-tG-BzC"/>
                                                     </constraints>
-                                                    <state key="normal" image="ico_duplicate"/>
+                                                    <state key="normal" image="ico-trashcan"/>
+                                                    <connections>
+                                                        <action selector="trashFileClicked:" destination="XrX-nH-vjp" eventType="touchUpInside" id="EvS-F1-6Ey"/>
+                                                    </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duplicate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXB-3q-NHv">
-                                                    <rect key="frame" x="216.5" y="31.5" width="42" height="11"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXB-3q-NHv">
+                                                    <rect key="frame" x="223.5" y="31.5" width="28.5" height="11"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -190,6 +193,7 @@
                                             <outlet property="dateTimeLabel" destination="B45-re-K8c" id="VBK-zY-IJh"/>
                                             <outlet property="noteAuthorLabel" destination="a6l-3J-hHO" id="CcR-H6-KRR"/>
                                             <outlet property="noteTypesLabel" destination="UVe-c9-iiz" id="aHb-Xx-Xpg"/>
+                                            <segue destination="yYr-z4-UPG" kind="presentation" identifier="ToNoteDetailController" id="uCa-FL-6kX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -250,6 +254,103 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I3a-Oj-cDP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="847.5" y="771.12676056338034"/>
+        </scene>
+        <!--Note Detail Controller-->
+        <scene sceneID="eMw-j0-9Pd">
+            <objects>
+                <viewController id="yYr-z4-UPG" customClass="NoteDetailController" customModule="EScribe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FvP-S2-pFx"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kif-l6-h4i"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1c5-Xq-1cq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rEw-no-Rkc">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ZKU-ud-bUP"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Patient note" id="J60-9d-yMf">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pTK-4v-8FB">
+                                            <connections>
+                                                <action selector="cancelClicked:" destination="yYr-z4-UPG" id="YLh-HD-v50"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patient 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhW-tn-wh3">
+                                <rect key="frame" x="16" y="72" width="94" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="06-09-1969" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TfU-cI-sit">
+                                <rect key="frame" x="16" y="109" width="85" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(43)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulS-AU-ays">
+                                <rect key="frame" x="109" y="109" width="28.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.52941176469999995" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jZc-tX-1ym">
+                                <rect key="frame" x="0.0" y="135" width="320" height="433"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed ">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="do">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="ArialMT"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TfU-cI-sit" firstAttribute="top" secondItem="XhW-tn-wh3" secondAttribute="bottom" constant="8" id="5Jp-TZ-yDj"/>
+                            <constraint firstItem="ulS-AU-ays" firstAttribute="leading" secondItem="TfU-cI-sit" secondAttribute="trailing" constant="8" id="69F-nw-JXY"/>
+                            <constraint firstItem="XhW-tn-wh3" firstAttribute="top" secondItem="rEw-no-Rkc" secondAttribute="bottom" constant="8" id="A4M-hl-LdR"/>
+                            <constraint firstItem="ulS-AU-ays" firstAttribute="centerY" secondItem="TfU-cI-sit" secondAttribute="centerY" id="Fgf-B9-Mhc"/>
+                            <constraint firstItem="jZc-tX-1ym" firstAttribute="leading" secondItem="1c5-Xq-1cq" secondAttribute="leading" id="GsR-5T-X0O"/>
+                            <constraint firstItem="XhW-tn-wh3" firstAttribute="leading" secondItem="1c5-Xq-1cq" secondAttribute="leadingMargin" id="Qks-TO-ndO"/>
+                            <constraint firstItem="rEw-no-Rkc" firstAttribute="top" secondItem="FvP-S2-pFx" secondAttribute="bottom" id="ReV-Ji-k6E"/>
+                            <constraint firstItem="rEw-no-Rkc" firstAttribute="leading" secondItem="1c5-Xq-1cq" secondAttribute="leading" id="SVe-dM-cQU"/>
+                            <constraint firstItem="TfU-cI-sit" firstAttribute="leading" secondItem="XhW-tn-wh3" secondAttribute="leading" id="Tax-bV-Eot"/>
+                            <constraint firstItem="jZc-tX-1ym" firstAttribute="top" secondItem="ulS-AU-ays" secondAttribute="bottom" constant="8" id="d9t-gq-gJE"/>
+                            <constraint firstAttribute="trailing" secondItem="jZc-tX-1ym" secondAttribute="trailing" id="hsK-YE-c79"/>
+                            <constraint firstAttribute="trailing" secondItem="rEw-no-Rkc" secondAttribute="trailing" id="jiB-4X-rgO"/>
+                            <constraint firstItem="Kif-l6-h4i" firstAttribute="top" secondItem="jZc-tX-1ym" secondAttribute="bottom" id="zMK-bM-4Nd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dobLabel" destination="TfU-cI-sit" id="eBn-P5-WdV"/>
+                        <outlet property="noteDetailTextView" destination="jZc-tX-1ym" id="cP9-tB-CpY"/>
+                        <outlet property="patientNameLabel" destination="XhW-tn-wh3" id="SLA-1n-hPI"/>
+                        <outlet property="yearsOldLabel" destination="ulS-AU-ays" id="2gT-bD-Qy1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DJB-CT-dXJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="847.5" y="1511.6197183098591"/>
         </scene>
         <!--New note-->
         <scene sceneID="xwB-lA-CrD">
@@ -2506,7 +2607,7 @@
     </scenes>
     <resources>
         <image name="bt_start record" width="225" height="134"/>
-        <image name="ico_duplicate" width="33" height="37"/>
+        <image name="ico-trashcan" width="64" height="64"/>
         <image name="ico_new patient" width="52" height="57"/>
         <image name="ico_record" width="47" height="34"/>
         <image name="man" width="141" height="142"/>
