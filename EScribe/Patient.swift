@@ -10,7 +10,7 @@ import UIKit
 
 class Patient: NSObject {
     var internalId: Int!
-    var amdid: Int!
+    var amdid: String!
     var firstName: String!
     var lastName: String!
     var dob: String!
@@ -21,7 +21,7 @@ class Patient: NSObject {
     var phone: String!
     var address: String!
     
-    init(internalId: Int, amdid: Int,firstName: String, lastName: String, dob: String, gender: String, state: String, city: String, zipcode: String, phone: String, address: String) {
+    init(internalId: Int, amdid: String,firstName: String, lastName: String, dob: String, gender: String, state: String, city: String, zipcode: String, phone: String, address: String) {
         self.internalId = internalId
         self.amdid = amdid
         self.firstName = firstName
@@ -37,6 +37,10 @@ class Patient: NSObject {
     
     static func allPatients() -> [Patient] {
         return DatabaseHelper.shared.loadAllPatients()
+    }
+    
+    static func createNewPatient(patient: Patient) {
+        DatabaseHelper.shared.createNewPatient(amdid: patient.amdid, firstname: patient.firstName, lastname: patient.lastName, dob: patient.dob, gender: patient.gender, state: patient.state, city: patient.city, zipcode: patient.zipcode, phone: patient.phone, address: patient.address)
     }
     
     func allNotes() -> [PatientNote] {

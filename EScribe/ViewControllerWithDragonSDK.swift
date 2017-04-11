@@ -41,6 +41,7 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupInterface()
         // Init Speech-to-text session
         NUSASession.shared().open(forApplication: kApplicationName, partnerGuid: kMyPartnerGuid, licenseGuid: kMyOrganizationToken, userId: kUserId)
         NUSASession.shared().delegate = self
@@ -58,6 +59,12 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
         
     }
     
+    private func setupInterface() {
+        patientNameLabel.text = currentPatient.firstName + " " + currentPatient.lastName
+        dobLabel.text = currentPatient.dob
+        yearsOldLabel.text = "(\(currentPatient.getYearsOld()))"
+    }
+    
     private func setupDictateCommandForTextFields() {
         for (key, tag) in NameTagAssociation.nameTagDictionary {
             let inputField = view.viewWithTag(tag) as! UITextField
@@ -68,12 +75,17 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
+        NUSASession.shared().stopRecording()
+        AudioRecordHelper.shared.stopRecording()
+        vuiController.delegate = nil
         vuiController = nil
         NUSASession.shared().delegate = nil
     }
     
     private func additionalStyling() {
+        submitButton.layer.borderWidth = 0
         submitButton.layer.cornerRadius = 14.0
+        submitButton.clipsToBounds = true
     }
     
     // MARK: - Actions
@@ -108,13 +120,26 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
         }
     }
     
+    @IBAction func resetClicked(_ sender: UIBarButtonItem) {
+        for (_, tag) in NameTagAssociation.nameTagDictionary {
+            let inputField = view.viewWithTag(tag) as! UITextField
+            inputField.text = ""
+        }
+    }
+    
     @IBAction func submitClicked(_ sender: UIButton) {
         AudioRecordHelper.shared.mergeAudioFiles(uuid: uuid, numOfParts: numOfRecording, completionHandler: {            
             let result = PatientNote.createNewPatientNote(patient: self.currentPatient)
             let xmlString = self.getXMLResultString()
             NoteContent.createNoteContent(patientNoteId: result, noteContentId: self.uuid, content: xmlString)
-//            self.view.addSubview(VariousHelper.shared.getAlertView(message: "Finish"))
-            VariousHelper.shared.getAlertView(message: "Finish")
+            
+            let alertVC = UIAlertController(title: "", message: "Submitting finished.", preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
+                self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true);
+            }))
+            
+            self.present(alertVC, animated: true, completion: nil)
         })
     }
     
@@ -139,6 +164,8 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
         statusNotifyTextField.text = "00:00:00"
         numOfRecording += 1
         AudioRecordHelper.shared.record(filename: "\(uuid)-p\(numOfRecording)")
+        submitButton.isEnabled = false
+        submitButton.backgroundColor = UIColor(red:204.0/255.0, green:204.0/255.0, blue:204.0/255.0, alpha:255.0/255.0)
     }
     
     func sessionDidStopRecording() {
@@ -146,6 +173,8 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
         changeInterface()
         currentProcessingText?.resignFirstResponder()
         currentProcessingText = nil
+        submitButton.isEnabled = true
+        submitButton.backgroundColor = UIColor(red:0.0/255.0, green:123.0/255.0, blue:207.0/255.0, alpha:255.0/255.0)
     }
     
     // MARK: - Privates

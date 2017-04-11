@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PatientListController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class PatientListController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     let PatientDetailSegue = "ToPatientDetailVC"
     var arrayPatients = Patient.allPatients()
@@ -24,6 +24,12 @@ class PatientListController: UIViewController, UITableViewDataSource, UITableVie
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        arrayPatients = Patient.allPatients()
+        patientTableView.reloadData()
     }
     
     // MARK: - Table view things
@@ -45,6 +51,12 @@ class PatientListController: UIViewController, UITableViewDataSource, UITableVie
         cell.yearOldLabel.text = "(\(patientObj.getYearsOld()))"
         
         return cell
+    }
+    
+    // MARK: - Search bar delegate
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 
     // MARK: - Segue

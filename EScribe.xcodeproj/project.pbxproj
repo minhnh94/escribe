@@ -25,6 +25,7 @@
 		6479DD101E8BAD690032CA79 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6479DD0F1E8BAD690032CA79 /* libstdc++.tbd */; };
 		6479DD161E8BB1BC0032CA79 /* libNuanceSpeechAnywhere.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6479DD151E8BB1BC0032CA79 /* libNuanceSpeechAnywhere.a */; };
 		6479DD271E8BB5000032CA79 /* ViewControllerWithDragonSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6479DD261E8BB5000032CA79 /* ViewControllerWithDragonSDK.swift */; };
+		647C8A2A1E9B90AD00943F13 /* NewPatientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647C8A291E9B90AD00943F13 /* NewPatientController.swift */; };
 		6497B4E51E92373A0070DC35 /* MiniPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6497B4E41E92373A0070DC35 /* MiniPlayerView.xib */; };
 		6497B4E71E9239800070DC35 /* MiniPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6497B4E61E9239800070DC35 /* MiniPlayerView.swift */; };
 		64A6D9AD1E7AADE20010C482 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64A6D9AC1E7AADE20010C482 /* QuartzCore.framework */; };
@@ -83,6 +84,7 @@
 		6479DD241E8BB2A30032CA79 /* UIView+NUSADocumentFieldId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+NUSADocumentFieldId.h"; path = "NuanceSpeechAnywhere/Headers/UIView+NUSADocumentFieldId.h"; sourceTree = SOURCE_ROOT; };
 		6479DD251E8BB2A30032CA79 /* UIView+NUSAEnabled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+NUSAEnabled.h"; path = "NuanceSpeechAnywhere/Headers/UIView+NUSAEnabled.h"; sourceTree = SOURCE_ROOT; };
 		6479DD261E8BB5000032CA79 /* ViewControllerWithDragonSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWithDragonSDK.swift; sourceTree = "<group>"; };
+		647C8A291E9B90AD00943F13 /* NewPatientController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPatientController.swift; sourceTree = "<group>"; };
 		6497B4E41E92373A0070DC35 /* MiniPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MiniPlayerView.xib; sourceTree = "<group>"; };
 		6497B4E61E9239800070DC35 /* MiniPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniPlayerView.swift; sourceTree = "<group>"; };
 		64A6D9AC1E7AADE20010C482 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -236,6 +238,7 @@
 				64C774591E77F5C900751936 /* PatientListController.swift */,
 				64A6D9AE1E7AAE250010C482 /* PatientDetailController.swift */,
 				640B19661E7FDF0B0032B242 /* NewNoteController.swift */,
+				647C8A291E9B90AD00943F13 /* NewPatientController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				640917DB1E535368002C7F2B /* AppDelegate.swift in Sources */,
 				64F6AD9C1E7C21DA00ED8509 /* PatientNote.swift in Sources */,
 				64E9471C1E73270E009E232C /* AudioRecordHelper.swift in Sources */,
+				647C8A2A1E9B90AD00943F13 /* NewPatientController.swift in Sources */,
 				64C4CCB81E81569F0023F548 /* InputWrapperView.swift in Sources */,
 				64C774581E77F40A00751936 /* Patient.swift in Sources */,
 				64C774601E7817A800751936 /* VariousHelper.swift in Sources */,
@@ -469,7 +473,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -513,7 +517,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -528,6 +532,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = PPZPA52SDJ;
 				INFOPLIST_FILE = EScribe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -538,6 +543,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.EScribe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EScribe-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -550,6 +557,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = PPZPA52SDJ;
 				INFOPLIST_FILE = EScribe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -560,6 +568,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.EScribe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EScribe-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

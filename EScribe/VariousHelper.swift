@@ -43,4 +43,11 @@ class VariousHelper: NSObject {
         }
         rootViewController?.present(vc, animated: true, completion: nil)
     }
+    
+    func getAlertViewAsReturnedValue(message: String) -> UIAlertController {
+        let vc = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        vc.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        
+        return vc
+    }
 }

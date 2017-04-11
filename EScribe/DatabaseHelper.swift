@@ -30,10 +30,12 @@ class DatabaseHelper: NSObject {
         }
     }
     
+    // MARK: - Functions
+    
     func loadAllPatients() -> [Patient] {
         let patients = Table("patients")
         let internalId = Expression<Int>("internal_id")
-        let amdid = Expression<Int>("amdid")
+        let amdid = Expression<String>("amdid")
         let firstName = Expression<String>("firstname")
         let lastname = Expression<String>("lastname")
         let address = Expression<String>("address")
@@ -82,6 +84,22 @@ class DatabaseHelper: NSObject {
         }
         
         return arrayPatientNotes
+    }
+    
+    func createNewPatient(amdid: String, firstname: String, lastname: String, dob: String, gender: String, state: String, city: String, zipcode: String, phone: String, address: String) {
+        let patientTable = Table("patients")
+        let kAmdid = Expression<String>("amdid")
+        let kFirstname = Expression<String>("firstname")
+        let kLastname = Expression<String>("lastname")
+        let kDob = Expression<String>("dob")
+        let kGender = Expression<String>("gender")
+        let kState = Expression<String>("us_state")
+        let kCity = Expression<String>("city")
+        let kZipcode = Expression<String>("zipcode")
+        let kPhone = Expression<String>("phone")
+        let kAddress = Expression<String>("address")
+        
+        try! db.run(patientTable.insert(kAmdid <- amdid, kFirstname <- firstname, kLastname <- lastname, kDob <- dob, kGender <- gender, kState <- state, kCity <- city, kZipcode <- zipcode, kPhone <- phone, kAddress <- address))
     }
     
     func createNewPatientNote(patient: Patient) -> Int {
