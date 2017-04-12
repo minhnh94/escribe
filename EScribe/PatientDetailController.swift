@@ -9,7 +9,7 @@
 import UIKit
 import QuartzCore
 
-class PatientDetailController: UIViewController, UITableViewDataSource, UITableViewDelegate, MiniPlayerButtonActionDelegate {
+class PatientDetailController: UIViewController, UITableViewDataSource, UITableViewDelegate, MiniPlayerButtonActionDelegate, NowPlayingUpdateDelegate {
     
     let NewNoteSegue = "ToNewNoteVC"
     let NoteDetailSegue = "ToNoteDetailController"
@@ -42,6 +42,7 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
         allNotes = currentPatient.allNotes()
         setupInterface()
         additionalStyling()
+        AudioRecordHelper.shared.delegate = self
         
         alreadyLoaded = false
     }
@@ -60,6 +61,11 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
         } else {
             alreadyLoaded = true
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        AudioRecordHelper.shared.delegate = nil
     }
     
     private func setupInterface() {
@@ -111,7 +117,7 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
     }
 
     func updateInterfaceOfMiniPlayer(playerView: MiniPlayerView) {
-        
+        playerView.slider.value = 0
     }
     
     func didClickPlayButton(sender: UIButton) {
@@ -132,6 +138,16 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
         isPausing = false
         AudioRecordHelper.shared.stopAudio()
         notetableView.isUserInteractionEnabled = true
+    }
+    
+    // MARK: - Audio helper delegate
+    
+    func playerDidGetDuration(duration: TimeInterval) {
+        playerView?.slider.maximumValue = Float(duration)
+    }
+    
+    func playerDidUpdateTime(timeInterval: TimeInterval) {
+        playerView?.slider.value = Float(timeInterval)
     }
     
     // MARK: - Table view delegates

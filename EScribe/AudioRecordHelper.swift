@@ -10,12 +10,19 @@ import UIKit
 import AVFoundation
 import AudioToolbox
 
+protocol NowPlayingUpdateDelegate: class {
+    func playerDidGetDuration(duration: TimeInterval)
+    func playerDidUpdateTime(timeInterval: TimeInterval)
+}
+
 class AudioRecordHelper: NSObject, AVAudioRecorderDelegate {
     static let shared = AudioRecordHelper()
     
     var audioSession: AVAudioSession?
     var audioRec: AVAudioRecorder?
     var audioPlayer: AVAudioPlayer?
+    
+    weak var delegate: NowPlayingUpdateDelegate?
     
     func setup() {
         // Init recorder session
@@ -108,10 +115,16 @@ class AudioRecordHelper: NSObject, AVAudioRecorderDelegate {
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer?.prepareToPlay()
+            delegate?.playerDidGetDuration(duration: audioPlayer!.duration)
+            Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
             audioPlayer?.play()
         } catch let error {
             print("Cannot play audio: \(error.localizedDescription)")
         }
+    }
+    
+    func updateTime(_ timer: Timer) {
+        delegate?.playerDidUpdateTime(timeInterval: audioPlayer!.currentTime)
     }
     
     func pauseAudio() {

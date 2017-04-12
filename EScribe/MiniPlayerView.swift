@@ -32,6 +32,7 @@ class MiniPlayerView: UIView {
     }
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
+        AudioRecordHelper.shared.audioPlayer?.currentTime = TimeInterval(sender.value)
     }
     
     @IBAction func closeViewTapped(_ sender: UIButton) {
