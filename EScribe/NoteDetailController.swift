@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AEXML
 
 class NoteDetailController: UIViewController {
 

@@ -69,8 +69,12 @@ class AudioRecordHelper: NSObject, AVAudioRecorderDelegate {
     }
     
     func stopRecording() {
-        if audioRec!.isRecording {
-            audioRec?.stop()
+        guard let audioRecUnwrapped = audioRec else {
+            return
+        }
+        
+        if audioRecUnwrapped.isRecording {
+            audioRecUnwrapped.stop()
         }
     }
     

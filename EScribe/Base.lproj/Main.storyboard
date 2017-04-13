@@ -2430,21 +2430,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="PN6-Hn-6rs">
-                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="93" width="320" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="gp9-Qb-XgV" id="nea-3T-dmW"/>
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="118" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uRr-HQ-0pl">
-                                <rect key="frame" x="0.0" y="108" width="320" height="411"/>
+                                <rect key="frame" x="0.0" y="137" width="320" height="382"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PatientListCell" rowHeight="100" id="Ijv-Dm-BQg" customClass="PatientListCell" customModule="EScribe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ijv-Dm-BQg" id="uAp-JA-jd3">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man" translatesAutoresizingMaskIntoConstraints="NO" id="4do-th-dbF">
@@ -2546,15 +2546,24 @@
                                     <outlet property="delegate" destination="gp9-Qb-XgV" id="JDS-bN-wW6"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test build: 2017/4/13" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KdC-qp-NtR">
+                                <rect key="frame" x="16" y="72" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="uRr-HQ-0pl" secondAttribute="trailing" id="2jg-CD-yYw"/>
+                            <constraint firstItem="PN6-Hn-6rs" firstAttribute="top" secondItem="KdC-qp-NtR" secondAttribute="bottom" id="Ets-Sf-CXp"/>
+                            <constraint firstItem="KdC-qp-NtR" firstAttribute="trailing" secondItem="RdJ-AB-MTn" secondAttribute="trailingMargin" id="Ilb-Us-imN"/>
                             <constraint firstItem="8Xl-VJ-sZL" firstAttribute="top" secondItem="uRr-HQ-0pl" secondAttribute="bottom" id="LWc-XT-Yo5"/>
                             <constraint firstAttribute="trailing" secondItem="PN6-Hn-6rs" secondAttribute="trailing" id="QDW-5x-oLD"/>
-                            <constraint firstItem="PN6-Hn-6rs" firstAttribute="top" secondItem="l0P-bJ-Loq" secondAttribute="bottom" id="R3W-Zh-zNx"/>
                             <constraint firstItem="uRr-HQ-0pl" firstAttribute="leading" secondItem="RdJ-AB-MTn" secondAttribute="leading" id="Rzj-eX-RaC"/>
+                            <constraint firstItem="KdC-qp-NtR" firstAttribute="top" secondItem="l0P-bJ-Loq" secondAttribute="bottom" constant="8" id="ofd-vI-RXh"/>
                             <constraint firstItem="PN6-Hn-6rs" firstAttribute="leading" secondItem="RdJ-AB-MTn" secondAttribute="leading" id="qhl-hS-pAT"/>
+                            <constraint firstItem="KdC-qp-NtR" firstAttribute="leading" secondItem="RdJ-AB-MTn" secondAttribute="leadingMargin" id="t53-O1-d5I"/>
                             <constraint firstItem="uRr-HQ-0pl" firstAttribute="top" secondItem="PN6-Hn-6rs" secondAttribute="bottom" id="zfT-ha-ncZ"/>
                         </constraints>
                     </view>
