@@ -6,6 +6,7 @@ PODS:
     - SQLite.swift/standard (= 0.11.0)
   - SQLite.swift/standard (0.11.0)
   - SwiftDate (4.0.6)
+  - SWXMLHash (3.0.2)
 
 DEPENDENCIES:
   - AEXML
@@ -13,6 +14,7 @@ DEPENDENCIES:
   - SpeechKit
   - SQLite.swift
   - SwiftDate
+  - SWXMLHash
 
 SPEC CHECKSUMS:
   AEXML: 905e50474c0a261d335aa8be4ee32d22d69b6fd5
@@ -20,7 +22,8 @@ SPEC CHECKSUMS:
   SpeechKit: 9c5c02d89eed7aa0cdb384b7ea384f7e5c65232c
   SQLite.swift: 9a26273607d3077a2e5a8d33486e9989f8404c7d
   SwiftDate: 549729eaa54bd9f64fd80abfd12ddd3d44ff5098
+  SWXMLHash: e0f6935971f01b06fb228cf435510d998ecde647
 
-PODFILE CHECKSUM: 7819e0be2482a8862e4dc8f7ae23dba70c5cea58
+PODFILE CHECKSUM: fac74ab45785b0500ec29a54fb595d1235fe3d78
 
 COCOAPODS: 1.1.1

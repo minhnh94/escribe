@@ -8,6 +8,7 @@
 
 import UIKit
 import AEXML
+import SWXMLHash
 
 class NoteDetailController: UIViewController {
 
@@ -40,7 +41,15 @@ class NoteDetailController: UIViewController {
     }
     
     private func parseResult() {
-        noteDetailTextView.text = noteDetail
+        let xml = SWXMLHash.parse(noteDetail)
+        enumerate(indexer: xml)
+    }
+    
+    func enumerate(indexer: XMLIndexer) {
+        for child in indexer.children {
+            print(child.element!.name + " " + child.element!.text!)
+            enumerate(indexer: child)
+        }
     }
     
     // MARK: - Actions
