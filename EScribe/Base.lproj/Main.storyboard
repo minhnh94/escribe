@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vbw-sC-YNv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vbw-sC-YNv">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -383,11 +383,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d0b-2a-B7T">
-                                <rect key="frame" x="0.0" y="167" width="320" height="176"/>
+                                <rect key="frame" x="0.0" y="167" width="320" height="357"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="176" id="6Bp-XE-9yS"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewNoteTypeCell" textLabel="SZ5-S3-Lqa" style="IBUITableViewCellStyleDefault" id="KZG-xE-sgX">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
@@ -427,6 +424,7 @@
                             <constraint firstAttribute="trailing" secondItem="d0b-2a-B7T" secondAttribute="trailing" id="gWd-bO-VF5"/>
                             <constraint firstItem="kh6-lD-JeB" firstAttribute="leading" secondItem="qbp-TE-FBk" secondAttribute="leadingMargin" id="ggD-rl-h7b"/>
                             <constraint firstItem="aYb-Aa-fav" firstAttribute="leading" secondItem="617-6R-4PA" secondAttribute="trailing" constant="8" id="iwC-rd-aYB"/>
+                            <constraint firstItem="NZr-NW-gfQ" firstAttribute="top" secondItem="d0b-2a-B7T" secondAttribute="bottom" id="qEb-Sp-6in"/>
                             <constraint firstItem="kh6-lD-JeB" firstAttribute="top" secondItem="R4j-lW-EJI" secondAttribute="bottom" constant="40" id="rQM-2T-f01"/>
                         </constraints>
                     </view>
@@ -2444,7 +2442,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ijv-Dm-BQg" id="uAp-JA-jd3">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man" translatesAutoresizingMaskIntoConstraints="NO" id="4do-th-dbF">
@@ -2619,7 +2617,7 @@
         <image name="ico-trashcan" width="64" height="64"/>
         <image name="ico_new patient" width="52" height="57"/>
         <image name="ico_record" width="47" height="34"/>
-        <image name="man" width="141" height="142"/>
+        <image name="man" width="512" height="512"/>
         <image name="patient" width="34" height="34"/>
         <image name="patient-1" width="34" height="34"/>
     </resources>

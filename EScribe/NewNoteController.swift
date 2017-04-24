@@ -10,7 +10,7 @@ import UIKit
 
 class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    let newNoteTypeArray = ["PCP / Cardiology"]     // More will be added on demand
+    let newNoteTypeArray = ["PCP / Cardiology", "Pain", "Podiatry", "Psychology", "Wound-Dermatology", "Gynecology", "Oncology", "Neuropsychology"]     // More will be added on demand
     var currentPatient: Patient!
     
     @IBOutlet weak var patientNameLabel: UILabel!
