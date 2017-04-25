@@ -116,6 +116,33 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
         notetableView.reloadData()
     }
 
+    @IBAction func uploadFileBtnClicked(_ sender: UIButton) {
+        let indexPath = notetableView.indexPath(for: sender.superview?.superview as! UITableViewCell)
+        filenameToPlay = allNotes[indexPath!.row].allNoteContents.first!.noteId
+        
+        let alertVC = UIAlertController(title: "Uploading file", message: "Select the file type you want to upload. Then choose the \"Copy to Drive\" action in the presented view. You must have the Google Drive application installed for the \"Copy to Drive\" action to show", preferredStyle: .actionSheet)
+        let actionUploadText = UIAlertAction(title: "Upload patient note", style: .default) { _ in
+            let urlFile = VariousHelper.shared.getDocumentPath().appendingPathComponent("\(self.filenameToPlay).txt")
+            self.uploadFileViaActivityVC(url: urlFile)
+        }
+        let actionUploadAudio = UIAlertAction(title: "Upload audio file", style: .default) { _ in
+            let urlAudio = VariousHelper.shared.getDocumentPath().appendingPathComponent("\(self.filenameToPlay).m4a")
+            self.uploadFileViaActivityVC(url: urlAudio)
+        }
+        alertVC.addAction(actionUploadText)
+        alertVC.addAction(actionUploadAudio)
+        
+        present(alertVC, animated: true, completion: nil)
+    }
+    
+    private func uploadFileViaActivityVC(url: URL) {
+        if FileManager.default.fileExists(atPath: url.path) {
+            let avc = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+            avc.excludedActivityTypes = [.addToReadingList, .saveToCameraRoll, .airDrop, .postToTwitter, .copyToPasteboard, .postToFacebook, .message, .mail, .print, .assignToContact, UIActivityType(rawValue: "com.apple.reminders.RemindersEditorExtension"), UIActivityType(rawValue: "com.apple.mobilenotes.SharingExtension")]
+            present(avc, animated: true, completion: nil)
+        }
+    }
+    
     func updateInterfaceOfMiniPlayer(playerView: MiniPlayerView) {
         playerView.slider.value = 0
     }

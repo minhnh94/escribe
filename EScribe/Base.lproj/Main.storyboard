@@ -124,14 +124,14 @@
                                                     <color key="textColor" red="0.0" green="0.47843137254901957" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PCP, Cardiology, Demacolog" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVe-c9-iiz">
-                                                    <rect key="frame" x="8" y="14.5" width="210.5" height="19.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PCP, Cardiology, Demacology" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVe-c9-iiz">
+                                                    <rect key="frame" x="8" y="15" width="215.5" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr Nguyen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6l-3J-hHO">
-                                                    <rect key="frame" x="8" y="34" width="69" height="17"/>
+                                                    <rect key="frame" x="8" y="35" width="69" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -148,18 +148,18 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCh-nO-ssI">
-                                                    <rect key="frame" x="227" y="6.5" width="20" height="25"/>
+                                                    <rect key="frame" x="232" y="6.5" width="25" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="j1Q-XT-S6D"/>
-                                                        <constraint firstAttribute="width" constant="20" id="vY1-tG-BzC"/>
+                                                        <constraint firstAttribute="width" constant="25" id="vY1-tG-BzC"/>
                                                     </constraints>
-                                                    <state key="normal" image="ico-trashcan"/>
+                                                    <state key="normal" image="ico_upload"/>
                                                     <connections>
-                                                        <action selector="trashFileClicked:" destination="XrX-nH-vjp" eventType="touchUpInside" id="EvS-F1-6Ey"/>
+                                                        <action selector="uploadFileBtnClicked:" destination="XrX-nH-vjp" eventType="touchUpInside" id="hbl-G7-goL"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXB-3q-NHv">
-                                                    <rect key="frame" x="223.5" y="31.5" width="28.5" height="11"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXB-3q-NHv">
+                                                    <rect key="frame" x="228.5" y="31.5" width="32" height="11"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -177,7 +177,7 @@
                                                 <constraint firstItem="a6l-3J-hHO" firstAttribute="leading" secondItem="trw-Rr-ida" secondAttribute="leadingMargin" id="8BK-TV-eZ5"/>
                                                 <constraint firstItem="B45-re-K8c" firstAttribute="leading" secondItem="trw-Rr-ida" secondAttribute="leading" constant="8" id="9L7-wM-cDY"/>
                                                 <constraint firstItem="B45-re-K8c" firstAttribute="top" secondItem="trw-Rr-ida" secondAttribute="top" id="AKw-e5-ls5"/>
-                                                <constraint firstItem="aco-5i-aY5" firstAttribute="leading" secondItem="MCh-nO-ssI" secondAttribute="trailing" constant="30" id="DEA-CM-VDG"/>
+                                                <constraint firstItem="aco-5i-aY5" firstAttribute="leading" secondItem="MCh-nO-ssI" secondAttribute="trailing" constant="20" id="DEA-CM-VDG"/>
                                                 <constraint firstItem="SWQ-GV-CAn" firstAttribute="centerX" secondItem="aco-5i-aY5" secondAttribute="centerX" id="I7i-Kh-INA"/>
                                                 <constraint firstItem="SWQ-GV-CAn" firstAttribute="top" secondItem="lXB-3q-NHv" secondAttribute="top" id="Mfa-0H-ez1"/>
                                                 <constraint firstItem="UVe-c9-iiz" firstAttribute="leading" secondItem="trw-Rr-ida" secondAttribute="leadingMargin" id="QKH-ef-fUY"/>
@@ -2614,9 +2614,9 @@
     </scenes>
     <resources>
         <image name="bt_start record" width="225" height="134"/>
-        <image name="ico-trashcan" width="64" height="64"/>
         <image name="ico_new patient" width="52" height="57"/>
         <image name="ico_record" width="47" height="34"/>
+        <image name="ico_upload" width="64" height="64"/>
         <image name="man" width="512" height="512"/>
         <image name="patient" width="34" height="34"/>
         <image name="patient-1" width="34" height="34"/>

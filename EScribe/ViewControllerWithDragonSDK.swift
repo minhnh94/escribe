@@ -116,7 +116,6 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
             }
         } else {
             NUSASession.shared().stopRecording()
-            AudioRecordHelper.shared.stopRecording()
         }
     }
     
@@ -131,6 +130,12 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
         AudioRecordHelper.shared.mergeAudioFiles(uuid: uuid, numOfParts: numOfRecording, completionHandler: {            
             let result = PatientNote.createNewPatientNote(patient: self.currentPatient)
             let xmlString = self.getXMLResultString()
+            let xmlFileSavePath = VariousHelper.shared.getDocumentPath().appendingPathComponent("\(self.uuid).txt")
+            do {
+                try xmlString.write(to: xmlFileSavePath, atomically: false, encoding: .utf8)
+            } catch let error {
+                print("Cannot write xml file: \(error.localizedDescription)")
+            }
             NoteContent.createNoteContent(patientNoteId: result, noteContentId: self.uuid, content: xmlString)
             
             let alertVC = UIAlertController(title: "", message: "Submitting finished.", preferredStyle: .alert)
@@ -175,6 +180,7 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
         currentProcessingText = nil
         submitButton.isEnabled = true
         submitButton.backgroundColor = UIColor(red:0.0/255.0, green:123.0/255.0, blue:207.0/255.0, alpha:255.0/255.0)
+        AudioRecordHelper.shared.stopRecording()
     }
     
     // MARK: - Privates
