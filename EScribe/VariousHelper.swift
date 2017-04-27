@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftDate
+import AEXML
 
 class VariousHelper: NSObject {
     static let shared = VariousHelper()
@@ -49,5 +50,21 @@ class VariousHelper: NSObject {
         vc.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         
         return vc
+    }
+    
+    func convertXMLStringToReadableString(xmlString: String) -> String {
+        var result = ""
+        
+        do {
+            let xml = try AEXMLDocument(xml: xmlString)
+            for child in xml.root.children {
+                result = result + "*\(child.name.replacingOccurrences(of: "_", with: " ").capitalized)\n"
+                result = result + "\(child.string)\n\n"
+            }
+        } catch let error {
+            print("Cannot parse xml: \(error.localizedDescription)")
+        }
+        
+        return result
     }
 }

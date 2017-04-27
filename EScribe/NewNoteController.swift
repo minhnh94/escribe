@@ -16,6 +16,7 @@ class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDel
     @IBOutlet weak var patientNameLabel: UILabel!
     @IBOutlet weak var dobLabel: UILabel!
     @IBOutlet weak var yearsOldLabel: UILabel!
+    @IBOutlet weak var noteTypeTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +54,10 @@ class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDel
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToInputNoteVC" {
+            let indexPath = noteTypeTableView.indexPath(for: sender as! UITableViewCell)
+            
             let vc = segue.destination as! ViewControllerWithDragonSDK
-            vc.title = "PCP / Cardiology"
+            vc.title = newNoteTypeArray[indexPath!.row]
             vc.currentPatient = currentPatient
         }
     }

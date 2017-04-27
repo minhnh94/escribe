@@ -136,7 +136,7 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
             } catch let error {
                 print("Cannot write xml file: \(error.localizedDescription)")
             }
-            NoteContent.createNoteContent(patientNoteId: result, noteContentId: self.uuid, content: xmlString)
+            NoteContent.createNoteContent(patientNoteId: result, noteContentId: self.uuid, noteType: self.title!, content: xmlString)
             
             let alertVC = UIAlertController(title: "", message: "Submitting finished.", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
@@ -188,10 +188,11 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
     private func getXMLResultString() -> String {
         let patientNote = AEXMLDocument()
         
+        let informationChild = patientNote.addChild(name: "information")
         for (key, tag) in NameTagAssociation.nameTagDictionary {
             let inputField = view.viewWithTag(tag) as! UITextField
             if inputField.text != "" {
-                patientNote.addChild(name: key.replacingOccurrences(of: " ", with: "_"), value: inputField.text)
+                informationChild.addChild(name: key.replacingOccurrences(of: " ", with: "_"), value: inputField.text)
             }
         }
         

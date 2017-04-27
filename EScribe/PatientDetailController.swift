@@ -108,12 +108,29 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
     }
     
     @IBAction func trashFileClicked(_ sender: UIButton) {
-        let indexPath = notetableView.indexPath(for: sender.superview?.superview as! UITableViewCell)
-        let noteId = allNotes[indexPath!.row].bigNoteId!
+        let alertVC = UIAlertController(title: "Deleting patient note", message: "You are going to delete the selected patient note. Are you sure?", preferredStyle: .alert)
+        let actionDelete = UIAlertAction(title: "Delete", style: .destructive) { _ in
+            let indexPath = self.notetableView.indexPath(for: sender.superview?.superview as! UITableViewCell)
+            let noteId = self.allNotes[indexPath!.row].bigNoteId!
+            
+            PatientNote.deletePatientNoteWithId(bigNoteId: noteId)
+            let storedFileId = self.allNotes[indexPath!.row].allNoteContents.first!.noteId
+            do {
+                try FileManager.default.removeItem(at: VariousHelper.shared.getDocumentPath().appendingPathComponent("\(storedFileId!).txt"))
+                try FileManager.default.removeItem(at: VariousHelper.shared.getDocumentPath().appendingPathComponent("\(storedFileId!).m4a"))
+            } catch let error {
+                print("Cannot delete file: \(error.localizedDescription)")
+            }
+            
+            self.allNotes = self.currentPatient.allNotes()
+            self.notetableView.reloadData()
+        }
+        let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertVC.addAction(actionDelete)
+        alertVC.addAction(actionCancel)
         
-        PatientNote.deletePatientNoteWithId(bigNoteId: noteId)
-        allNotes = currentPatient.allNotes()
-        notetableView.reloadData()
+        present(alertVC, animated: true, completion: nil)
+        
     }
 
     @IBAction func uploadFileBtnClicked(_ sender: UIButton) {
@@ -190,6 +207,15 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
         cell.dateTimeLabel.text = note.datetime
         cell.noteAuthorLabel.text = note.author
         cell.noteTypesLabel.text = note.joinAllNoteContentTypeIntoString()
+        
+        let storedAudioFileId = note.allNoteContents.first!.noteId!
+        if FileManager.default.fileExists(atPath: VariousHelper.shared.getDocumentPath().appendingPathComponent("\(storedAudioFileId).m4a").path) {
+            cell.playAudioButton.setImage(#imageLiteral(resourceName: "ico-play"), for: .normal)
+            cell.playAudioButton.isUserInteractionEnabled = true
+        } else {
+            cell.playAudioButton.setImage(#imageLiteral(resourceName: "ico-play-disabled"), for: .normal)
+            cell.playAudioButton.isUserInteractionEnabled = false
+        }
         
         return cell
     }

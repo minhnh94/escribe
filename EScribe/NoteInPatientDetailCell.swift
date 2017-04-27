@@ -13,6 +13,7 @@ class NoteInPatientDetailCell: UITableViewCell {
     @IBOutlet weak var dateTimeLabel: UILabel!
     @IBOutlet weak var noteTypesLabel: UILabel!
     @IBOutlet weak var noteAuthorLabel: UILabel!
+    @IBOutlet weak var playAudioButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
