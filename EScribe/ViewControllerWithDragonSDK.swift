@@ -130,9 +130,10 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
         AudioRecordHelper.shared.mergeAudioFiles(uuid: uuid, numOfParts: numOfRecording, completionHandler: {            
             let result = PatientNote.createNewPatientNote(patient: self.currentPatient)
             let xmlString = self.getXMLResultString()
-            let xmlFileSavePath = VariousHelper.shared.getDocumentPath().appendingPathComponent("\(self.uuid).txt")
+            let patientNoteSavePath = VariousHelper.shared.getDocumentPath().appendingPathComponent("\(self.uuid).txt")
             do {
-                try xmlString.write(to: xmlFileSavePath, atomically: false, encoding: .utf8)
+                let readableString = VariousHelper.shared.convertXMLStringToReadableString(xmlString: xmlString)
+                try readableString.write(to: patientNoteSavePath, atomically: false, encoding: .utf8)
             } catch let error {
                 print("Cannot write xml file: \(error.localizedDescription)")
             }

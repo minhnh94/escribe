@@ -11,5 +11,4 @@ target 'EScribe' do
     pod 'SQLite.swift'
     pod 'AEXML'
     pod 'IQKeyboardManagerSwift'
-    pod 'SWXMLHash'
 end
