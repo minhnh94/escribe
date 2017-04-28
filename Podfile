@@ -11,4 +11,6 @@ target 'EScribe' do
     pod 'SQLite.swift'
     pod 'AEXML'
     pod 'IQKeyboardManagerSwift'
+    pod 'Alamofire', '~> 4.0'
+    pod 'AlamofireObjectMapper', '~> 4.0'
 end
