@@ -14,11 +14,11 @@ class VariousHelper: NSObject {
     static let shared = VariousHelper()
     
     override init() {
-        // 何もない
+        // Just a placeholder
     }
     
     func getYearOldFromDateOfBirthString(dob: String) -> Int {
-        let dobDate = try! DateInRegion(string: dob, format: .custom("yyyy/MM/dd"))
+        let dobDate = try! DateInRegion(string: dob, format: .custom("yyyy-MM-dd"))
         let now = DateInRegion()
         
         return now.year - dobDate.year

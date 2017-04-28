@@ -27,6 +27,9 @@
 		6479DD161E8BB1BC0032CA79 /* libNuanceSpeechAnywhere.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6479DD151E8BB1BC0032CA79 /* libNuanceSpeechAnywhere.a */; };
 		6479DD271E8BB5000032CA79 /* ViewControllerWithDragonSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6479DD261E8BB5000032CA79 /* ViewControllerWithDragonSDK.swift */; };
 		647C8A2A1E9B90AD00943F13 /* NewPatientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647C8A291E9B90AD00943F13 /* NewPatientController.swift */; };
+		6487F97F1EB33602000FC5F2 /* AppointmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6487F97E1EB33602000FC5F2 /* AppointmentController.swift */; };
+		6487F9831EB3366C000FC5F2 /* TimeSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6487F9821EB3366C000FC5F2 /* TimeSelectController.swift */; };
+		6487F9851EB33A31000FC5F2 /* AppointmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6487F9841EB33A31000FC5F2 /* AppointmentCell.swift */; };
 		6497B4E51E92373A0070DC35 /* MiniPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6497B4E41E92373A0070DC35 /* MiniPlayerView.xib */; };
 		6497B4E71E9239800070DC35 /* MiniPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6497B4E61E9239800070DC35 /* MiniPlayerView.swift */; };
 		64A6D9AD1E7AADE20010C482 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64A6D9AC1E7AADE20010C482 /* QuartzCore.framework */; };
@@ -87,6 +90,9 @@
 		6479DD251E8BB2A30032CA79 /* UIView+NUSAEnabled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+NUSAEnabled.h"; path = "NuanceSpeechAnywhere/Headers/UIView+NUSAEnabled.h"; sourceTree = SOURCE_ROOT; };
 		6479DD261E8BB5000032CA79 /* ViewControllerWithDragonSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWithDragonSDK.swift; sourceTree = "<group>"; };
 		647C8A291E9B90AD00943F13 /* NewPatientController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPatientController.swift; sourceTree = "<group>"; };
+		6487F97E1EB33602000FC5F2 /* AppointmentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentController.swift; sourceTree = "<group>"; };
+		6487F9821EB3366C000FC5F2 /* TimeSelectController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSelectController.swift; sourceTree = "<group>"; };
+		6487F9841EB33A31000FC5F2 /* AppointmentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentCell.swift; sourceTree = "<group>"; };
 		6497B4E41E92373A0070DC35 /* MiniPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MiniPlayerView.xib; sourceTree = "<group>"; };
 		6497B4E61E9239800070DC35 /* MiniPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniPlayerView.swift; sourceTree = "<group>"; };
 		64A6D9AC1E7AADE20010C482 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -217,6 +223,7 @@
 				644E72DD1E83864D00857D3A /* InputWrapperTextView.swift */,
 				6497B4E41E92373A0070DC35 /* MiniPlayerView.xib */,
 				6497B4E61E9239800070DC35 /* MiniPlayerView.swift */,
+				6487F9841EB33A31000FC5F2 /* AppointmentCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -242,6 +249,8 @@
 				640B19661E7FDF0B0032B242 /* NewNoteController.swift */,
 				647C8A291E9B90AD00943F13 /* NewPatientController.swift */,
 				641E35F51E9CF6EC00D905D6 /* NoteDetailController.swift */,
+				6487F97E1EB33602000FC5F2 /* AppointmentController.swift */,
+				6487F9821EB3366C000FC5F2 /* TimeSelectController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -397,6 +406,7 @@
 				64E947181E72CEE3009E232C /* NameTagAssociation.swift in Sources */,
 				640917DD1E535368002C7F2B /* ViewController.swift in Sources */,
 				64C774551E77F35100751936 /* PatientListCell.swift in Sources */,
+				6487F9851EB33A31000FC5F2 /* AppointmentCell.swift in Sources */,
 				64C7745A1E77F5C900751936 /* PatientListController.swift in Sources */,
 				64F6AD9A1E7C1E3600ED8509 /* NoteInPatientDetailCell.swift in Sources */,
 				644E72DE1E83864D00857D3A /* InputWrapperTextView.swift in Sources */,
@@ -408,6 +418,8 @@
 				64F6AD9C1E7C21DA00ED8509 /* PatientNote.swift in Sources */,
 				64E9471C1E73270E009E232C /* AudioRecordHelper.swift in Sources */,
 				647C8A2A1E9B90AD00943F13 /* NewPatientController.swift in Sources */,
+				6487F9831EB3366C000FC5F2 /* TimeSelectController.swift in Sources */,
+				6487F97F1EB33602000FC5F2 /* AppointmentController.swift in Sources */,
 				64C4CCB81E81569F0023F548 /* InputWrapperView.swift in Sources */,
 				64C774581E77F40A00751936 /* Patient.swift in Sources */,
 				64C774601E7817A800751936 /* VariousHelper.swift in Sources */,
