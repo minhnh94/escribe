@@ -13,28 +13,58 @@ import AlamofireObjectMapper
 class ApiHelper: NSObject {
     static let shared = ApiHelper()
     
+    let Host = "http://203.205.59.186:8888/"
+    
+    let GetAppointmentAPI = "getappointment"
+    
+    let kStartDate = "startdate"
+    let kEndDate = "enddate"
+    let kPatientId = "patientid"
+    let kPatientName = "patientname"
+    let kProviderName = "providername"
+    
+    var startDate: String? = VariousHelper.shared.getDateTodayAsString()
+    var endDate: String? = VariousHelper.shared.getDateAfterAWeekFromTodayAsString()
+    var patientId: String?
+    var patientName: String?
+    var providerName: String?
+    
     override init() {
         
     }
     
-    func getListAppointment() {
-        // JSON Body
-        let body: [String : Any] = [
-            "providername": "MOODY,JESSICA"
-        ]
+    func getListAppointment(completion: @escaping (_ result: [Appointment]) -> Void) {
+        // Default: Get this week's appointments
+        var body: [String : Any] = [:]
+        
+        if let uStartDate = startDate {
+            body[kStartDate] = uStartDate
+        }
+        if let uEndDate = endDate {
+            body[kEndDate] = uEndDate
+        }
+        if let uPatientId = patientId {
+            body[kPatientId] = uPatientId
+        }
+        if let uPatientName = patientName {
+            body[kPatientName] = uPatientName
+        }
+        if let uProviderName = providerName {
+            body[kProviderName] = uProviderName
+        }
+        
         
         // Fetch Request
-        Alamofire.request("http://203.205.59.186:8888/getappointment", method: .post, parameters: body)
+        Alamofire.request(Host + GetAppointmentAPI, method: .post, parameters: body)
             .validate(statusCode: 200..<300)
             .responseArray { (response: DataResponse<[Appointment]>) in
                 guard let appointmentArray = response.result.value else {
                     print("Error getting appointment data")
+                    completion([])
                     return
                 }
                 
-                for appointment in appointmentArray {
-                    print(appointment.patientName + " " + appointment.apptDate + " " + appointment.providerName)
-                }
+                completion(appointmentArray)
         }
     }
 }
