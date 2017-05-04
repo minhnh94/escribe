@@ -26,6 +26,11 @@ class VariousHelper: NSObject {
         return date.string(custom: "yyyy-MM-dd")
     }
     
+    func getDateAfterAMonthFromTodayAsString() -> String {
+        let date = DateInRegion() + 1.months
+        return date.string(custom: "yyyy-MM-dd")
+    }
+    
     func getYearOldFromDateOfBirthString(dob: String) -> Int {
         let dobDate = try! DateInRegion(string: dob, format: .custom("yyyy-MM-dd"))
         let now = DateInRegion()

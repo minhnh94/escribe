@@ -11,20 +11,18 @@ import Alamofire
 import AlamofireObjectMapper
 
 class ApiHelper: NSObject {
-    static let shared = ApiHelper()
+    private let Host = "http://203.205.59.186:8888/"
     
-    let Host = "http://203.205.59.186:8888/"
+    private let GetAppointmentAPI = "getappointment"
     
-    let GetAppointmentAPI = "getappointment"
+    private let kStartDate = "startdate"
+    private let kEndDate = "enddate"
+    private let kPatientId = "patientid"
+    private let kPatientName = "patientname"
+    private let kProviderName = "providername"
     
-    let kStartDate = "startdate"
-    let kEndDate = "enddate"
-    let kPatientId = "patientid"
-    let kPatientName = "patientname"
-    let kProviderName = "providername"
-    
-    var startDate: String? = VariousHelper.shared.getDateTodayAsString()
-    var endDate: String? = VariousHelper.shared.getDateAfterAWeekFromTodayAsString()
+    var startDate: String?
+    var endDate: String?
     var patientId: String?
     var patientName: String?
     var providerName: String?
@@ -52,7 +50,6 @@ class ApiHelper: NSObject {
         if let uProviderName = providerName {
             body[kProviderName] = uProviderName
         }
-        
         
         // Fetch Request
         Alamofire.request(Host + GetAppointmentAPI, method: .post, parameters: body)
