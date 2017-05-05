@@ -56,7 +56,8 @@ class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDel
         if segue.identifier == "ToInputNoteVC" {
             let indexPath = noteTypeTableView.indexPath(for: sender as! UITableViewCell)
             
-            let vc = segue.destination as! ViewControllerWithDragonSDK
+            let nc = segue.destination as! UINavigationController
+            let vc = nc.topViewController as! ViewControllerWithDragonSDK
             vc.title = newNoteTypeArray[indexPath!.row]
             vc.currentPatient = currentPatient
         }

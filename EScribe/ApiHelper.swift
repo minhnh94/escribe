@@ -56,7 +56,7 @@ class ApiHelper: NSObject {
             .validate(statusCode: 200..<300)
             .responseArray { (response: DataResponse<[Appointment]>) in
                 guard let appointmentArray = response.result.value else {
-                    print("Error getting appointment data")
+                    print("Error getting appointment data: \(String(describing: response.data))")
                     completion([])
                     return
                 }

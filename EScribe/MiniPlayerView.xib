@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -76,6 +75,12 @@
                         <action selector="pauseClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="8Jn-XK-hhh"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFr-vn-KK2">
+                    <rect key="frame" x="341" y="44" width="64" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.12156862745098039" green="0.12156862745098039" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -85,9 +90,11 @@
                 <constraint firstItem="UhK-xd-YCH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="QXk-wf-qFh"/>
                 <constraint firstItem="ALi-J6-tAa" firstAttribute="top" secondItem="0eg-7l-zz0" secondAttribute="bottom" id="Qz8-dg-ZaM"/>
                 <constraint firstItem="vDT-zo-z3q" firstAttribute="top" secondItem="ALi-J6-tAa" secondAttribute="bottom" constant="8" id="RHe-xW-aV6"/>
+                <constraint firstItem="vDT-zo-z3q" firstAttribute="top" secondItem="ZFr-vn-KK2" secondAttribute="bottom" constant="8" id="Ria-HR-Pru"/>
                 <constraint firstItem="vAW-eC-Vp8" firstAttribute="top" secondItem="vDT-zo-z3q" secondAttribute="bottom" constant="10" id="Swq-eh-tFF"/>
                 <constraint firstAttribute="trailing" secondItem="WjA-f5-9NI" secondAttribute="trailing" constant="8" id="WE0-di-JRE"/>
                 <constraint firstItem="WjA-f5-9NI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="X8B-2s-S1f"/>
+                <constraint firstAttribute="trailing" secondItem="ZFr-vn-KK2" secondAttribute="trailing" constant="8" id="YaW-xB-80N"/>
                 <constraint firstItem="0eg-7l-zz0" firstAttribute="top" secondItem="UhK-xd-YCH" secondAttribute="bottom" id="YeU-d4-GnT"/>
                 <constraint firstItem="As1-vh-xQJ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="30" id="ax6-fo-pth"/>
                 <constraint firstItem="ALi-J6-tAa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="bM8-sL-JEE"/>
@@ -99,6 +106,7 @@
             <connections>
                 <outlet property="datetimeLabel" destination="UhK-xd-YCH" id="Msf-AK-Uxs"/>
                 <outlet property="doctorLabel" destination="ALi-J6-tAa" id="KpG-oB-nLz"/>
+                <outlet property="durationLabel" destination="ZFr-vn-KK2" id="dFU-sm-bQZ"/>
                 <outlet property="noteTypeLabel" destination="0eg-7l-zz0" id="CJ8-S0-uQE"/>
                 <outlet property="slider" destination="vDT-zo-z3q" id="3Ih-Mh-MYn"/>
             </connections>

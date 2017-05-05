@@ -119,6 +119,10 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
         }
     }
     
+    @IBAction func cancelClicked(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func resetClicked(_ sender: UIBarButtonItem) {
         for (_, tag) in NameTagAssociation.nameTagDictionary {
             let inputField = view.viewWithTag(tag) as! UITextField
@@ -141,8 +145,7 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
             
             let alertVC = UIAlertController(title: "", message: "Submitting finished.", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-                let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
-                self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true);
+                self.dismiss(animated: true, completion: nil)
             }))
             
             self.present(alertVC, animated: true, completion: nil)

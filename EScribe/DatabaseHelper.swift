@@ -107,7 +107,7 @@ class DatabaseHelper: NSObject {
         let patientId = Expression<Int>("patient_id")
         let author = Expression<String>("author")
         let datetime = Expression<String>("datetime")
-        let rowId = try! db.run(patientNoteTable.insert(patientId <- patient.internalId, author <- "Dr Thanh", datetime <- "2017-01-06 21:55:33"))
+        let rowId = try! db.run(patientNoteTable.insert(patientId <- patient.internalId, author <- "Dr Thanh", datetime <- VariousHelper.shared.getDateAndTimeTodayAsString()))
         
         return Int(rowId)
     }

@@ -22,6 +22,7 @@ class MiniPlayerView: UIView {
     @IBOutlet weak var noteTypeLabel: UILabel!
     @IBOutlet weak var doctorLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var durationLabel: UILabel!
     
     @IBAction func playClicked(_ sender: UIButton) {
         delegate?.didClickPlayButton(sender: sender)

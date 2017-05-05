@@ -401,7 +401,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="ToInputNoteVC" id="v8d-1N-Ikh"/>
+                                            <segue destination="Nij-9q-Sqq" kind="presentation" identifier="ToInputNoteVC" id="v8d-1N-Ikh"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -450,7 +450,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jlt-Dq-eTx">
-                                <rect key="frame" x="0.0" y="120" width="320" height="5722"/>
+                                <rect key="frame" x="0.0" y="120" width="320" height="5766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RcV-AA-ZYR">
                                         <rect key="frame" x="8" y="8" width="304" height="4000"/>
@@ -1914,7 +1914,7 @@
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oyp-oh-Mf8">
-                                <rect key="frame" x="0.0" y="5842" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="5886" width="320" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWS-Ej-KTC">
                                         <rect key="frame" x="95" y="7.5" width="130" height="35"/>
@@ -2000,6 +2000,11 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="PCP / Cardiology" id="zYp-DK-sUp">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="RJK-wv-Luq">
+                            <connections>
+                                <action selector="cancelClicked:" destination="BYZ-38-t0r" id="4cr-V4-Hlm"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Reset" style="plain" id="wk3-AW-QX5">
                             <connections>
                                 <action selector="resetClicked:" destination="BYZ-38-t0r" id="AJ2-ql-0cC"/>
@@ -2020,7 +2025,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4965" y="973.94366197183103"/>
+            <point key="canvasLocation" x="4598" y="1114"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="f8h-0f-IaR">
@@ -2931,6 +2936,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lMY-yN-hKE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1387.5" y="1529.5774647887324"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="scW-es-gHf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nij-9q-Sqq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MxW-Wa-Hzk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="SCB-Tj-b3A"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sgh-uv-5pn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2614" y="771"/>
         </scene>
     </scenes>
     <resources>

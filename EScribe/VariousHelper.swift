@@ -21,6 +21,10 @@ class VariousHelper: NSObject {
         return DateInRegion().string(custom: "yyyy-MM-dd")
     }
     
+    func getDateAndTimeTodayAsString() -> String {
+        return DateInRegion().string(custom: "yyyy-MM-dd HH:mm:ss")
+    }
+    
     func getDateAfterAWeekFromTodayAsString() -> String {
         let date = DateInRegion() + 1.weeks
         return date.string(custom: "yyyy-MM-dd")
@@ -36,6 +40,12 @@ class VariousHelper: NSObject {
         let now = DateInRegion()
         
         return now.year - dobDate.year
+    }
+    
+    func getTimeStringFromDurationInSecond(duration: Int) -> String {
+        let c: [Calendar.Component: Int] = [.second: duration]
+        let date = try! DateInRegion(components: c)
+        return date.string(custom: "HH:mm:ss")
     }
     
     func getDocumentPath() -> URL {

@@ -16,7 +16,6 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
     
     var currentPatient: Patient!
     var allNotes: [PatientNote]!
-    var alreadyLoaded: Bool!
     var filenameToPlay: String = ""
     var isPausing: Bool = false
     
@@ -39,12 +38,8 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        allNotes = currentPatient.allNotes()
         setupInterface()
         additionalStyling()
-        AudioRecordHelper.shared.delegate = self
-        
-        alreadyLoaded = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,12 +50,9 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if alreadyLoaded == true {
-            allNotes = currentPatient.allNotes()
-            notetableView.reloadData()
-        } else {
-            alreadyLoaded = true
-        }
+        AudioRecordHelper.shared.delegate = self
+        allNotes = currentPatient.allNotes()
+        notetableView.reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -92,14 +84,14 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
         
         if playerView != nil {
             playerView?.isHidden = false
-            updateInterfaceOfMiniPlayer(playerView: playerView!)
+            updateInterfaceOfMiniPlayer(playerView: playerView!, data: allNotes[indexPath!.row])
         } else {
             playerView = UINib(nibName: "MiniPlayerView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? MiniPlayerView
             
             if playerView != nil {
                 playerView?.delegate = self
                 playerView?.frame = CGRect(x: 0, y: view.frame.size.height - 160 - tabBarController!.tabBar.bounds.size.height, width: view.frame.size.width, height: 160)
-                updateInterfaceOfMiniPlayer(playerView: playerView!)
+                updateInterfaceOfMiniPlayer(playerView: playerView!, data: allNotes[indexPath!.row])
                 view.addSubview(playerView!)
             }
         }
@@ -160,7 +152,9 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
-    func updateInterfaceOfMiniPlayer(playerView: MiniPlayerView) {
+    func updateInterfaceOfMiniPlayer(playerView: MiniPlayerView, data: PatientNote) {
+        playerView.datetimeLabel.text = data.datetime
+        playerView.noteTypeLabel.text = data.allNoteContents.first!.noteType
         playerView.slider.value = 0
     }
     
@@ -188,6 +182,7 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
     
     func playerDidGetDuration(duration: TimeInterval) {
         playerView?.slider.maximumValue = Float(duration)
+        playerView?.durationLabel.text = VariousHelper.shared.getTimeStringFromDurationInSecond(duration: Int(duration))
     }
     
     func playerDidUpdateTime(timeInterval: TimeInterval) {
