@@ -21,6 +21,11 @@ class VariousHelper: NSObject {
         return DateInRegion().string(custom: "yyyy-MM-dd")
     }
     
+    func getTodayAsFullString() -> String {
+        let date = DateInRegion()
+        return "\(date.year)\(date.shortMonthName)\(date.day)\(date.weekdayName)\(date.string(custom: "HH-mm-ss"))"
+    }
+    
     func getDateAndTimeTodayAsString() -> String {
         return DateInRegion().string(custom: "yyyy-MM-dd HH:mm:ss")
     }

@@ -25,7 +25,7 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
     var startSelectingField = true
     var currentPatient: Patient!
     var numOfRecording: Int = 0
-    let uuid = UUID().uuidString    // Unique ID for naming audio files
+    var uuid = ""    // Unique ID for naming audio files
     
     // MARK: - UI properties
     @IBOutlet weak var scrollView: UIScrollView!
@@ -45,6 +45,8 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
         // Init Speech-to-text session
         NUSASession.shared().open(forApplication: kApplicationName, partnerGuid: kMyPartnerGuid, licenseGuid: kMyOrganizationToken, userId: kUserId)
         NUSASession.shared().delegate = self
+        
+        uuid = "\(currentPatient.firstName!) \(currentPatient.lastName!)_\(title!)_\(VariousHelper.shared.getTodayAsFullString())"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -155,7 +157,6 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
     // MARK: - Text field delegates
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-//        scrollView.scrollRectToVisible(textField.frame, animated: true)
         currentProcessingText = textField
     }
     

@@ -99,6 +99,7 @@
 		6487F9881EB3493E000FC5F2 /* ApiHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiHelper.swift; sourceTree = "<group>"; };
 		6497B4E41E92373A0070DC35 /* MiniPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MiniPlayerView.xib; sourceTree = "<group>"; };
 		6497B4E61E9239800070DC35 /* MiniPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniPlayerView.swift; sourceTree = "<group>"; };
+		649DB1DB1EBE2E4C00F037BD /* experimental.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = experimental.playground; sourceTree = "<group>"; };
 		64A6D9AC1E7AADE20010C482 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		64A6D9AE1E7AAE250010C482 /* PatientDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientDetailController.swift; sourceTree = "<group>"; };
 		64C4CCB71E81569F0023F548 /* InputWrapperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputWrapperView.swift; sourceTree = "<group>"; };
@@ -163,6 +164,7 @@
 		640917CE1E535367002C7F2B = {
 			isa = PBXGroup;
 			children = (
+				649DB1DB1EBE2E4C00F037BD /* experimental.playground */,
 				6479DD151E8BB1BC0032CA79 /* libNuanceSpeechAnywhere.a */,
 				640917D91E535368002C7F2B /* EScribe */,
 				640917D81E535368002C7F2B /* Products */,
