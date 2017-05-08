@@ -138,8 +138,10 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
             let urlAudio = VariousHelper.shared.getDocumentPath().appendingPathComponent("\(self.filenameToPlay).m4a")
             self.uploadFileViaActivityVC(url: urlAudio)
         }
+        let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertVC.addAction(actionUploadText)
         alertVC.addAction(actionUploadAudio)
+        alertVC.addAction(actionCancel)
         
         present(alertVC, animated: true, completion: nil)
     }

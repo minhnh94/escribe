@@ -138,7 +138,7 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
             let xmlString = self.getXMLResultString()
             let patientNoteSavePath = VariousHelper.shared.getDocumentPath().appendingPathComponent("\(self.uuid).txt")
             do {
-                let readableString = VariousHelper.shared.convertXMLStringToReadableString(xmlString: xmlString)
+                let readableString = self.exportPatientInfoToString() + VariousHelper.shared.convertXMLStringToReadableString(xmlString: xmlString)
                 try readableString.write(to: patientNoteSavePath, atomically: false, encoding: .utf8)
             } catch let error {
                 print("Cannot write xml file: \(error.localizedDescription)")
@@ -202,6 +202,14 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
         }
         
         return patientNote.xml
+    }
+    
+    private func exportPatientInfoToString() -> String {
+        var result = ""
+        
+        result = "Patient name: \(currentPatient.firstName!) \(currentPatient.lastName!)\nDate of birth: \(currentPatient.dob!) (\(currentPatient.getYearsOld()) years old)\nAMD ID: \(currentPatient.amdid!)\nGender: \(currentPatient.gender!)\nPhone: \(currentPatient.phone!)\nAddress: \(currentPatient.address!), \(currentPatient.city!), \(currentPatient.state!), \(currentPatient.zipcode!)\n\n"
+        
+        return result
     }
 }
 
