@@ -82,18 +82,13 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
         filenameToPlay = allNotes[indexPath!.row].allNoteContents.first!.noteId
         isPausing = false
         
+        playerView = UINib(nibName: "MiniPlayerView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? MiniPlayerView
+        
         if playerView != nil {
-            playerView?.isHidden = false
+            playerView?.delegate = self
+            playerView?.frame = CGRect(x: 0, y: view.frame.size.height - 160 - tabBarController!.tabBar.bounds.size.height, width: view.frame.size.width, height: 160)
             updateInterfaceOfMiniPlayer(playerView: playerView!, data: allNotes[indexPath!.row])
-        } else {
-            playerView = UINib(nibName: "MiniPlayerView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? MiniPlayerView
-            
-            if playerView != nil {
-                playerView?.delegate = self
-                playerView?.frame = CGRect(x: 0, y: view.frame.size.height - 160 - tabBarController!.tabBar.bounds.size.height, width: view.frame.size.width, height: 160)
-                updateInterfaceOfMiniPlayer(playerView: playerView!, data: allNotes[indexPath!.row])
-                view.addSubview(playerView!)
-            }
+            view.addSubview(playerView!)
         }
         
         notetableView.isUserInteractionEnabled = false
@@ -155,6 +150,7 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func updateInterfaceOfMiniPlayer(playerView: MiniPlayerView, data: PatientNote) {
+        AudioRecordHelper.shared.setupAudio(filename: filenameToPlay)
         playerView.datetimeLabel.text = data.datetime
         playerView.noteTypeLabel.text = data.allNoteContents.first!.noteType
         playerView.slider.value = 0
@@ -164,7 +160,7 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
         if isPausing {
             AudioRecordHelper.shared.resumeAudio()
         } else {
-            AudioRecordHelper.shared.playAudio(filename: filenameToPlay)
+            AudioRecordHelper.shared.playAudio()
         }
     }
     
@@ -174,7 +170,8 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func didClickCloseButton(sender: UIButton) {
-        playerView?.isHidden = true
+        playerView?.removeFromSuperview()
+        playerView = nil
         isPausing = false
         AudioRecordHelper.shared.stopAudio()
         notetableView.isUserInteractionEnabled = true

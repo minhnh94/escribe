@@ -114,17 +114,20 @@ class AudioRecordHelper: NSObject, AVAudioRecorderDelegate {
         })
     }
     
-    func playAudio(filename: String) {
+    func setupAudio(filename: String) {
         let url = VariousHelper.shared.getDocumentPath().appendingPathComponent("\(filename).m4a")
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer?.prepareToPlay()
             delegate?.playerDidGetDuration(duration: audioPlayer!.duration)
-            Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
-            audioPlayer?.play()
         } catch let error {
             print("Cannot play audio: \(error.localizedDescription)")
         }
+    }
+    
+    func playAudio() {
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
+        audioPlayer?.play()
     }
     
     func updateTime(_ timer: Timer) {
