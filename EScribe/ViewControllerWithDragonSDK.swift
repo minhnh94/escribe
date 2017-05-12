@@ -54,24 +54,14 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
         
         vuiController =  NUSAVuiController(view: self.view)
         
-        setupDictateCommandForTextFields()
-        
         vuiController.synchronizeWithView()
         vuiController.delegate = self
-        
     }
     
     private func setupInterface() {
         patientNameLabel.text = currentPatient.firstName + " " + currentPatient.lastName
         dobLabel.text = currentPatient.dob
         yearsOldLabel.text = "(\(currentPatient.getYearsOld()))"
-    }
-    
-    private func setupDictateCommandForTextFields() {
-        for (key, tag) in NameTagAssociation.nameTagDictionary {
-            let inputField = view.viewWithTag(tag) as! UITextField
-            inputField.setVuiConceptName("\(key)")
-        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -125,12 +115,6 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func resetClicked(_ sender: UIBarButtonItem) {
-        for (_, tag) in NameTagAssociation.nameTagDictionary {
-            let inputField = view.viewWithTag(tag) as! UITextField
-            inputField.text = ""
-        }
-    }
     
     @IBAction func submitClicked(_ sender: UIButton) {
         AudioRecordHelper.shared.mergeAudioFiles(uuid: uuid, numOfParts: numOfRecording, completionHandler: {            

@@ -440,7 +440,7 @@
         <!--PCP / Cardiology-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewControllerWithDragonSDK" customModule="EScribe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="GeneralNoteController" customModule="EScribe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -2003,11 +2003,6 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="RJK-wv-Luq">
                             <connections>
                                 <action selector="cancelClicked:" destination="BYZ-38-t0r" id="4cr-V4-Hlm"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Reset" style="plain" id="wk3-AW-QX5">
-                            <connections>
-                                <action selector="resetClicked:" destination="BYZ-38-t0r" id="AJ2-ql-0cC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
