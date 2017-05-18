@@ -218,7 +218,8 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == NewNoteSegue {
-            let vc = segue.destination as! NewNoteController
+            let nc = segue.destination as! UINavigationController
+            let vc = nc.topViewController as! NewNoteController
             vc.currentPatient = currentPatient
         } else if segue.identifier == NoteDetailSegue {
             let vc = segue.destination as! NoteDetailController

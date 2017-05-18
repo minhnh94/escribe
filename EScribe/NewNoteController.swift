@@ -36,6 +36,12 @@ class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDel
         yearsOldLabel.text = "(\(currentPatient.getYearsOld()))"
     }
     
+    // MARK: - Actions
+    
+    @IBAction func cancelClicked(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     // MARK: - Table view delegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,8 +62,7 @@ class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDel
         if segue.identifier == "ToInputNoteVC" {
             let indexPath = noteTypeTableView.indexPath(for: sender as! UITableViewCell)
             
-            let nc = segue.destination as! UINavigationController
-            let vc = nc.topViewController as! ViewControllerWithDragonSDK
+            let vc = segue.destination as! ViewControllerWithDragonSDK
             vc.title = newNoteTypeArray[indexPath!.row]
             vc.currentPatient = currentPatient
         }

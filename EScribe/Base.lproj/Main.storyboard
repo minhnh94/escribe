@@ -103,7 +103,7 @@
                                     <color key="titleColor" red="0.0" green="0.47843137254901957" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="EbK-ge-idF" kind="show" identifier="ToNewNoteVC" id="hvY-Ny-ZxY"/>
+                                    <segue destination="jud-rt-2gQ" kind="presentation" identifier="ToNewNoteVC" id="hvY-Ny-ZxY"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0EB-4e-zuK">
@@ -381,7 +381,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d0b-2a-B7T">
-                                <rect key="frame" x="0.0" y="167" width="320" height="357"/>
+                                <rect key="frame" x="0.0" y="167" width="320" height="401"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewNoteTypeCell" textLabel="SZ5-S3-Lqa" style="IBUITableViewCellStyleDefault" id="KZG-xE-sgX">
@@ -401,7 +401,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Nij-9q-Sqq" kind="presentation" identifier="ToInputNoteVC" id="v8d-1N-Ikh"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="ToInputNoteVC" id="tTX-PM-gyO"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -426,6 +426,13 @@
                             <constraint firstItem="kh6-lD-JeB" firstAttribute="top" secondItem="R4j-lW-EJI" secondAttribute="bottom" constant="40" id="rQM-2T-f01"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="New patient note" id="h8T-ch-vPJ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ahe-2v-LV7">
+                            <connections>
+                                <action selector="cancelClicked:" destination="EbK-ge-idF" id="K86-sX-bAx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dobLabel" destination="617-6R-4PA" id="gqD-y7-YJ4"/>
                         <outlet property="noteTypeTableView" destination="d0b-2a-B7T" id="2ZU-kt-aEp"/>
@@ -435,7 +442,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ym-if-QJX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1740" y="772.18309859154931"/>
+            <point key="canvasLocation" x="2737.5" y="772.18309859154931"/>
         </scene>
         <!--PCP / Cardiology-->
         <scene sceneID="tne-QT-ifu">
@@ -1999,13 +2006,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="PCP / Cardiology" id="zYp-DK-sUp">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="RJK-wv-Luq">
-                            <connections>
-                                <action selector="cancelClicked:" destination="BYZ-38-t0r" id="4cr-V4-Hlm"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="PCP / Cardiology" id="zYp-DK-sUp"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="6000"/>
                     <connections>
@@ -2020,7 +2021,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4598" y="1114"/>
+            <point key="canvasLocation" x="4129" y="1395"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="f8h-0f-IaR">
@@ -2933,22 +2934,22 @@
             <point key="canvasLocation" x="1387.5" y="1529.5774647887324"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="scW-es-gHf">
+        <scene sceneID="0Qe-1t-ZiM">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nij-9q-Sqq" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jud-rt-2gQ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MxW-Wa-Hzk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pdJ-P1-cHC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="SCB-Tj-b3A"/>
+                        <segue destination="EbK-ge-idF" kind="relationship" relationship="rootViewController" id="6kY-2B-F1c"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sgh-uv-5pn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6ed-YJ-dtK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2614" y="771"/>
+            <point key="canvasLocation" x="1740" y="772.18309859154931"/>
         </scene>
     </scenes>
     <resources>
