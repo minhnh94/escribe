@@ -117,6 +117,19 @@ class AppointmentController: UIViewController, UITableViewDataSource, UITableVie
             let vc = nc.topViewController as! TimeSelectController
             vc.timeRangeSetting = timeRangeSetting
             vc.doneBtnDelegate = self
+        } else if segue.identifier == "ToNewNoteVC" {
+            let indexPath = appointmentTableView.indexPath(for: sender as! UITableViewCell)
+            let appointmentData = appointmentArray[indexPath!.row]
+            
+            // This tedious piece of shit just for separating name
+            let firstName = appointmentData.patientName.components(separatedBy: ",").first!.capitalized
+            let lastName = appointmentData.patientName.components(separatedBy: ",").last!.capitalized
+            
+            let patient = Patient(internalId: 0, amdid: appointmentData.patientId, firstName: firstName, lastName: lastName, dob: "", gender: "", state: "", city: "", zipcode: "", phone: "", address: "")
+            
+            let nc = segue.destination as! UINavigationController
+            let vc = nc.topViewController as! NewNoteController
+            vc.currentPatient = patient
         }
     }
 }

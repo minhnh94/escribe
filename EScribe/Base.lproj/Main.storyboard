@@ -2740,6 +2740,7 @@
                                             <outlet property="patientIdLabel" destination="1Rf-NF-a22" id="LT3-01-Xu6"/>
                                             <outlet property="patientNameLabel" destination="D56-b8-SFn" id="aZx-v2-bpF"/>
                                             <outlet property="providerNameLabel" destination="YW7-g6-cXO" id="AlI-id-z9T"/>
+                                            <segue destination="jud-rt-2gQ" kind="presentation" identifier="ToNewNoteVC" id="i4h-WA-rrb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2838,7 +2839,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KJ3-qM-Zn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="553" y="1530"/>
+            <point key="canvasLocation" x="564" y="1901"/>
         </scene>
         <!--Filter-->
         <scene sceneID="zaw-yT-HRC">
@@ -2931,7 +2932,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lMY-yN-hKE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1387.5" y="1529.5774647887324"/>
+            <point key="canvasLocation" x="1410" y="1900"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0Qe-1t-ZiM">
@@ -2965,4 +2966,7 @@
         <image name="patient" width="34" height="34"/>
         <image name="patient-1" width="34" height="34"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="i4h-WA-rrb"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -48,6 +48,9 @@ class Patient: NSObject {
     }
     
     func getYearsOld() -> Int {
+        if dob == "" {
+            return 0
+        }
         return VariousHelper.shared.getYearOldFromDateOfBirthString(dob: dob)
     }
 }
