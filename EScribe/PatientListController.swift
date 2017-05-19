@@ -53,18 +53,44 @@ class PatientListController: UIViewController, UITableViewDataSource, UITableVie
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: PatientDetailSegue, sender: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let deletedPatient = arrayPatients[indexPath.row]
+            Patient.deletePatient(deletedPatient)
+            arrayPatients.remove(at: indexPath.row)
+            patientTableView.reloadData()
+        }
+    }
+    
     // MARK: - Search bar delegate
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func editClicked(_ sender: UIBarButtonItem) {
+        if patientTableView.isEditing {
+            patientTableView.setEditing(false, animated: true)
+            sender.title = "Edit"
+        } else {
+            patientTableView.setEditing(true, animated: true)
+            sender.title = "Done"
+        }
     }
 
     // MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == PatientDetailSegue {
-            let indexPath = patientTableView.indexPath(for: sender as! UITableViewCell)
-            let currentPatient = arrayPatients[indexPath!.row]
+            let indexPath = sender as! IndexPath
+            let currentPatient = arrayPatients[indexPath.row]
             
             let vc = segue.destination as! PatientDetailController
             vc.currentPatient = currentPatient

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vbw-sC-YNv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vbw-sC-YNv">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -2536,7 +2536,6 @@
                                             <outlet property="internalIdLabel" destination="vaA-I3-bMm" id="5hh-Iu-jm5"/>
                                             <outlet property="patientNameLabel" destination="X7T-3Y-H9K" id="z0P-07-X4O"/>
                                             <outlet property="yearOldLabel" destination="RZj-2Q-jMr" id="au6-an-rR4"/>
-                                            <segue destination="XrX-nH-vjp" kind="show" identifier="ToPatientDetailVC" id="OMY-CA-MMx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2567,6 +2566,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Patient list" id="QJY-zD-1AQ">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="lRA-b5-H0H">
+                            <connections>
+                                <action selector="editClicked:" destination="gp9-Qb-XgV" id="1ST-wM-8cH"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="ico_new patient" id="ZC4-CG-QHD">
                             <connections>
                                 <segue destination="039-lx-mxU" kind="presentation" id="Wku-lJ-68i"/>
@@ -2576,6 +2580,8 @@
                     <connections>
                         <outlet property="patientTableView" destination="uRr-HQ-0pl" id="DIg-DT-aab"/>
                         <outlet property="searchDisplayController" destination="VNc-5J-SGf" id="R3N-Wx-TYj"/>
+                        <segue destination="XrX-nH-vjp" kind="show" identifier="ToPatientDetailVC" id="WaD-96-u5B"/>
+                        <segue destination="039-lx-mxU" kind="presentation" identifier="ToEditPatientVC" id="zbY-re-ZUc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="83t-lm-fkx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2960,7 +2966,7 @@
         <image name="ico-filter" width="64" height="64"/>
         <image name="ico-play" width="64" height="64"/>
         <image name="ico-trashcan" width="64" height="64"/>
-        <image name="ico_new patient" width="52" height="57"/>
+        <image name="ico_new patient" width="32" height="32"/>
         <image name="ico_upload" width="64" height="64"/>
         <image name="man" width="512" height="512"/>
         <image name="patient" width="34" height="34"/>
@@ -2968,5 +2974,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="i4h-WA-rrb"/>
+        <segue reference="zbY-re-ZUc"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -43,6 +43,10 @@ class Patient: NSObject {
         return DatabaseHelper.shared.createNewPatient(amdid: patient.amdid, firstname: patient.firstName, lastname: patient.lastName, dob: patient.dob, gender: patient.gender, state: patient.state, city: patient.city, zipcode: patient.zipcode, phone: patient.phone, address: patient.address)
     }
     
+    static func deletePatient(_ patient: Patient) {
+        DatabaseHelper.shared.deletePatientWithId(patient.internalId)
+    }
+    
     func allNotes() -> [PatientNote] {
         return DatabaseHelper.shared.loadAllPatientNotes(patientId: internalId)
     }

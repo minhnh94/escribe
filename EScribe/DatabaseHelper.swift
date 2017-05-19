@@ -103,6 +103,20 @@ class DatabaseHelper: NSObject {
         return Int(resultId)
     }
     
+    func deletePatientWithId(_ patientId: Int) {
+        let arrayPatientNotes = loadAllPatientNotes(patientId: patientId)
+        for note in arrayPatientNotes {
+            deletePatientNoteWithId(bigNoteId: note.bigNoteId)
+        }
+        
+        // Delete patient
+        let patientTable = Table("patients")
+        let kPatientId = Expression<Int>("internal_id")
+        
+        let deletedPatient = patientTable.filter(kPatientId == patientId)
+        try! db.run(deletedPatient.delete())
+    }
+    
     func createNewPatientNote(patient: Patient) -> Int {
         let patientNoteTable = Table("notes")
         let patientId = Expression<Int>("patient_id")
