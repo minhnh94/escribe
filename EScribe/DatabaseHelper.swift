@@ -86,7 +86,7 @@ class DatabaseHelper: NSObject {
         return arrayPatientNotes
     }
     
-    func createNewPatient(amdid: String, firstname: String, lastname: String, dob: String, gender: String, state: String, city: String, zipcode: String, phone: String, address: String) {
+    func createNewPatient(amdid: String, firstname: String, lastname: String, dob: String, gender: String, state: String, city: String, zipcode: String, phone: String, address: String) -> Int {
         let patientTable = Table("patients")
         let kAmdid = Expression<String>("amdid")
         let kFirstname = Expression<String>("firstname")
@@ -99,7 +99,8 @@ class DatabaseHelper: NSObject {
         let kPhone = Expression<String>("phone")
         let kAddress = Expression<String>("address")
         
-        try! db.run(patientTable.insert(kAmdid <- amdid, kFirstname <- firstname, kLastname <- lastname, kDob <- dob, kGender <- gender, kState <- state, kCity <- city, kZipcode <- zipcode, kPhone <- phone, kAddress <- address))
+        let resultId = try! db.run(patientTable.insert(kAmdid <- amdid, kFirstname <- firstname, kLastname <- lastname, kDob <- dob, kGender <- gender, kState <- state, kCity <- city, kZipcode <- zipcode, kPhone <- phone, kAddress <- address))
+        return Int(resultId)
     }
     
     func createNewPatientNote(patient: Patient) -> Int {
@@ -107,8 +108,15 @@ class DatabaseHelper: NSObject {
         let patientId = Expression<Int>("patient_id")
         let author = Expression<String>("author")
         let datetime = Expression<String>("datetime")
-        let rowId = try! db.run(patientNoteTable.insert(patientId <- patient.internalId, author <- "Dr Thanh", datetime <- VariousHelper.shared.getDateAndTimeTodayAsString()))
         
+        if patient.internalId == 0 {
+            let returnedId = Patient.createNewPatient(patient: patient)
+            let rowId = try! db.run(patientNoteTable.insert(patientId <- returnedId, author <- "Dr Thanh", datetime <- VariousHelper.shared.getDateAndTimeTodayAsString()))
+            return Int(rowId)
+        }
+        
+        // Else do this
+        let rowId = try! db.run(patientNoteTable.insert(patientId <- patient.internalId, author <- "Dr Thanh", datetime <- VariousHelper.shared.getDateAndTimeTodayAsString()))
         return Int(rowId)
     }
     

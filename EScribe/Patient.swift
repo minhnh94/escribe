@@ -39,8 +39,8 @@ class Patient: NSObject {
         return DatabaseHelper.shared.loadAllPatients()
     }
     
-    static func createNewPatient(patient: Patient) {
-        DatabaseHelper.shared.createNewPatient(amdid: patient.amdid, firstname: patient.firstName, lastname: patient.lastName, dob: patient.dob, gender: patient.gender, state: patient.state, city: patient.city, zipcode: patient.zipcode, phone: patient.phone, address: patient.address)
+    static func createNewPatient(patient: Patient) -> Int {
+        return DatabaseHelper.shared.createNewPatient(amdid: patient.amdid, firstname: patient.firstName, lastname: patient.lastName, dob: patient.dob, gender: patient.gender, state: patient.state, city: patient.city, zipcode: patient.zipcode, phone: patient.phone, address: patient.address)
     }
     
     func allNotes() -> [PatientNote] {
