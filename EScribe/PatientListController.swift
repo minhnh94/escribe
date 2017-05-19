@@ -11,6 +11,8 @@ import UIKit
 class PatientListController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     let PatientDetailSegue = "ToPatientDetailVC"
+    let PatientEditSegue = "ToEditPatientVC"
+    
     var arrayPatients = Patient.allPatients()
     
     @IBOutlet weak var patientTableView: UITableView!
@@ -55,7 +57,12 @@ class PatientListController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: PatientDetailSegue, sender: indexPath)
+        
+        if tableView.isEditing {
+            performSegue(withIdentifier: PatientEditSegue, sender: indexPath)
+        } else {
+            performSegue(withIdentifier: PatientDetailSegue, sender: indexPath)
+        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -88,12 +95,15 @@ class PatientListController: UIViewController, UITableViewDataSource, UITableVie
     // MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let indexPath = sender as! IndexPath
+        let currentPatient = arrayPatients[indexPath.row]
+        
         if segue.identifier == PatientDetailSegue {
-            let indexPath = sender as! IndexPath
-            let currentPatient = arrayPatients[indexPath.row]
-            
             let vc = segue.destination as! PatientDetailController
             vc.currentPatient = currentPatient
+        } else if segue.identifier == PatientEditSegue {
+            let vc = segue.destination as! NewPatientController
+            vc.editedPatient = currentPatient
         }
     }
 }

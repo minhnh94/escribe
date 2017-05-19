@@ -21,7 +21,10 @@ class NewPatientController: UIViewController {
         "phone": 107,
         "address": 108
     ]
+    
     @IBOutlet weak var genderSegment: UISegmentedControl!
+    
+    var editedPatient: Patient?
     
     // MARK: - VC stuffs
     
@@ -29,11 +32,34 @@ class NewPatientController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        processingEditIfNeeded()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func processingEditIfNeeded() {
+        if let patient = editedPatient {
+            let fAmdid = view.viewWithTag(fieldWithTag["amdid"]!) as! UITextField
+            let fFirstname = view.viewWithTag(fieldWithTag["firstname"]!) as! UITextField
+            let fLastname = view.viewWithTag(fieldWithTag["lastname"]!) as! UITextField
+            let fDob = view.viewWithTag(fieldWithTag["dob"]!) as! UITextField
+            let fState = view.viewWithTag(fieldWithTag["us_state"]!) as! UITextField
+            let fCity = view.viewWithTag(fieldWithTag["city"]!) as! UITextField
+            let fZipcode = view.viewWithTag(fieldWithTag["zipcode"]!) as! UITextField
+            let fPhone = view.viewWithTag(fieldWithTag["phone"]!) as! UITextField
+            let fAddress = view.viewWithTag(fieldWithTag["address"]!) as! UITextField
+            
+            // For security reason disable the ability to edit this field
+            fAmdid.isEnabled = false
+            
+            fAmdid.text = patient.amdid
+            fFirstname.text = patient.firstName
+            fLastname.text = patient.lastName
+            fDob.text = patient.dob
+            fState.text = patient.state
+            fCity.text = patient.city
+            fZipcode.text = patient.zipcode
+            fPhone.text = patient.phone
+            fAddress.text = patient.address
+        }
     }
     
     // MARK: - Bar btn actions
@@ -52,14 +78,23 @@ class NewPatientController: UIViewController {
         let fZipcode = view.viewWithTag(fieldWithTag["zipcode"]!) as! UITextField
         let fPhone = view.viewWithTag(fieldWithTag["phone"]!) as! UITextField
         let fAddress = view.viewWithTag(fieldWithTag["address"]!) as! UITextField
-        
+
         guard fAmdid.text! != "" && fFirstname.text! != "" && fLastname.text! != "" && fDob.text! != "" && fState.text! != "" && fCity.text! != "" && fZipcode.text! != "" && fPhone.text! != "" && fAddress.text != "" else {
             present(VariousHelper.shared.getAlertViewAsReturnedValue(message: "One or more fields is left blank. Please fill in all required fields."), animated: true, completion: nil)
             return
         }
         
         let patient = Patient(internalId: 0, amdid: fAmdid.text!, firstName: fFirstname.text!, lastName: fLastname.text!, dob: fDob.text!, gender: genderSegment.titleForSegment(at: genderSegment.selectedSegmentIndex)!, state: fState.text!, city: fCity.text!, zipcode: fZipcode.text!, phone: fPhone.text!, address: fAddress.text!)
-        Patient.createNewPatient(patient: patient)
+        
+        if editedPatient == nil {
+            // New record
+            print("\(Patient.createNewPatient(patient: patient))")
+        } else {
+            // Edit mode
+            if Patient.updatePatient(patient) <= 0 {
+                print("Error saving edited patient.")
+            }
+        }
         
         dismiss(animated: true, completion: nil)
     }

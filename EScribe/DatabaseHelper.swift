@@ -56,6 +56,23 @@ class DatabaseHelper: NSObject {
         return arrayPatients
     }
     
+    func updatePatient(_ patient: Patient) -> Int {
+        let patientTable = Table("patients")
+        let kAmdid = Expression<String>("amdid")
+        let kFirstName = Expression<String>("firstname")
+        let kLastname = Expression<String>("lastname")
+        let kAddress = Expression<String>("address")
+        let kCity = Expression<String>("city")
+        let kState = Expression<String>("us_state")
+        let kZipcode = Expression<String>("zipcode")
+        let kDob = Expression<String>("dob")
+        let kGender = Expression<String>("gender")
+        let kPhone = Expression<String>("phone")
+        
+        let editedPatient = patientTable.filter(kAmdid == patient.amdid)
+        return try! db.run(editedPatient.update(kFirstName <- patient.firstName, kLastname <- patient.lastName, kAddress <- patient.address, kCity <- patient.city, kState <- patient.state, kZipcode <- patient.zipcode, kDob <- patient.dob, kGender <- patient.gender, kPhone <- patient.phone))
+    }
+    
     func loadAllPatientNotes(patientId: Int) -> [PatientNote] {
         // Patient notes
         let noteId = Expression<Int>("note_id")
