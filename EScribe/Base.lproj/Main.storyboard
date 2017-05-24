@@ -206,6 +206,9 @@
                                     <segment title="Completed"/>
                                     <segment title="Draft"/>
                                 </segments>
+                                <connections>
+                                    <action selector="showNoteSegmentValueChanged:" destination="XrX-nH-vjp" eventType="valueChanged" id="vpg-Ot-Xb8"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -256,6 +259,7 @@
                         <outlet property="newNoteButton" destination="2sv-ng-l8K" id="yAI-AD-Ho5"/>
                         <outlet property="notetableView" destination="0EB-4e-zuK" id="hfF-4u-iU6"/>
                         <outlet property="patientNameLabel" destination="qWJ-HF-Nh5" id="4aL-8k-8we"/>
+                        <outlet property="showNoteSegment" destination="qsm-tu-Sqa" id="zZI-eF-Zqt"/>
                         <outlet property="yearsOldLabel" destination="S8h-UI-2YK" id="Hjs-LW-B03"/>
                     </connections>
                 </viewController>

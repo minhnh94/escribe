@@ -29,6 +29,7 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet weak var newNoteButton: UIButton!
     @IBOutlet weak var notetableView: UITableView!
+    @IBOutlet weak var showNoteSegment: UISegmentedControl!
     
     var playerView: MiniPlayerView?
     
@@ -51,7 +52,13 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
         super.viewWillAppear(animated)
         
         AudioRecordHelper.shared.delegate = self
-        allNotes = currentPatient.allNotes()
+        
+        if showNoteSegment.selectedSegmentIndex == 0 {
+            allNotes = currentPatient.allCompletedNotes()
+        } else {
+            allNotes = currentPatient.allDraftNotes()
+        }
+        
         notetableView.reloadData()
     }
     
@@ -67,6 +74,7 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
         addressLabel.text = "\(currentPatient.address!), \(currentPatient.city!), \(currentPatient.state!), \(currentPatient.zipcode!)"
         dobLabel.text = "\(currentPatient.dob!)"
         yearsOldLabel.text = "(\(currentPatient.getYearsOld()))"
+        showNoteSegment.selectedSegmentIndex = 0
     }
     
     private func additionalStyling() {
@@ -76,6 +84,18 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
     }
     
     // MARK: - Actions
+    
+    @IBAction func showNoteSegmentValueChanged(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            // Show completed
+            allNotes = currentPatient.allCompletedNotes()
+        } else {
+            // Show draft
+            allNotes = currentPatient.allDraftNotes()
+        }
+        
+        notetableView.reloadData()
+    }
     
     @IBAction func recordFileClicked(_ sender: UIButton) {
         let indexPath = notetableView.indexPath(for: sender.superview?.superview as! UITableViewCell)
@@ -109,7 +129,8 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
                 print("Cannot delete file: \(error.localizedDescription)")
             }
             
-            self.allNotes = self.currentPatient.allNotes()
+            //TODO: Add the draft note case too
+            self.allNotes = self.currentPatient.allCompletedNotes()
             self.notetableView.reloadData()
         }
         let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)

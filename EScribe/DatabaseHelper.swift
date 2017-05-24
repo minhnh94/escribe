@@ -73,7 +73,7 @@ class DatabaseHelper: NSObject {
         return try! db.run(editedPatient.update(kFirstName <- patient.firstName, kLastname <- patient.lastName, kAddress <- patient.address, kCity <- patient.city, kState <- patient.state, kZipcode <- patient.zipcode, kDob <- patient.dob, kGender <- patient.gender, kPhone <- patient.phone))
     }
     
-    func loadAllPatientNotes(patientId: Int) -> [PatientNote] {
+    func loadAllCompletedPatientNotes(patientId: Int) -> [PatientNote] {
         // Patient notes
         let noteId = Expression<Int>("note_id")
         let author = Expression<String>("author")
@@ -81,16 +81,54 @@ class DatabaseHelper: NSObject {
         
         // Note content
         let parentNoteId = Expression<Int>("big_note_id")
+        let storedTypeKey = Expression<Int>("stored_type")
+        let voiceRecIndexKey = Expression<Int>("voicerec_index")
         
         // Preparing queries
         let ownedPatientId = Expression<Int>("patient_id")
         let noteContentsTable = Table("note_contents")
-        let patientNotesTable = Table("notes").filter(ownedPatientId == patientId)
+        let patientNotesTable = Table("notes").filter(ownedPatientId == patientId && storedTypeKey == 0)
         
         var arrayPatientNotes: [PatientNote] = []
         
         for patientNote in try! db.prepare(patientNotesTable) {
             let patientNoteObj = PatientNote(bigNoteId: patientNote[noteId], patientId: patientId, author: patientNote[author], datetime: patientNote[datetime])
+            patientNoteObj.storedType = patientNote[storedTypeKey]
+            patientNoteObj.voiceRecIndex = patientNote[voiceRecIndexKey]
+            
+            let filterNoteContentsTable = noteContentsTable.filter(parentNoteId == patientNoteObj.bigNoteId)
+            let allNoteContents = loadNoteContentsFromResult(result: filterNoteContentsTable)
+            
+            patientNoteObj.allNoteContents = allNoteContents
+            
+            arrayPatientNotes.append(patientNoteObj)
+        }
+        
+        return arrayPatientNotes
+    }
+    
+    func loadAllDraftPatientNotes(patientId: Int) -> [PatientNote] {
+        // Patient notes
+        let noteId = Expression<Int>("note_id")
+        let author = Expression<String>("author")
+        let datetime = Expression<String>("datetime")
+        
+        // Note content
+        let parentNoteId = Expression<Int>("big_note_id")
+        let storedTypeKey = Expression<Int>("stored_type")
+        let voiceRecIndexKey = Expression<Int>("voicerec_index")
+        
+        // Preparing queries
+        let ownedPatientId = Expression<Int>("patient_id")
+        let noteContentsTable = Table("note_contents")
+        let patientNotesTable = Table("notes").filter(ownedPatientId == patientId && storedTypeKey != 0)
+        
+        var arrayPatientNotes: [PatientNote] = []
+        
+        for patientNote in try! db.prepare(patientNotesTable) {
+            let patientNoteObj = PatientNote(bigNoteId: patientNote[noteId], patientId: patientId, author: patientNote[author], datetime: patientNote[datetime])
+            patientNoteObj.storedType = patientNote[storedTypeKey]
+            patientNoteObj.voiceRecIndex = patientNote[voiceRecIndexKey]
             
             let filterNoteContentsTable = noteContentsTable.filter(parentNoteId == patientNoteObj.bigNoteId)
             let allNoteContents = loadNoteContentsFromResult(result: filterNoteContentsTable)
@@ -121,7 +159,8 @@ class DatabaseHelper: NSObject {
     }
     
     func deletePatientWithId(_ patientId: Int) {
-        let arrayPatientNotes = loadAllPatientNotes(patientId: patientId)
+        // TODO: Resolve the draft note case too
+        let arrayPatientNotes = loadAllCompletedPatientNotes(patientId: patientId)
         for note in arrayPatientNotes {
             deletePatientNoteWithId(bigNoteId: note.bigNoteId)
         }
@@ -139,10 +178,37 @@ class DatabaseHelper: NSObject {
         let patientId = Expression<Int>("patient_id")
         let author = Expression<String>("author")
         let datetime = Expression<String>("datetime")
+        let kStoredType = Expression<Int>("stored_type")
+        let kVoiceRecIndex = Expression<Int>("voicerec_index")
         
         if patient.internalId == 0 {
             let returnedId = Patient.createNewPatient(patient: patient)
-            let rowId = try! db.run(patientNoteTable.insert(patientId <- returnedId, author <- "Dr Thanh", datetime <- VariousHelper.shared.getDateAndTimeTodayAsString()))
+            let rowId = try! db.run(patientNoteTable.insert(patientId <- returnedId, author <- "Dr Thanh", datetime <- VariousHelper.shared.getDateAndTimeTodayAsString(), kStoredType <- 0, kVoiceRecIndex <- 0))
+            return Int(rowId)
+        }
+        
+        // Else do this
+        let rowId = try! db.run(patientNoteTable.insert(patientId <- patient.internalId, author <- "Dr Thanh", datetime <- VariousHelper.shared.getDateAndTimeTodayAsString(), kStoredType <- 0, kVoiceRecIndex <- 0))
+        return Int(rowId)
+    }
+    
+    func savePatientNoteToDisk(patient: Patient, storedType: Int, voiceRecIndex: Int, loadFromPatientNoteId: Int) -> Int {
+        // TODO: Resolve save multiple time case
+        let patientNoteTable = Table("notes")
+        let patientId = Expression<Int>("patient_id")
+        let author = Expression<String>("author")
+        let datetime = Expression<String>("datetime")
+        let kStoredType = Expression<Int>("stored_type")
+        let kVoiceRecIndex = Expression<Int>("voicerec_index")
+        
+        if loadFromPatientNoteId != 0 {
+            // Delete the old note and save the new note
+            deletePatientNoteWithId(bigNoteId: loadFromPatientNoteId)
+        }
+        
+        if patient.internalId == 0 {
+            let returnedId = Patient.createNewPatient(patient: patient)
+            let rowId = try! db.run(patientNoteTable.insert(patientId <- returnedId, author <- "Dr Thanh", datetime <- VariousHelper.shared.getDateAndTimeTodayAsString(), kStoredType <- storedType, kVoiceRecIndex <- voiceRecIndex))
             return Int(rowId)
         }
         
@@ -151,16 +217,14 @@ class DatabaseHelper: NSObject {
         return Int(rowId)
     }
     
-    func createNewNoteContent(patientNoteId: Int, noteContentUid: String, noteType: String, content: String, storedType: Int, voiceRecIndex: Int) {
+    func createNewNoteContent(patientNoteId: Int, noteContentUid: String, noteType: String, content: String) {
         let noteContentTable = Table("note_contents")
         let noteContentId = Expression<String>("note_content_id")
         let patientNoteKeyId = Expression<Int>("big_note_id")
         let noteTypeKey = Expression<String>("note_type")
         let contentKey = Expression<String>("content")
-        let storedTypeKey = Expression<Int>("stored_type")
-        let voiceRecIndexKey = Expression<Int>("voicerec_index")
         
-        try! db.run(noteContentTable.insert(noteContentId <- noteContentUid, patientNoteKeyId <- patientNoteId, noteTypeKey <- noteType, contentKey <- content, storedTypeKey <- storedType, voiceRecIndexKey <- voiceRecIndex))
+        try! db.run(noteContentTable.insert(noteContentId <- noteContentUid, patientNoteKeyId <- patientNoteId, noteTypeKey <- noteType, contentKey <- content))
     }
     
     func deletePatientNoteWithId(bigNoteId: Int) {
@@ -187,14 +251,10 @@ class DatabaseHelper: NSObject {
         let noteContentId = Expression<String>("note_content_id")
         let noteType = Expression<String>("note_type")
         let noteContentString = Expression<String>("content")
-        let storedType = Expression<Int>("stored_type")
-        let voiceRecIndex = Expression<Int>("voicerec_index")
         
         for noteContent in try! db.prepare(result) {
             let noteContentObj = NoteContent(noteId: noteContent[noteContentId], bigNoteId: noteContent[patientNoteId], noteType: noteContent[noteType])
             noteContentObj.content = noteContent[noteContentString]
-            noteContentObj.storedType = noteContent[storedType]
-            noteContentObj.voiceRecIndex = noteContent[voiceRecIndex]
             arrayResult.append(noteContentObj)
         }
         

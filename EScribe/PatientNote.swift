@@ -14,6 +14,8 @@ class PatientNote: NSObject {
     var author: String!
     var datetime: String!
     var allNoteContents: [NoteContent] = []
+    var storedType: Int = 0     // 0: Finished, 1: General draft, 2: Blank note draft
+    var voiceRecIndex: Int = 0  // Skip checking if storedType = 0. Value == current index of audio recording file
     
     init(bigNoteId: Int, patientId: Int, author: String, datetime: String) {
         self.bigNoteId = bigNoteId

@@ -51,8 +51,12 @@ class Patient: NSObject {
         DatabaseHelper.shared.deletePatientWithId(patient.internalId)
     }
     
-    func allNotes() -> [PatientNote] {
-        return DatabaseHelper.shared.loadAllPatientNotes(patientId: internalId)
+    func allCompletedNotes() -> [PatientNote] {
+        return DatabaseHelper.shared.loadAllCompletedPatientNotes(patientId: internalId)
+    }
+    
+    func allDraftNotes() -> [PatientNote] {
+        return DatabaseHelper.shared.loadAllDraftPatientNotes(patientId: internalId)
     }
     
     func getYearsOld() -> Int {
