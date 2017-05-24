@@ -213,7 +213,7 @@ class DatabaseHelper: NSObject {
         }
         
         // Else do this
-        let rowId = try! db.run(patientNoteTable.insert(patientId <- patient.internalId, author <- "Dr Thanh", datetime <- VariousHelper.shared.getDateAndTimeTodayAsString()))
+        let rowId = try! db.run(patientNoteTable.insert(patientId <- patient.internalId, author <- "Dr Thanh", datetime <- VariousHelper.shared.getDateAndTimeTodayAsString(), kStoredType <- storedType, kVoiceRecIndex <- voiceRecIndex))
         return Int(rowId)
     }
     

@@ -103,7 +103,7 @@
                                     <color key="titleColor" red="0.0" green="0.47843137254901957" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="jud-rt-2gQ" kind="presentation" identifier="ToNewNoteVC" id="hvY-Ny-ZxY"/>
+                                    <action selector="newNoteClicked:" destination="XrX-nH-vjp" eventType="touchUpInside" id="50x-qT-LCv"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0EB-4e-zuK">
@@ -191,7 +191,6 @@
                                             <outlet property="noteAuthorLabel" destination="a6l-3J-hHO" id="CcR-H6-KRR"/>
                                             <outlet property="noteTypesLabel" destination="UVe-c9-iiz" id="aHb-Xx-Xpg"/>
                                             <outlet property="playAudioButton" destination="aco-5i-aY5" id="7E5-p3-JXX"/>
-                                            <segue destination="yYr-z4-UPG" kind="presentation" identifier="ToNoteDetailController" id="uCa-FL-6kX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -261,6 +260,8 @@
                         <outlet property="patientNameLabel" destination="qWJ-HF-Nh5" id="4aL-8k-8we"/>
                         <outlet property="showNoteSegment" destination="qsm-tu-Sqa" id="zZI-eF-Zqt"/>
                         <outlet property="yearsOldLabel" destination="S8h-UI-2YK" id="Hjs-LW-B03"/>
+                        <segue destination="yYr-z4-UPG" kind="presentation" identifier="ToNoteDetailController" id="fdY-Vc-4DZ"/>
+                        <segue destination="jud-rt-2gQ" kind="show" identifier="ToNewNoteVC" id="TaK-G4-XqA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I3a-Oj-cDP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -470,7 +471,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jlt-Dq-eTx">
-                                <rect key="frame" x="0.0" y="120" width="320" height="5766"/>
+                                <rect key="frame" x="0.0" y="120" width="320" height="5722"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RcV-AA-ZYR">
                                         <rect key="frame" x="8" y="8" width="304" height="4000"/>
@@ -1934,7 +1935,7 @@
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oyp-oh-Mf8">
-                                <rect key="frame" x="0.0" y="5886" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="5842" width="320" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWS-Ej-KTC">
                                         <rect key="frame" x="95" y="7.5" width="130" height="35"/>
@@ -2020,7 +2021,11 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="PCP / Cardiology" id="zYp-DK-sUp">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Tao-C1-bHd"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Tao-C1-bHd">
+                            <connections>
+                                <action selector="saveClicked:" destination="BYZ-38-t0r" id="PL6-EW-LM8"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="6000"/>
@@ -3060,7 +3065,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="i6d-cE-rff">
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="tcm-di-Yho"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="tcm-di-Yho">
+                            <connections>
+                                <action selector="saveClicked:" destination="dnO-bk-KJL" id="AuT-BK-jpB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="blankNoteTextView" destination="0tP-Ut-q5n" id="NE7-9v-6vF"/>
@@ -3109,7 +3118,7 @@
         <image name="patient-1" width="34" height="34"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hvY-Ny-ZxY"/>
         <segue reference="zbY-re-ZUc"/>
+        <segue reference="TaK-G4-XqA"/>
     </inferredMetricsTieBreakers>
 </document>

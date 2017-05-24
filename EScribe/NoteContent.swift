@@ -20,7 +20,7 @@ class NoteContent: NSObject {
         self.noteType = noteType
     }
     
-    static func createNoteContent(patientNoteId: Int, noteContentId: String, noteType: String = "PCP", content: String) {
+    static func createNoteContent(patientNoteId: Int, noteContentId: String, noteType: String, content: String) {
         DatabaseHelper.shared.createNewNoteContent(patientNoteId: patientNoteId, noteContentUid: noteContentId, noteType: noteType, content: content)
     }
 }

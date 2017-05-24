@@ -15,7 +15,7 @@ class BlankPatientNoteController: ViewControllerWithDragonSDK {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tagDictionaryChoice = 1
+        tagDictionaryChoice = 2
         
         setupDictateCommandForTextFields()
         

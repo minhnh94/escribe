@@ -85,6 +85,10 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
     
     // MARK: - Actions
     
+    @IBAction func newNoteClicked(_ sender: UIButton) {
+        performSegue(withIdentifier: NewNoteSegue, sender: nil)
+    }
+    
     @IBAction func showNoteSegmentValueChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             // Show completed
@@ -235,6 +239,10 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
         return cell
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: NoteDetailSegue, sender: indexPath)
+    }
+    
     // MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -245,8 +253,8 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
         } else if segue.identifier == NoteDetailSegue {
             let vc = segue.destination as! NoteDetailController
             vc.currentPatient = currentPatient
-            let indexPath = notetableView.indexPath(for: sender as! UITableViewCell)
-            vc.noteDetail = allNotes[indexPath!.row].allNoteContents.first!.content
+            let indexPath = sender as! IndexPath
+            vc.noteDetail = allNotes[indexPath.row].allNoteContents.first!.content
         }
     }
     

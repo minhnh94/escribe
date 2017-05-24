@@ -78,7 +78,7 @@ class ViewController: UIViewController, UITextFieldDelegate, SKTransactionDelega
         AudioRecordHelper.shared.mergeAudioFiles(uuid: uuid, numOfParts: numOfRecording, completionHandler: {            
             let result = PatientNote.createNewPatientNote(patient: self.currentPatient)
             let xmlString = self.getXMLResultString()
-            NoteContent.createNoteContent(patientNoteId: result, noteContentId: self.uuid, content: xmlString)
+            NoteContent.createNoteContent(patientNoteId: result, noteContentId: self.uuid, noteType: self.title!, content: xmlString)
         })
     }
     

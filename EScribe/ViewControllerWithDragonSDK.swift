@@ -26,7 +26,7 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UIText
     var currentPatient: Patient!
     var numOfRecording: Int = 0
     var uuid = ""    // Unique ID for naming audio files
-    var tagDictionaryChoice = 0     // Use for manipulating tag association
+    var tagDictionaryChoice = 1     // Use for manipulating tag association, also use as note input type
     
     // MARK: - UI properties
     @IBOutlet weak var submitButton: UIButton!
@@ -111,6 +111,19 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UIText
         }
     }
     
+    @IBAction func saveClicked(_ sender: UIBarButtonItem) {
+        let result = PatientNote.savePatientNoteToDisk(patient: currentPatient, storedType: tagDictionaryChoice, voiceRecIndex: numOfRecording)
+        let xmlString = getXMLResultString()
+        NoteContent.createNoteContent(patientNoteId: result, noteContentId: uuid, noteType: self.title!, content: xmlString)
+        
+        let alertVC = UIAlertController(title: "", message: "Saving draft finished.", preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(alertVC, animated: true, completion: nil)
+    }
+    
     @IBAction func submitClicked(_ sender: UIButton) {
         AudioRecordHelper.shared.mergeAudioFiles(uuid: uuid, numOfParts: numOfRecording, completionHandler: {            
             let result = PatientNote.createNewPatientNote(patient: self.currentPatient)
@@ -184,14 +197,14 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UIText
         
         let informationChild = patientNote.addChild(name: "information")
         
-        if tagDictionaryChoice == 0 {
+        if tagDictionaryChoice == 1 {
             for (key, tag) in NameTagAssociation.nameTagDictionary {
                 let inputField = view.viewWithTag(tag) as! UITextField
                 if inputField.text != "" {
                     informationChild.addChild(name: key.replacingOccurrences(of: " ", with: "_"), value: inputField.text)
                 }
             }
-        } else if tagDictionaryChoice == 1 {
+        } else if tagDictionaryChoice == 2 {
             for (key, tag) in NameTagAssociation.blankTagDictionary {
                 let inputField = view.viewWithTag(tag) as! UITextView
                 if inputField.text != "" {

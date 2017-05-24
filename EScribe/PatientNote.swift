@@ -41,6 +41,10 @@ class PatientNote: NSObject {
         return DatabaseHelper.shared.createNewPatientNote(patient: patient)
     }
     
+    static func savePatientNoteToDisk(patient: Patient, storedType: Int, voiceRecIndex: Int, loadFromPatientNoteId: Int = 0) -> Int {
+        return DatabaseHelper.shared.savePatientNoteToDisk(patient: patient, storedType: storedType, voiceRecIndex: voiceRecIndex ,loadFromPatientNoteId: loadFromPatientNoteId)
+    }
+    
     static func deletePatientNoteWithId(bigNoteId: Int) {
         DatabaseHelper.shared.deletePatientNoteWithId(bigNoteId: bigNoteId)
     }
