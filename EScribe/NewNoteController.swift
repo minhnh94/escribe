@@ -56,15 +56,27 @@ class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDel
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (indexPath.row == newNoteTypeArray.count - 1) {
+            performSegue(withIdentifier: "ToBlankNoteVC", sender: indexPath)
+        } else {
+            performSegue(withIdentifier: "ToInputNoteVC", sender: indexPath)
+        }
+    }
+    
     // MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let indexPath = sender as! IndexPath
+        
+        let vc = segue.destination as! ViewControllerWithDragonSDK
+        vc.title = newNoteTypeArray[indexPath.row]
+        vc.currentPatient = currentPatient
+        
         if segue.identifier == "ToInputNoteVC" {
-            let indexPath = noteTypeTableView.indexPath(for: sender as! UITableViewCell)
+        
+        } else if segue.identifier == "ToBlankNoteVC" {
             
-            let vc = segue.destination as! ViewControllerWithDragonSDK
-            vc.title = newNoteTypeArray[indexPath!.row]
-            vc.currentPatient = currentPatient
         }
     }
 }

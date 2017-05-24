@@ -53,4 +53,8 @@ class NameTagAssociation: NSObject {
         "lymphatic": 140,
         "chest": 141
     ]
+    
+    static let blankTagDictionary = [
+        "patient note content": 100
+    ]
 }

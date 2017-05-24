@@ -14,6 +14,7 @@
 		640917E51E535368002C7F2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 640917E31E535368002C7F2B /* LaunchScreen.storyboard */; };
 		640B19671E7FDF0B0032B242 /* NewNoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640B19661E7FDF0B0032B242 /* NewNoteController.swift */; };
 		641E35F61E9CF6EC00D905D6 /* NoteDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641E35F51E9CF6EC00D905D6 /* NoteDetailController.swift */; };
+		641E96FD1ED42FC20055A759 /* BlankPatientNoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641E96FC1ED42FC20055A759 /* BlankPatientNoteController.swift */; };
 		644E72DE1E83864D00857D3A /* InputWrapperTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644E72DD1E83864D00857D3A /* InputWrapperTextView.swift */; };
 		645CDFEF1EC6186900DF862C /* GeneralNoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645CDFEE1EC6186900DF862C /* GeneralNoteController.swift */; };
 		6479DD001E8BACF50032CA79 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6479DCFF1E8BACF50032CA79 /* AudioToolbox.framework */; };
@@ -65,6 +66,7 @@
 		640917E61E535368002C7F2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		640B19661E7FDF0B0032B242 /* NewNoteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewNoteController.swift; sourceTree = "<group>"; };
 		641E35F51E9CF6EC00D905D6 /* NoteDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetailController.swift; sourceTree = "<group>"; };
+		641E96FC1ED42FC20055A759 /* BlankPatientNoteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlankPatientNoteController.swift; sourceTree = "<group>"; };
 		644E72DD1E83864D00857D3A /* InputWrapperTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputWrapperTextView.swift; sourceTree = "<group>"; };
 		645CDFEE1EC6186900DF862C /* GeneralNoteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralNoteController.swift; sourceTree = "<group>"; };
 		6479DCFF1E8BACF50032CA79 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -254,6 +256,7 @@
 				640917DC1E535368002C7F2B /* ViewController.swift */,
 				6479DD261E8BB5000032CA79 /* ViewControllerWithDragonSDK.swift */,
 				645CDFEE1EC6186900DF862C /* GeneralNoteController.swift */,
+				641E96FC1ED42FC20055A759 /* BlankPatientNoteController.swift */,
 				64C774591E77F5C900751936 /* PatientListController.swift */,
 				64A6D9AE1E7AAE250010C482 /* PatientDetailController.swift */,
 				640B19661E7FDF0B0032B242 /* NewNoteController.swift */,
@@ -417,6 +420,7 @@
 				64A6D9AF1E7AAE250010C482 /* PatientDetailController.swift in Sources */,
 				64E947181E72CEE3009E232C /* NameTagAssociation.swift in Sources */,
 				6487F9871EB34624000FC5F2 /* Appointment.swift in Sources */,
+				641E96FD1ED42FC20055A759 /* BlankPatientNoteController.swift in Sources */,
 				6487F9891EB3493E000FC5F2 /* ApiHelper.swift in Sources */,
 				640917DD1E535368002C7F2B /* ViewController.swift in Sources */,
 				64C774551E77F35100751936 /* PatientListCell.swift in Sources */,

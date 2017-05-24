@@ -10,7 +10,7 @@ import UIKit
 import QuartzCore
 import AEXML
 
-class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASessionDelegate, NUSAVuiControllerDelegate {
+class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UITextViewDelegate, NUSASessionDelegate, NUSAVuiControllerDelegate {
 
     // MARK: - API related data
     let kMyPartnerGuid = "da76b0a6-3428-4f0f-b1d0-f8d20909ffa9"
@@ -20,15 +20,15 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
     
     // MARK: - Controller properties
     var vuiController: NUSAVuiController!
-    var currentProcessingText: UITextField?
+    var currentProcessingText: UIView?
     var isRecording: Bool = false
     var startSelectingField = true
     var currentPatient: Patient!
     var numOfRecording: Int = 0
     var uuid = ""    // Unique ID for naming audio files
+    var tagDictionaryChoice = 0     // Use for manipulating tag association
     
     // MARK: - UI properties
-    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var statusNotifyTextField: UILabel!
@@ -111,11 +111,6 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
         }
     }
     
-    @IBAction func cancelClicked(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    
     @IBAction func submitClicked(_ sender: UIButton) {
         AudioRecordHelper.shared.mergeAudioFiles(uuid: uuid, numOfParts: numOfRecording, completionHandler: {            
             let result = PatientNote.createNewPatientNote(patient: self.currentPatient)
@@ -150,6 +145,16 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
         return true
     }
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        currentProcessingText = textView
+    }
+    
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        textView.resignFirstResponder()
+        currentProcessingText = nil
+        return true
+    }
+    
     // MARK: - SpeechKit Delegates
     
     func sessionDidStartRecording() {
@@ -178,10 +183,20 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, NUSASe
         let patientNote = AEXMLDocument()
         
         let informationChild = patientNote.addChild(name: "information")
-        for (key, tag) in NameTagAssociation.nameTagDictionary {
-            let inputField = view.viewWithTag(tag) as! UITextField
-            if inputField.text != "" {
-                informationChild.addChild(name: key.replacingOccurrences(of: " ", with: "_"), value: inputField.text)
+        
+        if tagDictionaryChoice == 0 {
+            for (key, tag) in NameTagAssociation.nameTagDictionary {
+                let inputField = view.viewWithTag(tag) as! UITextField
+                if inputField.text != "" {
+                    informationChild.addChild(name: key.replacingOccurrences(of: " ", with: "_"), value: inputField.text)
+                }
+            }
+        } else if tagDictionaryChoice == 1 {
+            for (key, tag) in NameTagAssociation.blankTagDictionary {
+                let inputField = view.viewWithTag(tag) as! UITextView
+                if inputField.text != "" {
+                    informationChild.addChild(name: key.replacingOccurrences(of: " ", with: "_"), value: inputField.text)
+                }
             }
         }
         
