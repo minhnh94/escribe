@@ -93,10 +93,10 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2sv-ng-l8K">
-                                <rect key="frame" x="99" y="238" width="122" height="27"/>
+                                <rect key="frame" x="224" y="238" width="80" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="6IJ-Uw-qb2"/>
-                                    <constraint firstAttribute="width" constant="122" id="YUy-zh-BWH"/>
+                                    <constraint firstAttribute="width" constant="80" id="YUy-zh-BWH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="New note">
@@ -200,6 +200,13 @@
                                     <outlet property="delegate" destination="XrX-nH-vjp" id="B4z-eu-XdE"/>
                                 </connections>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qsm-tu-Sqa">
+                                <rect key="frame" x="16" y="238" width="200" height="29"/>
+                                <segments>
+                                    <segment title="Completed"/>
+                                    <segment title="Draft"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -219,7 +226,9 @@
                             <constraint firstItem="Z18-Rr-PZ4" firstAttribute="leading" secondItem="qWJ-HF-Nh5" secondAttribute="leading" id="T9D-co-f77"/>
                             <constraint firstItem="aee-J4-45S" firstAttribute="top" secondItem="RAb-4h-meO" secondAttribute="bottom" id="TEF-Uo-xeH"/>
                             <constraint firstItem="RAb-4h-meO" firstAttribute="leading" secondItem="qWJ-HF-Nh5" secondAttribute="leading" id="W7i-jM-tZ3"/>
+                            <constraint firstItem="2sv-ng-l8K" firstAttribute="leading" secondItem="qsm-tu-Sqa" secondAttribute="trailing" constant="8" id="WvQ-3k-6n3"/>
                             <constraint firstItem="S8h-UI-2YK" firstAttribute="leading" secondItem="c6f-H3-c4s" secondAttribute="trailing" constant="5" id="XoR-3f-4et"/>
+                            <constraint firstItem="qsm-tu-Sqa" firstAttribute="centerY" secondItem="2sv-ng-l8K" secondAttribute="centerY" id="XtP-oh-bw8"/>
                             <constraint firstItem="R49-dH-mIR" firstAttribute="leading" secondItem="Vwq-Mx-liO" secondAttribute="leadingMargin" id="b0T-gH-pIB"/>
                             <constraint firstAttribute="trailing" secondItem="0EB-4e-zuK" secondAttribute="trailing" id="cQO-Vo-UFY"/>
                             <constraint firstItem="c6f-H3-c4s" firstAttribute="top" secondItem="qWJ-HF-Nh5" secondAttribute="bottom" id="cYf-HB-SUq"/>
@@ -227,11 +236,12 @@
                             <constraint firstItem="aee-J4-45S" firstAttribute="trailing" secondItem="Vwq-Mx-liO" secondAttribute="trailingMargin" id="g5j-bg-zvE"/>
                             <constraint firstItem="aee-J4-45S" firstAttribute="leading" secondItem="qWJ-HF-Nh5" secondAttribute="leading" id="gMs-8K-hyX"/>
                             <constraint firstItem="RAb-4h-meO" firstAttribute="top" secondItem="Z18-Rr-PZ4" secondAttribute="bottom" id="ilN-ao-Kh6"/>
+                            <constraint firstItem="qsm-tu-Sqa" firstAttribute="leading" secondItem="Vwq-Mx-liO" secondAttribute="leadingMargin" id="l3a-NV-7kg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2sv-ng-l8K" secondAttribute="trailing" id="lWM-Ja-CzE"/>
                             <constraint firstItem="0EB-4e-zuK" firstAttribute="top" secondItem="2sv-ng-l8K" secondAttribute="bottom" constant="8" id="ovr-hN-z1B"/>
                             <constraint firstItem="QMn-AJ-fW2" firstAttribute="centerY" secondItem="RAb-4h-meO" secondAttribute="centerY" id="p8V-Eq-qKr"/>
                             <constraint firstItem="2sv-ng-l8K" firstAttribute="top" secondItem="R49-dH-mIR" secondAttribute="bottom" constant="8" id="pOT-Tu-zL7"/>
                             <constraint firstItem="0EB-4e-zuK" firstAttribute="leading" secondItem="Vwq-Mx-liO" secondAttribute="leading" id="qpW-nj-mON"/>
-                            <constraint firstItem="2sv-ng-l8K" firstAttribute="centerX" secondItem="Vwq-Mx-liO" secondAttribute="centerX" id="qzY-Fd-zD7"/>
                             <constraint firstItem="QMn-AJ-fW2" firstAttribute="leading" secondItem="RAb-4h-meO" secondAttribute="trailing" constant="5" id="rbp-tr-8d3"/>
                             <constraint firstItem="3jH-Oj-Rwg" firstAttribute="leading" secondItem="Vwq-Mx-liO" secondAttribute="leadingMargin" id="xc3-v6-vY9"/>
                         </constraints>
@@ -436,7 +446,7 @@
                         <outlet property="patientNameLabel" destination="kh6-lD-JeB" id="ZYF-q8-w8f"/>
                         <outlet property="yearsOldLabel" destination="aYb-Aa-fav" id="L8u-jk-sAP"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="ToInputNoteVC" id="Sjv-s9-lOC"/>
-                        <segue destination="dnO-bk-KJL" kind="show" identifier="ToBlankNoteVC" id="CNM-tG-RQg"/>
+                        <segue destination="dnO-bk-KJL" kind="show" identifier="ToBlankNoteVC" id="HGQ-OT-SRC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ym-if-QJX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2005,7 +2015,9 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="PCP / Cardiology" id="zYp-DK-sUp"/>
+                    <navigationItem key="navigationItem" title="PCP / Cardiology" id="zYp-DK-sUp">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Tao-C1-bHd"/>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="6000"/>
                     <connections>
@@ -3043,6 +3055,9 @@
                             <constraint firstItem="qAz-Iu-fa1" firstAttribute="centerY" secondItem="feg-FW-tGz" secondAttribute="centerY" id="vpI-Bw-QWb"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="i6d-cE-rff">
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="tcm-di-Yho"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="blankNoteTextView" destination="0tP-Ut-q5n" id="NE7-9v-6vF"/>
                         <outlet property="dobLabel" destination="feg-FW-tGz" id="Hc6-Yx-Jpt"/>
@@ -3090,7 +3105,7 @@
         <image name="patient-1" width="34" height="34"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="i4h-WA-rrb"/>
+        <segue reference="hvY-Ny-ZxY"/>
         <segue reference="zbY-re-ZUc"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -10,7 +10,7 @@ import UIKit
 
 class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    let newNoteTypeArray = ["General", "PCP", "Cardiology", "Blank note"]     // More will be added on demand
+    let newNoteTypeArray = ["General", "PCP", "Cardiology", "Blank note", "Continue editing"]     // More will be added on demand
     var currentPatient: Patient!
     
     @IBOutlet weak var patientNameLabel: UILabel!
@@ -57,7 +57,7 @@ class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (indexPath.row == newNoteTypeArray.count - 1) {
+        if (indexPath.row == newNoteTypeArray.count - 2) {
             performSegue(withIdentifier: "ToBlankNoteVC", sender: indexPath)
         } else {
             performSegue(withIdentifier: "ToInputNoteVC", sender: indexPath)

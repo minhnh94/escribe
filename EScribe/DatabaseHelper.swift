@@ -151,14 +151,16 @@ class DatabaseHelper: NSObject {
         return Int(rowId)
     }
     
-    func createNewNoteContent(patientNoteId: Int, noteContentUid: String, noteType: String, content: String) {
+    func createNewNoteContent(patientNoteId: Int, noteContentUid: String, noteType: String, content: String, storedType: Int, voiceRecIndex: Int) {
         let noteContentTable = Table("note_contents")
         let noteContentId = Expression<String>("note_content_id")
         let patientNoteKeyId = Expression<Int>("big_note_id")
         let noteTypeKey = Expression<String>("note_type")
         let contentKey = Expression<String>("content")
+        let storedTypeKey = Expression<Int>("stored_type")
+        let voiceRecIndexKey = Expression<Int>("voicerec_index")
         
-        try! db.run(noteContentTable.insert(noteContentId <- noteContentUid, patientNoteKeyId <- patientNoteId, noteTypeKey <- noteType, contentKey <- content))
+        try! db.run(noteContentTable.insert(noteContentId <- noteContentUid, patientNoteKeyId <- patientNoteId, noteTypeKey <- noteType, contentKey <- content, storedTypeKey <- storedType, voiceRecIndexKey <- voiceRecIndex))
     }
     
     func deletePatientNoteWithId(bigNoteId: Int) {
@@ -185,10 +187,14 @@ class DatabaseHelper: NSObject {
         let noteContentId = Expression<String>("note_content_id")
         let noteType = Expression<String>("note_type")
         let noteContentString = Expression<String>("content")
+        let storedType = Expression<Int>("stored_type")
+        let voiceRecIndex = Expression<Int>("voicerec_index")
         
         for noteContent in try! db.prepare(result) {
             let noteContentObj = NoteContent(noteId: noteContent[noteContentId], bigNoteId: noteContent[patientNoteId], noteType: noteContent[noteType])
             noteContentObj.content = noteContent[noteContentString]
+            noteContentObj.storedType = noteContent[storedType]
+            noteContentObj.voiceRecIndex = noteContent[voiceRecIndex]
             arrayResult.append(noteContentObj)
         }
         
