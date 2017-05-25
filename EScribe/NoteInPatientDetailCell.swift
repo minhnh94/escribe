@@ -14,6 +14,7 @@ class NoteInPatientDetailCell: UITableViewCell {
     @IBOutlet weak var noteTypesLabel: UILabel!
     @IBOutlet weak var noteAuthorLabel: UILabel!
     @IBOutlet weak var playAudioButton: UIButton!
+    @IBOutlet weak var uploadButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

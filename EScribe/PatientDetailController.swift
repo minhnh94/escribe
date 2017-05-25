@@ -133,8 +133,11 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
                 print("Cannot delete file: \(error.localizedDescription)")
             }
             
-            //TODO: Add the draft note case too
-            self.allNotes = self.currentPatient.allCompletedNotes()
+            if self.showNoteSegment.selectedSegmentIndex == 0 {
+                self.allNotes = self.currentPatient.allCompletedNotes()
+            } else {
+                self.allNotes = self.currentPatient.allDraftNotes()
+            }
             self.notetableView.reloadData()
         }
         let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -236,11 +239,23 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
             cell.playAudioButton.isUserInteractionEnabled = false
         }
         
+        if showNoteSegment.selectedSegmentIndex == 0 {
+            cell.uploadButton.isUserInteractionEnabled = true
+            cell.uploadButton.setImage(#imageLiteral(resourceName: "ico_upload"), for: .normal)
+        } else {
+            cell.uploadButton.isUserInteractionEnabled = false
+            cell.uploadButton.setImage(#imageLiteral(resourceName: "ico_upload_disabled"), for: .normal)
+        }
+        
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: NoteDetailSegue, sender: indexPath)
+        if showNoteSegment.selectedSegmentIndex == 0 {
+            performSegue(withIdentifier: NoteDetailSegue, sender: indexPath)
+        } else {
+            performSegue(withIdentifier: NewNoteSegue, sender: indexPath)
+        }
     }
     
     // MARK: - Segue
@@ -250,6 +265,13 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
             let nc = segue.destination as! UINavigationController
             let vc = nc.topViewController as! NewNoteController
             vc.currentPatient = currentPatient
+            
+            if sender != nil {
+                let indexPath = sender as! IndexPath
+                let editedPatientNote = allNotes[indexPath.row]
+                vc.toBeEditedPatientNote = editedPatientNote
+            }
+            
         } else if segue.identifier == NoteDetailSegue {
             let vc = segue.destination as! NoteDetailController
             vc.currentPatient = currentPatient

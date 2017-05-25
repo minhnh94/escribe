@@ -191,6 +191,7 @@
                                             <outlet property="noteAuthorLabel" destination="a6l-3J-hHO" id="CcR-H6-KRR"/>
                                             <outlet property="noteTypesLabel" destination="UVe-c9-iiz" id="aHb-Xx-Xpg"/>
                                             <outlet property="playAudioButton" destination="aco-5i-aY5" id="7E5-p3-JXX"/>
+                                            <outlet property="uploadButton" destination="MCh-nO-ssI" id="T7m-DP-jvI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -396,7 +397,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d0b-2a-B7T">
-                                <rect key="frame" x="0.0" y="167" width="320" height="401"/>
+                                <rect key="frame" x="0.0" y="167" width="320" height="357"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewNoteTypeCell" textLabel="SZ5-S3-Lqa" style="IBUITableViewCellStyleDefault" id="KZG-xE-sgX">
@@ -2972,7 +2973,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9RW-lf-Baj">
-                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="474" width="320" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjJ-d5-KxK">
                                         <rect key="frame" x="95" y="7.5" width="130" height="35"/>
@@ -3033,7 +3034,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0tP-Ut-q5n">
-                                <rect key="frame" x="16" y="177" width="288" height="333"/>
+                                <rect key="frame" x="16" y="177" width="288" height="289"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>

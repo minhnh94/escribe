@@ -27,6 +27,7 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UIText
     var numOfRecording: Int = 0
     var uuid = ""    // Unique ID for naming audio files
     var tagDictionaryChoice = 1     // Use for manipulating tag association, also use as note input type
+    var editedPatientNote: PatientNote?
     
     // MARK: - UI properties
     @IBOutlet weak var submitButton: UIButton!
