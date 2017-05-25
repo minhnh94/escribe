@@ -2564,7 +2564,7 @@
                                     <outlet property="delegate" destination="gp9-Qb-XgV" id="JDS-bN-wW6"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test build: 2017/4/26" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KdC-qp-NtR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test build: 2017/5/25" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KdC-qp-NtR">
                                 <rect key="frame" x="16" y="72" width="288" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2598,6 +2598,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="patientSearchBar" destination="PN6-Hn-6rs" id="bs2-mm-h10"/>
                         <outlet property="patientTableView" destination="uRr-HQ-0pl" id="DIg-DT-aab"/>
                         <outlet property="searchDisplayController" destination="VNc-5J-SGf" id="R3N-Wx-TYj"/>
                         <segue destination="XrX-nH-vjp" kind="show" identifier="ToPatientDetailVC" id="WaD-96-u5B"/>

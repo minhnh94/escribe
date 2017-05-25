@@ -8,14 +8,16 @@
 
 import UIKit
 
-class PatientListController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class PatientListController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UISearchBarDelegate {
 
     let PatientDetailSegue = "ToPatientDetailVC"
     let PatientEditSegue = "ToEditPatientVC"
     
-    var arrayPatients = Patient.allPatients()
+    var allPatientsArray: [Patient] = []
+    var arrayPatients: [Patient] = []
     
     @IBOutlet weak var patientTableView: UITableView!
+    @IBOutlet weak var patientSearchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,7 @@ class PatientListController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        allPatientsArray = Patient.allPatients()
         arrayPatients = Patient.allPatients()
         patientTableView.reloadData()
     }
@@ -76,8 +79,30 @@ class PatientListController: UIViewController, UITableViewDataSource, UITableVie
     
     // MARK: - Search bar delegate
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        arrayPatients = generateSearchResult(searchStr: searchText)
+        
+        patientTableView.reloadData()
+    }
+    
+    private func generateSearchResult(searchStr: String) -> [Patient] {
+        if searchStr == "" {
+            return allPatientsArray
+        } else {
+            return allPatientsArray.filter({ patient -> Bool in
+                patient.firstName.lowercased().contains(searchStr.lowercased()) || patient.lastName.lowercased().contains(searchStr.lowercased())
+            })
+        }
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+    }
+    
+    // MARK: - Scroll view delegate
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        patientSearchBar.resignFirstResponder()
     }
     
     // MARK: - Actions
