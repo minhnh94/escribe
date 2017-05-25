@@ -59,6 +59,12 @@ class NewPatientController: UIViewController {
             fZipcode.text = patient.zipcode
             fPhone.text = patient.phone
             fAddress.text = patient.address
+            
+            if patient.gender == "Male" {
+                genderSegment.selectedSegmentIndex = 0
+            } else {
+                genderSegment.selectedSegmentIndex = 1
+            }
         }
     }
     
