@@ -173,13 +173,18 @@ class DatabaseHelper: NSObject {
         try! db.run(deletedPatient.delete())
     }
     
-    func createNewPatientNote(patient: Patient) -> Int {
+    func createNewPatientNote(patient: Patient, loadFromPatientNoteId: Int) -> Int {
         let patientNoteTable = Table("notes")
         let patientId = Expression<Int>("patient_id")
         let author = Expression<String>("author")
         let datetime = Expression<String>("datetime")
         let kStoredType = Expression<Int>("stored_type")
         let kVoiceRecIndex = Expression<Int>("voicerec_index")
+        
+        if loadFromPatientNoteId != 0 {
+            // Delete the old note and save the new note
+            deletePatientNoteWithId(bigNoteId: loadFromPatientNoteId)
+        }
         
         if patient.internalId == 0 {
             let returnedId = Patient.createNewPatient(patient: patient)

@@ -48,6 +48,8 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UIText
         NUSASession.shared().delegate = self
         
         uuid = "\(currentPatient.firstName!) \(currentPatient.lastName!)_\(title!)_\(VariousHelper.shared.getTodayAsFullString())"
+        
+        setupEditIfNeeded()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -63,6 +65,28 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UIText
         patientNameLabel.text = currentPatient.firstName + " " + currentPatient.lastName
         dobLabel.text = currentPatient.dob
         yearsOldLabel.text = "(\(currentPatient.getYearsOld()))"
+    }
+    
+    private func setupEditIfNeeded() {
+        if let uEditedPatientNote = editedPatientNote {
+            tagDictionaryChoice = uEditedPatientNote.storedType
+            uuid = uEditedPatientNote.allNoteContents.first!.noteId
+            numOfRecording = uEditedPatientNote.voiceRecIndex
+            title = uEditedPatientNote.allNoteContents.first!.noteType
+            
+            let dictionary = VariousHelper.shared.convertXMLStringToDictionary(xmlString: uEditedPatientNote.allNoteContents.first!.content)
+            let fieldTagDictionary = tagDictionaryChoice == 1 ? NameTagAssociation.nameTagDictionary : NameTagAssociation.blankTagDictionary
+            for (dictKey, dictValue) in dictionary {
+                let tagNum = fieldTagDictionary[dictKey]
+                if tagDictionaryChoice == 1 {
+                    let textField = view.viewWithTag(tagNum!) as! UITextField
+                    textField.text = dictValue
+                } else {
+                    let textView = view.viewWithTag(tagNum!) as! UITextView
+                    textView.text = dictValue
+                }
+            }
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -113,7 +137,12 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UIText
     }
     
     @IBAction func saveClicked(_ sender: UIBarButtonItem) {
-        let result = PatientNote.savePatientNoteToDisk(patient: currentPatient, storedType: tagDictionaryChoice, voiceRecIndex: numOfRecording)
+        var result = 0
+        if editedPatientNote == nil {
+            result = PatientNote.savePatientNoteToDisk(patient: currentPatient, storedType: tagDictionaryChoice, voiceRecIndex: numOfRecording)
+        } else {
+            result = PatientNote.savePatientNoteToDisk(patient: currentPatient, storedType: tagDictionaryChoice, voiceRecIndex: numOfRecording, loadFromPatientNoteId: editedPatientNote!.bigNoteId)
+        }
         let xmlString = getXMLResultString()
         NoteContent.createNoteContent(patientNoteId: result, noteContentId: uuid, noteType: self.title!, content: xmlString)
         
@@ -126,8 +155,13 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UIText
     }
     
     @IBAction func submitClicked(_ sender: UIButton) {
-        AudioRecordHelper.shared.mergeAudioFiles(uuid: uuid, numOfParts: numOfRecording, completionHandler: {            
-            let result = PatientNote.createNewPatientNote(patient: self.currentPatient)
+        AudioRecordHelper.shared.mergeAudioFiles(uuid: uuid, numOfParts: numOfRecording, completionHandler: {
+            var result = 0
+            if self.editedPatientNote == nil {
+                result = PatientNote.createNewPatientNote(patient: self.currentPatient)
+            } else {
+                result = PatientNote.createNewPatientNote(patient: self.currentPatient, loadFromPatientNoteId: self.editedPatientNote!.bigNoteId)
+            }
             let xmlString = self.getXMLResultString()
             let patientNoteSavePath = VariousHelper.shared.getDocumentPath().appendingPathComponent("\(self.uuid).txt")
             do {
@@ -174,7 +208,7 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UIText
     func sessionDidStartRecording() {
         isRecording = true
         changeInterface()
-        statusNotifyTextField.text = "00:00:00"
+        statusNotifyTextField.text = "Recording"
         numOfRecording += 1
         AudioRecordHelper.shared.record(filename: "\(uuid)-p\(numOfRecording)")
         submitButton.isEnabled = false

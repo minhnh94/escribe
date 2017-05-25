@@ -37,8 +37,8 @@ class PatientNote: NSObject {
         return result
     }
     
-    static func createNewPatientNote(patient: Patient) -> Int {
-        return DatabaseHelper.shared.createNewPatientNote(patient: patient)
+    static func createNewPatientNote(patient: Patient, loadFromPatientNoteId: Int = 0) -> Int {
+        return DatabaseHelper.shared.createNewPatientNote(patient: patient, loadFromPatientNoteId: loadFromPatientNoteId)
     }
     
     static func savePatientNoteToDisk(patient: Patient, storedType: Int, voiceRecIndex: Int, loadFromPatientNoteId: Int = 0) -> Int {

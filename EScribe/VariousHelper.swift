@@ -96,4 +96,20 @@ class VariousHelper: NSObject {
         
         return result
     }
+    
+    func convertXMLStringToDictionary(xmlString: String) -> [String: String] {
+        var result: [String: String] = [:]
+        
+        do {
+            let xml = try AEXMLDocument(xml: xmlString)
+            for child in xml.root.children {
+                let key = child.name.replacingOccurrences(of: "_", with: " ")
+                result[key] = child.string
+            }
+        } catch let error {
+            print("Cannot parse xml: \(error.localizedDescription)")
+        }
+        
+        return result
+    }
 }
