@@ -61,7 +61,9 @@ class ApiHelper: NSObject {
                     return
                 }
                 
-                completion(appointmentArray)
+                completion(appointmentArray.sorted(by: { (a1, a2) -> Bool in
+                    a1.apptDate < a2.apptDate
+                }))
         }
     }
 }

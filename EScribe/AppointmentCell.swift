@@ -14,7 +14,5 @@ class AppointmentCell: UITableViewCell {
     @IBOutlet weak var datetimeLabel: UILabel!
     @IBOutlet weak var patientIdLabel: UILabel!
     @IBOutlet weak var patientNameLabel: UILabel!
-    @IBOutlet weak var providerNameLabel: UILabel!
-    @IBOutlet weak var facilityNameLabel: UILabel!
     
 }

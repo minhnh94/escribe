@@ -120,15 +120,17 @@ class PatientListController: UIViewController, UITableViewDataSource, UITableVie
     // MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let indexPath = sender as! IndexPath
-        let currentPatient = arrayPatients[indexPath.row]
-        
-        if segue.identifier == PatientDetailSegue {
-            let vc = segue.destination as! PatientDetailController
-            vc.currentPatient = currentPatient
-        } else if segue.identifier == PatientEditSegue {
-            let vc = segue.destination as! NewPatientController
-            vc.editedPatient = currentPatient
+        if sender is IndexPath {
+            let indexPath = sender as! IndexPath
+            let currentPatient = arrayPatients[indexPath.row]
+            
+            if segue.identifier == PatientDetailSegue {
+                let vc = segue.destination as! PatientDetailController
+                vc.currentPatient = currentPatient
+            } else if segue.identifier == PatientEditSegue {
+                let vc = segue.destination as! NewPatientController
+                vc.editedPatient = currentPatient
+            }
         }
     }
 }

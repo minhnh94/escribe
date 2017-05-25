@@ -47,7 +47,6 @@ class DatabaseHelper: NSObject {
         let phone = Expression<String>("phone")
         
         var arrayPatients: [Patient] = []
-        patients.order(lastname, firstName)
         
         for patient in try! db.prepare(patients) {
             let patientObj = Patient(internalId: patient[internalId], amdid: patient[amdid], firstName: patient[firstName], lastName: patient[lastname], dob: patient[dob], gender: patient[gender], state: patient[state], city: patient[city], zipcode: patient[zipcode], phone: patient[phone], address: patient[address])
@@ -91,7 +90,6 @@ class DatabaseHelper: NSObject {
         let patientNotesTable = Table("notes").filter(ownedPatientId == patientId && storedTypeKey == 0)
         
         var arrayPatientNotes: [PatientNote] = []
-        patientNotesTable.order(noteId)
         
         for patientNote in try! db.prepare(patientNotesTable) {
             let patientNoteObj = PatientNote(bigNoteId: patientNote[noteId], patientId: patientId, author: patientNote[author], datetime: patientNote[datetime])
@@ -106,6 +104,9 @@ class DatabaseHelper: NSObject {
             arrayPatientNotes.append(patientNoteObj)
         }
         
+        arrayPatientNotes.sort { (noteA, noteB) -> Bool in
+            noteA.datetime > noteB.datetime
+        }
         return arrayPatientNotes
     }
     
@@ -126,7 +127,6 @@ class DatabaseHelper: NSObject {
         let patientNotesTable = Table("notes").filter(ownedPatientId == patientId && storedTypeKey != 0)
         
         var arrayPatientNotes: [PatientNote] = []
-        patientNotesTable.order(noteId)
         
         for patientNote in try! db.prepare(patientNotesTable) {
             let patientNoteObj = PatientNote(bigNoteId: patientNote[noteId], patientId: patientId, author: patientNote[author], datetime: patientNote[datetime])
@@ -141,6 +141,9 @@ class DatabaseHelper: NSObject {
             arrayPatientNotes.append(patientNoteObj)
         }
         
+        arrayPatientNotes.sort { (noteA, noteB) -> Bool in
+            noteA.datetime > noteB.datetime
+        }
         return arrayPatientNotes
     }
     

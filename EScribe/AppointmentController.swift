@@ -88,8 +88,6 @@ class AppointmentController: UIViewController, UITableViewDataSource, UITableVie
         cell.datetimeLabel.text = appointment.apptDate
         cell.patientIdLabel.text = appointment.patientId
         cell.patientNameLabel.text = appointment.patientName
-        cell.providerNameLabel.text = appointment.providerName
-        cell.facilityNameLabel.text = appointment.facilityName
         
         return cell
     }
