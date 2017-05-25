@@ -8,14 +8,12 @@
 
 import UIKit
 
-class AppointmentController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, DoneButtonClickedDelegate {
+class AppointmentController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var appointmentTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var totalAppointmentsLabel: UILabel!
     
-    var timeRangeSetting = 1   // 0: Today, 1: Week, 2: Month
-    var stringFilterSetting = 1     // 0: Patient id, 1: Patient name, 2: Provider name
     var appointmentArray: [Appointment] = []
     
     override func viewDidLoad() {
@@ -33,38 +31,8 @@ class AppointmentController: UIViewController, UITableViewDataSource, UITableVie
     private func loadDataFromServer() {
         let apiHelper = ApiHelper()
         
-        switch timeRangeSetting {
-        case 0:
-            apiHelper.startDate = VariousHelper.shared.getDateTodayAsString()
-            apiHelper.endDate = VariousHelper.shared.getDateTodayAsString()
-            break
-        case 1:
-            apiHelper.startDate = VariousHelper.shared.getDateTodayAsString()
-            apiHelper.endDate = VariousHelper.shared.getDateAfterAWeekFromTodayAsString()
-            break
-        case 2:
-            apiHelper.startDate = VariousHelper.shared.getDateTodayAsString()
-            apiHelper.endDate = VariousHelper.shared.getDateAfterAMonthFromTodayAsString()
-            break
-        default:
-            apiHelper.startDate = VariousHelper.shared.getDateTodayAsString()
-            apiHelper.endDate = VariousHelper.shared.getDateAfterAWeekFromTodayAsString()
-            break
-        }
-        
-        switch stringFilterSetting {
-        case 0:
-            apiHelper.patientId = searchBar.text
-            break
-        case 1:
-            apiHelper.patientName = searchBar.text
-            break
-        case 2:
-            apiHelper.providerName = searchBar.text
-            break
-        default:
-            break
-        }
+        apiHelper.startDate = VariousHelper.shared.getDateTodayAsString()
+        apiHelper.endDate = VariousHelper.shared.getDateTodayAsString()
         
         apiHelper.getListAppointment { resultArray in
             self.appointmentArray = resultArray
@@ -92,30 +60,10 @@ class AppointmentController: UIViewController, UITableViewDataSource, UITableVie
         return cell
     }
     
-    // MARK: - Search bar delegate
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        loadDataFromServer()
-    }
-    
-    // MARK: - Filter controller delegate
-    
-    func doneButtonDidClicked(stringFilter: Int, timeRangeFilter: Int) {
-        stringFilterSetting = stringFilter
-        timeRangeSetting = timeRangeFilter
-        loadDataFromServer()
-    }
-    
     // MARK: - Segues
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ToTimeRangeFilterController" {
-            let nc = segue.destination as! UINavigationController
-            let vc = nc.topViewController as! TimeSelectController
-            vc.timeRangeSetting = timeRangeSetting
-            vc.doneBtnDelegate = self
-        } else if segue.identifier == "ToNewNoteVC" {
+        if segue.identifier == "ToNewNoteVC" {
             let indexPath = appointmentTableView.indexPath(for: sender as! UITableViewCell)
             let appointmentData = appointmentArray[indexPath!.row]
             

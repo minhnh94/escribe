@@ -29,7 +29,6 @@
 		6479F32E1ED6E21C0032EC54 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6479F32D1ED6E21C0032EC54 /* LoginController.swift */; };
 		647C8A2A1E9B90AD00943F13 /* NewPatientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647C8A291E9B90AD00943F13 /* NewPatientController.swift */; };
 		6487F97F1EB33602000FC5F2 /* AppointmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6487F97E1EB33602000FC5F2 /* AppointmentController.swift */; };
-		6487F9831EB3366C000FC5F2 /* TimeSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6487F9821EB3366C000FC5F2 /* TimeSelectController.swift */; };
 		6487F9851EB33A31000FC5F2 /* AppointmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6487F9841EB33A31000FC5F2 /* AppointmentCell.swift */; };
 		6487F9871EB34624000FC5F2 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6487F9861EB34624000FC5F2 /* Appointment.swift */; };
 		6487F9891EB3493E000FC5F2 /* ApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6487F9881EB3493E000FC5F2 /* ApiHelper.swift */; };
@@ -97,7 +96,6 @@
 		6479F32D1ED6E21C0032EC54 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		647C8A291E9B90AD00943F13 /* NewPatientController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPatientController.swift; sourceTree = "<group>"; };
 		6487F97E1EB33602000FC5F2 /* AppointmentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentController.swift; sourceTree = "<group>"; };
-		6487F9821EB3366C000FC5F2 /* TimeSelectController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSelectController.swift; sourceTree = "<group>"; };
 		6487F9841EB33A31000FC5F2 /* AppointmentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentCell.swift; sourceTree = "<group>"; };
 		6487F9861EB34624000FC5F2 /* Appointment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		6487F9881EB3493E000FC5F2 /* ApiHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiHelper.swift; sourceTree = "<group>"; };
@@ -265,7 +263,6 @@
 				647C8A291E9B90AD00943F13 /* NewPatientController.swift */,
 				641E35F51E9CF6EC00D905D6 /* NoteDetailController.swift */,
 				6487F97E1EB33602000FC5F2 /* AppointmentController.swift */,
-				6487F9821EB3366C000FC5F2 /* TimeSelectController.swift */,
 				6479F32D1ED6E21C0032EC54 /* LoginController.swift */,
 			);
 			name = Controllers;
@@ -440,7 +437,6 @@
 				64F6AD9C1E7C21DA00ED8509 /* PatientNote.swift in Sources */,
 				64E9471C1E73270E009E232C /* AudioRecordHelper.swift in Sources */,
 				647C8A2A1E9B90AD00943F13 /* NewPatientController.swift in Sources */,
-				6487F9831EB3366C000FC5F2 /* TimeSelectController.swift in Sources */,
 				6487F97F1EB33602000FC5F2 /* AppointmentController.swift in Sources */,
 				64C4CCB81E81569F0023F548 /* InputWrapperView.swift in Sources */,
 				64C774581E77F40A00751936 /* Patient.swift in Sources */,
