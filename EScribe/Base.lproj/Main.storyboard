@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -2057,22 +2058,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Login Picture" translatesAutoresizingMaskIntoConstraints="NO" id="N68-FE-Jfq">
-                                <rect key="frame" x="0.0" y="20" width="320" height="312.5"/>
+                                <rect key="frame" x="89.5" y="20" width="142" height="142"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="N68-FE-Jfq" secondAttribute="height" multiplier="1:1" id="xzA-ks-xQ4"/>
+                                </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3d5-cC-6KX">
-                                <rect key="frame" x="16" y="357" width="288" height="30"/>
+                                <rect key="frame" x="16" y="186.5" width="288" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kXg-Wo-lIQ">
-                                <rect key="frame" x="16" y="408" width="288" height="30"/>
+                                <rect key="frame" x="16" y="237.5" width="288" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSQ-H4-qx7">
-                                <rect key="frame" x="141" y="446" width="38" height="30"/>
+                                <rect key="frame" x="141" y="275.5" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginClicked:" destination="ZHU-9m-5mc" eventType="touchUpInside" id="GDE-Av-9TQ"/>
@@ -2084,15 +2088,14 @@
                             <constraint firstItem="3d5-cC-6KX" firstAttribute="top" secondItem="N68-FE-Jfq" secondAttribute="bottom" constant="24.5" id="BUg-tb-id3"/>
                             <constraint firstItem="kXg-Wo-lIQ" firstAttribute="top" secondItem="3d5-cC-6KX" secondAttribute="bottom" constant="21" id="GzL-ei-PlN"/>
                             <constraint firstItem="3d5-cC-6KX" firstAttribute="leading" secondItem="1Ci-mH-R0E" secondAttribute="leadingMargin" id="N8O-1Y-vuY"/>
-                            <constraint firstItem="N68-FE-Jfq" firstAttribute="height" secondItem="1Ci-mH-R0E" secondAttribute="height" multiplier="0.55" id="NeN-IF-KRd"/>
+                            <constraint firstItem="N68-FE-Jfq" firstAttribute="height" secondItem="1Ci-mH-R0E" secondAttribute="height" multiplier="0.25" id="NeN-IF-KRd"/>
                             <constraint firstItem="iSQ-H4-qx7" firstAttribute="centerX" secondItem="1Ci-mH-R0E" secondAttribute="centerX" id="P0b-YK-omS"/>
                             <constraint firstItem="3d5-cC-6KX" firstAttribute="trailing" secondItem="1Ci-mH-R0E" secondAttribute="trailingMargin" id="Twc-Yf-EjY"/>
-                            <constraint firstAttribute="trailing" secondItem="N68-FE-Jfq" secondAttribute="trailing" id="U9z-hc-80o"/>
                             <constraint firstItem="iSQ-H4-qx7" firstAttribute="top" secondItem="kXg-Wo-lIQ" secondAttribute="bottom" constant="8" id="WAc-4O-NV9"/>
                             <constraint firstItem="N68-FE-Jfq" firstAttribute="top" secondItem="71T-4f-C1p" secondAttribute="bottom" id="gyJ-N7-Ijo"/>
-                            <constraint firstItem="N68-FE-Jfq" firstAttribute="leading" secondItem="1Ci-mH-R0E" secondAttribute="leading" id="iKE-K0-Vr1"/>
                             <constraint firstItem="kXg-Wo-lIQ" firstAttribute="leading" secondItem="1Ci-mH-R0E" secondAttribute="leadingMargin" id="oEq-Dr-TX1"/>
                             <constraint firstItem="kXg-Wo-lIQ" firstAttribute="trailing" secondItem="1Ci-mH-R0E" secondAttribute="trailingMargin" id="qkj-V4-81W"/>
+                            <constraint firstItem="N68-FE-Jfq" firstAttribute="centerX" secondItem="1Ci-mH-R0E" secondAttribute="centerX" id="zuD-se-TAW"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -2716,7 +2719,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rRt-Dx-oX4" id="tla-0n-SjE">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="84.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appointment ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="et3-9r-y0H">
