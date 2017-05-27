@@ -33,7 +33,6 @@
 		6487F9871EB34624000FC5F2 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6487F9861EB34624000FC5F2 /* Appointment.swift */; };
 		6487F9891EB3493E000FC5F2 /* ApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6487F9881EB3493E000FC5F2 /* ApiHelper.swift */; };
 		64882B551ED730F40016C47F /* DragonMedicalSpeechKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64882B531ED730F40016C47F /* DragonMedicalSpeechKit.framework */; };
-		64882B561ED730F40016C47F /* DragonMedicalSpeechKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 64882B541ED730F40016C47F /* DragonMedicalSpeechKit.bundle */; };
 		6497B4E51E92373A0070DC35 /* MiniPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6497B4E41E92373A0070DC35 /* MiniPlayerView.xib */; };
 		6497B4E71E9239800070DC35 /* MiniPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6497B4E61E9239800070DC35 /* MiniPlayerView.swift */; };
 		64A6D9AD1E7AADE20010C482 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64A6D9AC1E7AADE20010C482 /* QuartzCore.framework */; };
@@ -100,7 +99,6 @@
 		6487F9861EB34624000FC5F2 /* Appointment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		6487F9881EB3493E000FC5F2 /* ApiHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiHelper.swift; sourceTree = "<group>"; };
 		64882B531ED730F40016C47F /* DragonMedicalSpeechKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DragonMedicalSpeechKit.framework; sourceTree = "<group>"; };
-		64882B541ED730F40016C47F /* DragonMedicalSpeechKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DragonMedicalSpeechKit.bundle; sourceTree = "<group>"; };
 		6497B4E41E92373A0070DC35 /* MiniPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MiniPlayerView.xib; sourceTree = "<group>"; };
 		6497B4E61E9239800070DC35 /* MiniPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniPlayerView.swift; sourceTree = "<group>"; };
 		649DB1DB1EBE2E4C00F037BD /* experimental.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = experimental.playground; sourceTree = "<group>"; };
@@ -169,7 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				64882B531ED730F40016C47F /* DragonMedicalSpeechKit.framework */,
-				64882B541ED730F40016C47F /* DragonMedicalSpeechKit.bundle */,
 				649DB1DB1EBE2E4C00F037BD /* experimental.playground */,
 				640917D91E535368002C7F2B /* EScribe */,
 				640917D81E535368002C7F2B /* Products */,
@@ -355,7 +352,6 @@
 				6497B4E51E92373A0070DC35 /* MiniPlayerView.xib in Resources */,
 				640917E51E535368002C7F2B /* LaunchScreen.storyboard in Resources */,
 				640917E21E535368002C7F2B /* Assets.xcassets in Resources */,
-				64882B561ED730F40016C47F /* DragonMedicalSpeechKit.bundle in Resources */,
 				640917E01E535368002C7F2B /* Main.storyboard in Resources */,
 				64C7745C1E78015B00751936 /* escribe.db in Resources */,
 			);
