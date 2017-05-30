@@ -17,6 +17,10 @@ class VariousHelper: NSObject {
         // Just a placeholder
     }
     
+    func getADateAsString(date: Date) -> String {
+        return DateInRegion(absoluteDate: date).string(custom: "yyyy-MM-dd")
+    }
+    
     func getDateTodayAsString() -> String {
         return DateInRegion().string(custom: "yyyy-MM-dd")
     }

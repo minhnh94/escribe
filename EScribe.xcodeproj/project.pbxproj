@@ -229,9 +229,9 @@
 				64F6AD991E7C1E3600ED8509 /* NoteInPatientDetailCell.swift */,
 				64C4CCB71E81569F0023F548 /* InputWrapperView.swift */,
 				644E72DD1E83864D00857D3A /* InputWrapperTextView.swift */,
-				6497B4E41E92373A0070DC35 /* MiniPlayerView.xib */,
 				6497B4E61E9239800070DC35 /* MiniPlayerView.swift */,
 				6487F9841EB33A31000FC5F2 /* AppointmentCell.swift */,
+				6497B4E41E92373A0070DC35 /* MiniPlayerView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";

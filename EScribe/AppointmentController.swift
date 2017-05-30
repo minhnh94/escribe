@@ -8,11 +8,12 @@
 
 import UIKit
 
-class AppointmentController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class AppointmentController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var appointmentTableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var datetimeTextField: UITextField!
     @IBOutlet weak var totalAppointmentsLabel: UILabel!
+    var picker = UIDatePicker()
     
     var appointmentArray: [Appointment] = []
     
@@ -20,19 +21,36 @@ class AppointmentController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        loadDataFromServer()
+        loadDataFromServer(date: Date())
+        datetimeTextField.text = VariousHelper.shared.getDateTodayAsString()
+        setupPicker()
     }
     
-    private func loadDataFromServer() {
+    private func setupPicker() {
+        picker.datePickerMode = .date
+        
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 44))
+        toolbar.tintColor = UIColor.gray
+        let barBtnDone = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleDatePicker))
+        toolbar.items = [barBtnDone]
+        
+        datetimeTextField.inputView = picker
+        datetimeTextField.inputAccessoryView = toolbar
+    }
+
+    func handleDatePicker() {
+        datetimeTextField.text = VariousHelper.shared.getADateAsString(date: picker.date)
+        
+        loadDataFromServer(date: picker.date)
+        
+        datetimeTextField.resignFirstResponder()
+    }
+    
+    private func loadDataFromServer(date: Date) {
         let apiHelper = ApiHelper()
         
-        apiHelper.startDate = VariousHelper.shared.getDateTodayAsString()
-        apiHelper.endDate = VariousHelper.shared.getDateTodayAsString()
+        apiHelper.startDate = VariousHelper.shared.getADateAsString(date: date)
+        apiHelper.endDate = VariousHelper.shared.getADateAsString(date: date)
         
         apiHelper.getListAppointment { resultArray in
             self.appointmentArray = resultArray
@@ -40,6 +58,10 @@ class AppointmentController: UIViewController, UITableViewDataSource, UITableVie
             self.totalAppointmentsLabel.text = "\(self.appointmentArray.count)"
         }
     }
+    
+    // MARK: - Date picker delegate
+    
+
     
     // MARK: - Table view delegates
     

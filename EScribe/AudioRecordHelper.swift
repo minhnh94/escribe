@@ -119,6 +119,7 @@ class AudioRecordHelper: NSObject, AVAudioRecorderDelegate {
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer?.prepareToPlay()
+            audioPlayer?.volume = 1.0
             delegate?.playerDidGetDuration(duration: audioPlayer!.duration)
         } catch let error {
             print("Cannot play audio: \(error.localizedDescription)")

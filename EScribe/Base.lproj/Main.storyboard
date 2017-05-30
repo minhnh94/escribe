@@ -2063,13 +2063,13 @@
                                     <constraint firstAttribute="width" secondItem="N68-FE-Jfq" secondAttribute="height" multiplier="1:1" id="xzA-ks-xQ4"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3d5-cC-6KX">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BRIGANDI,CATHERINE" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3d5-cC-6KX">
                                 <rect key="frame" x="16" y="186.5" width="288" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kXg-Wo-lIQ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="whatever" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kXg-Wo-lIQ">
                                 <rect key="frame" x="16" y="237.5" width="288" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -2812,6 +2812,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="wpF-XK-yz1" id="FWf-ob-m1D"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2834,6 +2837,7 @@
                     <navigationItem key="navigationItem" title="Appointment" id="M9f-9d-2DA"/>
                     <connections>
                         <outlet property="appointmentTableView" destination="6WD-ua-ZJd" id="dq3-tr-lBM"/>
+                        <outlet property="datetimeTextField" destination="Ybm-DK-TsD" id="cS1-A6-neW"/>
                         <outlet property="totalAppointmentsLabel" destination="nKM-F2-CW3" id="SrY-EQ-SFq"/>
                     </connections>
                 </viewController>
