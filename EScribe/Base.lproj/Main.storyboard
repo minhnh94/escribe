@@ -447,6 +447,11 @@
                                 <action selector="cancelClicked:" destination="EbK-ge-idF" id="K86-sX-bAx"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Parse" id="tTs-Dg-FAu">
+                            <connections>
+                                <action selector="parseClicked:" destination="EbK-ge-idF" id="eZa-uy-1ue"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="dobLabel" destination="617-6R-4PA" id="gqD-y7-YJ4"/>

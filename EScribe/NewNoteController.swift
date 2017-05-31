@@ -43,6 +43,13 @@ class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDel
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func parseClicked(_ sender: UIBarButtonItem) {
+        let api = ApiHelper()
+        api.sendAudioFileToNuance { _ in
+            
+        }
+    }
+    
     // MARK: - Table view delegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
