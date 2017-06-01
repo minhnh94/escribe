@@ -64,25 +64,12 @@ class VariousHelper: NSObject {
         return docDirect
     }
     
-    func getAlertView(message: String) {
-        let vc = UIAlertController(title: "", message: message, preferredStyle: .alert)
-        vc.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        
-        var rootViewController = UIApplication.shared.keyWindow?.rootViewController
-        if let navigationController = rootViewController as? UINavigationController {
-            rootViewController = navigationController.viewControllers.first
-        }
-        if let tabBarController = rootViewController as? UITabBarController {
-            rootViewController = tabBarController.selectedViewController
-        }
-        rootViewController?.present(vc, animated: true, completion: nil)
+    func savePhysicianName(name: String) {
+        UserDefaults.standard.set(name.capitalized, forKey: "loginName")
     }
     
-    func getAlertViewAsReturnedValue(message: String) -> UIAlertController {
-        let vc = UIAlertController(title: "", message: message, preferredStyle: .alert)
-        vc.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        
-        return vc
+    func loadCurrentPhysicianName() -> String {
+        return UserDefaults.standard.value(forKey: "loginName") as! String
     }
     
     func convertXMLStringToReadableString(xmlString: String) -> String {

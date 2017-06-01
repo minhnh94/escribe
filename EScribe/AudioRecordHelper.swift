@@ -117,6 +117,7 @@ class AudioRecordHelper: NSObject, AVAudioRecorderDelegate {
     func setupAudio(filename: String) {
         let url = VariousHelper.shared.getDocumentPath().appendingPathComponent("\(filename).m4a")
         do {
+            try AVAudioSession.sharedInstance().overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer?.prepareToPlay()
             audioPlayer?.volume = 1.0

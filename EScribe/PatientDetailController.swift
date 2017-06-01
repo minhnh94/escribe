@@ -182,6 +182,7 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
         playerView.datetimeLabel.text = data.datetime
         playerView.noteTypeLabel.text = data.allNoteContents.first!.noteType
         playerView.slider.value = 0
+        playerView.doctorLabel.text = VariousHelper.shared.loadCurrentPhysicianName()
     }
     
     func didClickPlayButton(sender: UIButton) {

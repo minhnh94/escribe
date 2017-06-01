@@ -86,7 +86,7 @@ class NewPatientController: UIViewController {
         let fAddress = view.viewWithTag(fieldWithTag["address"]!) as! UITextField
 
         guard fAmdid.text! != "" && fFirstname.text! != "" && fLastname.text! != "" && fDob.text! != "" && fState.text! != "" && fCity.text! != "" && fZipcode.text! != "" && fPhone.text! != "" && fAddress.text != "" else {
-            present(VariousHelper.shared.getAlertViewAsReturnedValue(message: "One or more fields is left blank. Please fill in all required fields."), animated: true, completion: nil)
+            UIAlertView(title: "", message: "One or more fields is left blank. Please fill in all required fields.", delegate: nil, cancelButtonTitle: "OK")
             return
         }
         

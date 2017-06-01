@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MediaPlayer
 
 class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -44,10 +45,7 @@ class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     @IBAction func parseClicked(_ sender: UIBarButtonItem) {
-        let api = ApiHelper()
-        api.sendAudioFileToNuance { _ in
-            
-        }
+        performSegue(withIdentifier: "ToParseFileVC", sender: nil)
     }
     
     // MARK: - Table view delegate
@@ -102,17 +100,19 @@ class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDel
     // MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let indexPath = sender as! IndexPath
-        
-        let vc = segue.destination as! ViewControllerWithDragonSDK
-        vc.title = newNoteTypeArray[indexPath.row]
-        vc.currentPatient = currentPatient
-        vc.editedPatientNote = toBeEditedPatientNote
-        
-        if segue.identifier == "ToInputNoteVC" {
-        
-        } else if segue.identifier == "ToBlankNoteVC" {
+        if segue.identifier != "ToParseFileVC" {            
+            let indexPath = sender as! IndexPath
             
+            let vc = segue.destination as! ViewControllerWithDragonSDK
+            vc.title = newNoteTypeArray[indexPath.row]
+            vc.currentPatient = currentPatient
+            vc.editedPatientNote = toBeEditedPatientNote
+            
+            if segue.identifier == "ToInputNoteVC" {
+                
+            } else if segue.identifier == "ToBlankNoteVC" {
+                
+            }
         }
     }
 }
