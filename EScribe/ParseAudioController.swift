@@ -17,13 +17,15 @@ class ParseAudioController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let docPath = VariousHelper.shared.getDocumentPath().absoluteString
-        let enumerator = FileManager.default.enumerator(atPath: docPath)
-        let filePaths = enumerator?.allObjects as! [String]
-        let txtFilePaths = filePaths.filter{$0.contains(".wav")}
-        for txtFilePath in txtFilePaths{
-            print(txtFilePath)
-            fileArray.append(txtFilePath)
+        let docPath = VariousHelper.shared.getDocumentPath().path
+        let filemanager:FileManager = FileManager()
+        print(NSHomeDirectory())
+        let files = filemanager.enumerator(atPath: docPath)
+        while let file = files?.nextObject() {
+            let fileName = file as! String
+            if fileName.hasSuffix(".wav") {
+                fileArray.append(fileName)
+            }
         }
     }
 
@@ -33,6 +35,9 @@ class ParseAudioController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AudioFileCell", for: indexPath)
+        
+        cell.textLabel?.text = fileArray[indexPath.row]
+        cell.textLabel?.textColor = UIColor(red:0.0/255.0, green:122.0/255.0, blue:206.0/255.0, alpha:255.0/255.0)
         
         return cell
     }
