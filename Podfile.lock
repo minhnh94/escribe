@@ -9,6 +9,7 @@ PODS:
   - SQLite.swift (0.11.0):
     - SQLite.swift/standard (= 0.11.0)
   - SQLite.swift/standard (0.11.0)
+  - SVProgressHUD (2.0.3)
   - SwiftDate (4.0.6)
 
 DEPENDENCIES:
@@ -17,6 +18,7 @@ DEPENDENCIES:
   - AlamofireObjectMapper (~> 4.0)
   - IQKeyboardManagerSwift
   - SQLite.swift
+  - SVProgressHUD
   - SwiftDate
 
 SPEC CHECKSUMS:
@@ -26,8 +28,9 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 58bbcf46b5cf9fd4ed625d28a60cb2fbae4ab0f4
   ObjectMapper: e5e0f8aef8590fc2ddcde7f27eddb255863ee6e9
   SQLite.swift: 9a26273607d3077a2e5a8d33486e9989f8404c7d
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   SwiftDate: 549729eaa54bd9f64fd80abfd12ddd3d44ff5098
 
-PODFILE CHECKSUM: df31700de7a6c49badb392dac80766304871f042
+PODFILE CHECKSUM: 484baef014279489466fc1dbaac7f091a9cf29b9
 
 COCOAPODS: 1.1.1

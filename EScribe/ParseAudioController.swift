@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol AudioSelectionDelegate: class {
+    func didSelectAudioFileWithPath(_ path: String)
+}
+
 class ParseAudioController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    
     var fileArray: [String] = []
+    weak var delegate: AudioSelectionDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +25,6 @@ class ParseAudioController: UIViewController, UITableViewDataSource, UITableView
         // Do any additional setup after loading the view.
         let docPath = VariousHelper.shared.getDocumentPath().path
         let filemanager:FileManager = FileManager()
-        print(NSHomeDirectory())
         let files = filemanager.enumerator(atPath: docPath)
         while let file = files?.nextObject() {
             let fileName = file as! String
@@ -43,7 +48,8 @@ class ParseAudioController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        dismiss(animated: true, completion: nil)
+        delegate?.didSelectAudioFileWithPath(VariousHelper.shared.getDocumentPath().appendingPathComponent(fileArray[indexPath.row]).path)
     }
     
     @IBAction func cancelClicked(_ sender: UIBarButtonItem) {

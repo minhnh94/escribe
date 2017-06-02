@@ -13,4 +13,5 @@ target 'EScribe' do
     pod 'IQKeyboardManagerSwift'
     pod 'Alamofire', '~> 4.0'
     pod 'AlamofireObjectMapper', '~> 4.0'
+    pod 'SVProgressHUD'
 end

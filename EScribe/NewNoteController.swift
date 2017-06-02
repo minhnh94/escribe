@@ -8,8 +8,9 @@
 
 import UIKit
 import MediaPlayer
+import SVProgressHUD
 
-class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDelegate, AudioSelectionDelegate {
 
     let newNoteTypeArray = ["General", "PCP", "Cardiology", "Blank note", "Continue editing"]     // More will be added on demand
     var currentPatient: Patient!
@@ -97,6 +98,20 @@ class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDel
         }
     }
     
+    // MARK: - Parse audio delegate
+    
+    func didSelectAudioFileWithPath(_ path: String) {
+        let api = ApiHelper()
+        SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.show()
+        api.sendAudioFileToNuance(fileUrl: URL(fileURLWithPath: path)) { (response) in
+            if let uString = response {
+                SVProgressHUD.dismiss()
+                print(uString)
+            }
+        }
+    }
+    
     // MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -113,6 +128,9 @@ class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDel
             } else if segue.identifier == "ToBlankNoteVC" {
                 
             }
+        } else {
+            let vc = segue.destination as! ParseAudioController
+            vc.delegate = self
         }
     }
 }
