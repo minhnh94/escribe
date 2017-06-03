@@ -15,6 +15,7 @@ class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDel
     let newNoteTypeArray = ["General", "PCP", "Cardiology", "Blank note", "Continue editing"]     // More will be added on demand
     var currentPatient: Patient!
     var toBeEditedPatientNote: PatientNote?
+    var usedParseFunction = 0
     
     @IBOutlet weak var patientNameLabel: UILabel!
     @IBOutlet weak var dobLabel: UILabel!
@@ -103,11 +104,11 @@ class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDel
     func didSelectAudioFileWithPath(_ path: String) {
         let api = ApiHelper()
         SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.show()
+        SVProgressHUD.show(withStatus: "Generating form...")
         api.sendAudioFileToNuance(fileUrl: URL(fileURLWithPath: path)) { (response) in
             if let uString = response {
-                SVProgressHUD.dismiss()
-                print(uString)
+                self.usedParseFunction = 1
+                self.performSegue(withIdentifier: "ToInputNoteVC", sender: uString)
             }
         }
     }
@@ -115,22 +116,74 @@ class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDel
     // MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier != "ToParseFileVC" {            
-            let indexPath = sender as! IndexPath
-            
-            let vc = segue.destination as! ViewControllerWithDragonSDK
-            vc.title = newNoteTypeArray[indexPath.row]
-            vc.currentPatient = currentPatient
-            vc.editedPatientNote = toBeEditedPatientNote
-            
-            if segue.identifier == "ToInputNoteVC" {
+        if segue.identifier != "ToParseFileVC" {
+            if (usedParseFunction == 1) {
+                let transcribedString = sender as! String
+                let vc = segue.destination as! GeneralNoteController
                 
-            } else if segue.identifier == "ToBlankNoteVC" {
+                embedResultIntoViewController(vc, transcribedString: transcribedString)
                 
+                SVProgressHUD.dismiss()
+            } else {
+                let indexPath = sender as! IndexPath
+                
+                let vc = segue.destination as! ViewControllerWithDragonSDK
+                vc.title = newNoteTypeArray[indexPath.row]
+                vc.currentPatient = currentPatient
+                vc.editedPatientNote = toBeEditedPatientNote
             }
         } else {
             let vc = segue.destination as! ParseAudioController
             vc.delegate = self
         }
+    }
+    
+    private func embedResultIntoViewController(_ vc: GeneralNoteController, transcribedString: String) {
+        vc.title = "General"
+        vc.currentPatient = currentPatient
+        vc.editedPatientNote = toBeEditedPatientNote
+        
+        var indexOfField = 100
+        
+        for sentence in tokenizeString(aString: sentencifyString(aString: transcribedString)) {
+            if sentence.hasPrefix("next field") {
+                indexOfField = indexOfField + 1 > 141 ? 100 : indexOfField + 1
+            } else if sentence.hasPrefix("previous field") {
+                indexOfField = indexOfField - 1 < 100 ? 141 : indexOfField - 1
+            } else if sentence.hasPrefix("go to") {
+                var detachedSentence = sentence.replacingOccurrences(of: "go to ", with: "")
+                for fieldKey in NameTagAssociation.nameTagDictionary.keys {
+                    if detachedSentence.hasPrefix(fieldKey) {
+                        detachedSentence = detachedSentence.replacingOccurrences(of: fieldKey, with: "")
+                        indexOfField = NameTagAssociation.nameTagDictionary[fieldKey]!
+                        let textField = vc.view.viewWithTag(indexOfField) as! UITextField
+                        textField.text = detachedSentence
+                    }
+                }
+            } else {
+                let textField = vc.view.viewWithTag(indexOfField) as! UITextField
+                textField.text = sentence
+            }
+        }
+    }
+    
+    private func sentencifyString(aString: String) -> String {
+        var result = aString.lowercased().replacingOccurrences(of: "go to", with: ".go to")
+        result = result.replacingOccurrences(of: "next field", with: ".next field.")
+        result = result.replacingOccurrences(of: "previous field", with: ".previous field.")
+        result = result.replacingOccurrences(of: "stop recording", with: "")
+        
+        return result
+    }
+    
+    private func tokenizeString(aString: String) -> [String] {
+        var arrayResult = aString.components(separatedBy: ".")
+        if let firstString = arrayResult.first {
+            if firstString == "" {
+                arrayResult.remove(at: 0)
+            }
+        }
+        
+        return arrayResult
     }
 }

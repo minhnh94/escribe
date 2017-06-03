@@ -104,7 +104,6 @@
 		64882B531ED730F40016C47F /* DragonMedicalSpeechKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DragonMedicalSpeechKit.framework; sourceTree = "<group>"; };
 		6497B4E41E92373A0070DC35 /* MiniPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MiniPlayerView.xib; sourceTree = "<group>"; };
 		6497B4E61E9239800070DC35 /* MiniPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniPlayerView.swift; sourceTree = "<group>"; };
-		649DB1DB1EBE2E4C00F037BD /* experimental.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = experimental.playground; sourceTree = "<group>"; };
 		64A6D9AC1E7AADE20010C482 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		64A6D9AE1E7AAE250010C482 /* PatientDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientDetailController.swift; sourceTree = "<group>"; };
 		64AE77341EDF1BF00044D524 /* ParseAudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseAudioController.swift; sourceTree = "<group>"; };
@@ -171,7 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				64882B531ED730F40016C47F /* DragonMedicalSpeechKit.framework */,
-				649DB1DB1EBE2E4C00F037BD /* experimental.playground */,
 				640917D91E535368002C7F2B /* EScribe */,
 				640917D81E535368002C7F2B /* Products */,
 				9D1654BD8E41F08436BF8690 /* Pods */,

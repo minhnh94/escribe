@@ -5,3 +5,5 @@ import SwiftDate
 
 let date = DateInRegion()
 print("\(date.year)\(date.shortMonthName)\(date.day)\(date.weekdayName)\(date.string(custom: "HH:mm:ss"))")
+
+print(".go to abc. ye".components(separatedBy: "."))
