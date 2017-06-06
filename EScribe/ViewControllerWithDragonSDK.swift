@@ -9,6 +9,7 @@
 import UIKit
 import QuartzCore
 import AEXML
+import SpeechKit
 
 class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UITextViewDelegate, NUSASessionDelegate, NUSAVuiControllerDelegate {
 

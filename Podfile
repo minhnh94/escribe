@@ -6,7 +6,7 @@ target 'EScribe' do
   use_frameworks!
 
   # Pods for EScribe
-#	pod 'SpeechKit'
+	pod 'SpeechKit'
     pod 'SwiftDate'
     pod 'SQLite.swift'
     pod 'AEXML'
