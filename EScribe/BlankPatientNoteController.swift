@@ -38,7 +38,7 @@ class BlankPatientNoteController: ViewControllerWithDragonSDK {
     func setupFormCommand() {
         let commandSet = NUSACommandSet(name: "Generate Form Command", description: "Use to generate a predefined patient note form")
         commandSet?.createCommand("createNormalExam", phrase: "normal exam", display: nil, description: "General normal exam form")
-        vuiController.assignCommandSets([commandSet!])
+//        vuiController.assignCommandSets([commandSet!])
     }
     
     func vuiControllerDidRecognizeCommand(_ id: String!, spokenPhrase: String!, withContent content: String!, placeholderValues: [AnyHashable : Any]!) {
