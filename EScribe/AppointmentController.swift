@@ -51,6 +51,7 @@ class AppointmentController: UIViewController, UITableViewDataSource, UITableVie
         
         apiHelper.startDate = VariousHelper.shared.getADateAsString(date: date)
         apiHelper.endDate = VariousHelper.shared.getADateAsString(date: date)
+        apiHelper.providerName = VariousHelper.shared.loadCurrentPhysicianName()
         
         apiHelper.getListAppointment { resultArray in
             self.appointmentArray = resultArray
@@ -58,10 +59,6 @@ class AppointmentController: UIViewController, UITableViewDataSource, UITableVie
             self.totalAppointmentsLabel.text = "\(self.appointmentArray.count)"
         }
     }
-    
-    // MARK: - Date picker delegate
-    
-
     
     // MARK: - Table view delegates
     
@@ -78,8 +75,13 @@ class AppointmentController: UIViewController, UITableViewDataSource, UITableVie
         cell.datetimeLabel.text = appointment.apptDate
         cell.patientIdLabel.text = appointment.patientId
         cell.patientNameLabel.text = appointment.patientName
+        cell.addressLabel.text = appointment.facilityName
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 161
     }
     
     // MARK: - Segues
