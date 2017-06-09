@@ -46,7 +46,6 @@
 		64C7745C1E78015B00751936 /* escribe.db in Resources */ = {isa = PBXBuildFile; fileRef = 64C7745B1E78015B00751936 /* escribe.db */; };
 		64C7745E1E780EE000751936 /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C7745D1E780EE000751936 /* DatabaseHelper.swift */; };
 		64C774601E7817A800751936 /* VariousHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C7745F1E7817A800751936 /* VariousHelper.swift */; };
-		64D775321EE6BE4D009A2233 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D775311EE6BE4D009A2233 /* ViewController.swift */; };
 		64E947181E72CEE3009E232C /* NameTagAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E947171E72CEE3009E232C /* NameTagAssociation.swift */; };
 		64E9471A1E730CCC009E232C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E947191E730CCC009E232C /* AVFoundation.framework */; };
 		64E9471C1E73270E009E232C /* AudioRecordHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E9471B1E73270E009E232C /* AudioRecordHelper.swift */; };
@@ -115,7 +114,6 @@
 		64C7745B1E78015B00751936 /* escribe.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = escribe.db; sourceTree = "<group>"; };
 		64C7745D1E780EE000751936 /* DatabaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
 		64C7745F1E7817A800751936 /* VariousHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariousHelper.swift; sourceTree = "<group>"; };
-		64D775311EE6BE4D009A2233 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		64E947171E72CEE3009E232C /* NameTagAssociation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameTagAssociation.swift; sourceTree = "<group>"; };
 		64E947191E730CCC009E232C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		64E9471B1E73270E009E232C /* AudioRecordHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecordHelper.swift; sourceTree = "<group>"; };
@@ -256,7 +254,6 @@
 		64F8EFCE1E63308F00550369 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				64D775311EE6BE4D009A2233 /* ViewController.swift */,
 				6479DD261E8BB5000032CA79 /* ViewControllerWithDragonSDK.swift */,
 				645CDFEE1EC6186900DF862C /* GeneralNoteController.swift */,
 				641E96FC1ED42FC20055A759 /* BlankPatientNoteController.swift */,
@@ -438,7 +435,6 @@
 				6479DD271E8BB5000032CA79 /* ViewControllerWithDragonSDK.swift in Sources */,
 				641E35F61E9CF6EC00D905D6 /* NoteDetailController.swift in Sources */,
 				64C7745E1E780EE000751936 /* DatabaseHelper.swift in Sources */,
-				64D775321EE6BE4D009A2233 /* ViewController.swift in Sources */,
 				640917DB1E535368002C7F2B /* AppDelegate.swift in Sources */,
 				64F6AD9C1E7C21DA00ED8509 /* PatientNote.swift in Sources */,
 				64E9471C1E73270E009E232C /* AudioRecordHelper.swift in Sources */,
