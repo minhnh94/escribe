@@ -17,8 +17,8 @@ class GeneralNoteController: ViewControllerWithDragonSDK {
     
     private func setupDictateCommandForTextFields() {
         for (key, tag) in NameTagAssociation.nameTagDictionary {
-            let inputField = view.viewWithTag(tag) as! UITextField
-            inputField.setVuiConceptName("\(key)")
+            let inputField = view.viewWithTag(tag)
+            inputField?.setVuiConceptName("\(key)")
         }
     }
 }

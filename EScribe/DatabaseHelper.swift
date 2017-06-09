@@ -219,12 +219,12 @@ class DatabaseHelper: NSObject {
         
         if patient.internalId == 0 {
             let returnedId = Patient.createNewPatient(patient: patient)
-            let rowId = try! db.run(patientNoteTable.insert(patientId <- returnedId, author <- "Dr Thanh", datetime <- VariousHelper.shared.getDateAndTimeTodayAsString(), kStoredType <- storedType, kVoiceRecIndex <- voiceRecIndex))
+            let rowId = try! db.run(patientNoteTable.insert(patientId <- returnedId, author <- VariousHelper.shared.loadCurrentPhysicianName(), datetime <- VariousHelper.shared.getDateAndTimeTodayAsString(), kStoredType <- storedType, kVoiceRecIndex <- voiceRecIndex))
             return Int(rowId)
         }
         
         // Else do this
-        let rowId = try! db.run(patientNoteTable.insert(patientId <- patient.internalId, author <- "Dr Thanh", datetime <- VariousHelper.shared.getDateAndTimeTodayAsString(), kStoredType <- storedType, kVoiceRecIndex <- voiceRecIndex))
+        let rowId = try! db.run(patientNoteTable.insert(patientId <- patient.internalId, author <- VariousHelper.shared.loadCurrentPhysicianName(), datetime <- VariousHelper.shared.getDateAndTimeTodayAsString(), kStoredType <- storedType, kVoiceRecIndex <- voiceRecIndex))
         return Int(rowId)
     }
     

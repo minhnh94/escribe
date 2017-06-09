@@ -79,8 +79,14 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UIText
             for (dictKey, dictValue) in dictionary {
                 let tagNum = fieldTagDictionary[dictKey]
                 if tagDictionaryChoice == 1 {
-                    let textField = view.viewWithTag(tagNum!) as! UITextField
-                    textField.text = dictValue
+                    let inputField = view.viewWithTag(tagNum!)
+                    if inputField is UITextField {
+                        let textField = inputField as! UITextField
+                        textField.text = dictValue
+                    } else if inputField is UITextView {
+                        let textView = inputField as! UITextView
+                        textView.text = dictValue
+                    }
                 } else {
                     let textView = view.viewWithTag(tagNum!) as! UITextView
                     textView.text = dictValue
@@ -234,9 +240,17 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UIText
         
         if tagDictionaryChoice == 1 {
             for (key, tag) in NameTagAssociation.nameTagDictionary {
-                let inputField = view.viewWithTag(tag) as! UITextField
-                if inputField.text != "" {
-                    informationChild.addChild(name: key.replacingOccurrences(of: " ", with: "_"), value: inputField.text)
+                let inputField = view.viewWithTag(tag)
+                if inputField is UITextField {
+                    let textField = inputField as! UITextField
+                    if textField.text != "" {
+                        informationChild.addChild(name: key.replacingOccurrences(of: " ", with: "_"), value: textField.text)
+                    }
+                } else if inputField is UITextView {
+                    let textView = inputField as! UITextView
+                    if textView.text != "" {
+                        informationChild.addChild(name: key.replacingOccurrences(of: " ", with: "_"), value: textView.text)
+                    }
                 }
             }
         } else if tagDictionaryChoice == 2 {
