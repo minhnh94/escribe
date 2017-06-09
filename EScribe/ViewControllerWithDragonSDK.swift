@@ -11,19 +11,16 @@ import QuartzCore
 import AEXML
 import SpeechKit
 
-class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UITextViewDelegate, SKTransactionDelegate {
+class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UITextViewDelegate, NUSASessionDelegate, NUSAVuiControllerDelegate {
 
     // MARK: - API related data
-    let API_URL = "nmsps://NMDPTRIAL_minhnh_da_gmail_com20170206055537@sslsandbox-nmdp.nuancemobility.net:443"
-    let SSL_HOST = "sslsandbox-nmdp.nuancemobility.net"
-    let SSL_PORT = "443"
-    let APP_ID = "NMDPTRIAL_minhnh_da_gmail_com20170206055537"
-    let APP_KEY = "9b35dcfe5ce50ab03bd366d929f2c775cedc1b88ab44b13340625481bc104357461f55a20460534033b9195cabe1d17abdec026930b39c7115f0f2d101352847"
-    var SERVER_URL: String!
+    let kMyPartnerGuid = "da76b0a6-3428-4f0f-b1d0-f8d20909ffa9"
+    let kMyOrganizationToken = "529363f9-68b8-456a-b57c-ce149676e7b4"
+    let kApplicationName = "eScribe"
+    let kUserId = "User66aa8c2a-36df-46db-88e5-0a2a811f2ed4"
     
     // MARK: - Controller properties
-    var skSession: SKSession?
-    var skTransaction: SKTransaction?
+    var vuiController: NUSAVuiController!
     var currentProcessingText: UIView?
     var isRecording: Bool = false
     var startSelectingField = true
@@ -48,8 +45,8 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UIText
         
         setupInterface()
         // Init Speech-to-text session
-        SERVER_URL = String(format: "nmsps://%@@%@:%@", APP_ID, SSL_HOST, SSL_PORT)
-        skSession = SKSession(url: URL(string: SERVER_URL), appToken: APP_KEY)
+        NUSASession.shared().open(forApplication: kApplicationName, partnerGuid: kMyPartnerGuid, licenseGuid: kMyOrganizationToken, userId: kUserId)
+        NUSASession.shared().delegate = self
         
         uuid = "\(currentPatient.firstName!) \(currentPatient.lastName!)_\(title!)_\(VariousHelper.shared.getTodayAsFullString())"
         
@@ -58,6 +55,11 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UIText
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        vuiController =  NUSAVuiController(view: self.view)
+        
+        vuiController.synchronizeWithView()
+        vuiController.delegate = self
     }
     
     private func setupInterface() {
@@ -91,7 +93,11 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UIText
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
+        NUSASession.shared().stopRecording()
         AudioRecordHelper.shared.stopRecording()
+        vuiController.delegate = nil
+        vuiController = nil
+        NUSASession.shared().delegate = nil
     }
     
     private func additionalStyling() {
@@ -121,10 +127,13 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UIText
     
     func voiceRecognitionTransactionStarted() {
         if isRecording {
-            let options = [SKTransactionResultDeliveryKey: SKTransactionResultDeliveryProgressive];
-            skTransaction = skSession!.recognize(withType: SKTransactionSpeechTypeDictation, detection: .none, language: "eng-USA", options: options, delegate: self)
+            do {
+                try NUSASession.shared().startRecording()
+            } catch let error {
+                print("cannot start record because \(error.localizedDescription)")
+            }
         } else {
-            skTransaction?.stopRecording()
+            NUSASession.shared().stopRecording()
         }
     }
     
@@ -197,7 +206,7 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UIText
     
     // MARK: - SpeechKit Delegates
     
-    func transactionDidBeginRecording(_ transaction: SKTransaction!) {
+    func sessionDidStartRecording() {
         isRecording = true
         changeInterface()
         statusNotifyTextField.text = "Recording"
@@ -206,8 +215,8 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UIText
         submitButton.isEnabled = false
         submitButton.backgroundColor = UIColor(red:204.0/255.0, green:204.0/255.0, blue:204.0/255.0, alpha:255.0/255.0)
     }
-
-    func transactionDidFinishRecording(_ transaction: SKTransaction!) {
+    
+    func sessionDidStopRecording() {
         isRecording = false
         changeInterface()
         currentProcessingText?.resignFirstResponder()
@@ -215,32 +224,6 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UIText
         submitButton.isEnabled = true
         submitButton.backgroundColor = UIColor(red:0.0/255.0, green:123.0/255.0, blue:207.0/255.0, alpha:255.0/255.0)
         AudioRecordHelper.shared.stopRecording()
-    }
-    
-    func transaction(_ transaction: SKTransaction!, didFinishWithSuggestion suggestion: String!) {
-        startSelectingField = true
-        currentProcessingText?.resignFirstResponder()
-        currentProcessingText = nil
-    }
-    
-    func transaction(_ transaction: SKTransaction!, didReceive recognition: SKRecognition!) {
-        let topRecognitionText = recognition.text
-        
-        if startSelectingField {
-            for (key, tag) in NameTagAssociation.nameTagDictionary {
-                if topRecognitionText!.lowercased().range(of: key) != nil {
-                    let inputField = view.viewWithTag(tag) as! UITextField
-                    inputField.becomeFirstResponder()
-                    
-                    startSelectingField = false
-                }
-            }
-        }
-        
-        if let currentProcessingElement = currentProcessingText {
-            let aField = currentProcessingElement as! UITextField
-            aField.text = topRecognitionText
-        }
     }
     
     // MARK: - Privates
