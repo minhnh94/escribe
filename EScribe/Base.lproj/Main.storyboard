@@ -460,12 +460,114 @@
                         <outlet property="yearsOldLabel" destination="aYb-Aa-fav" id="L8u-jk-sAP"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="ToInputNoteVC" id="Sjv-s9-lOC"/>
                         <segue destination="dnO-bk-KJL" kind="show" identifier="ToBlankNoteVC" id="HGQ-OT-SRC"/>
-                        <segue destination="dsw-ik-D58" kind="presentation" identifier="ToParseFileVC" id="rGj-jE-TUN"/>
+                        <segue destination="rpB-Ce-Mn1" kind="presentation" identifier="ToParseFileVC" id="lrK-xb-ibY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ym-if-QJX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2737.5" y="772.18309859154931"/>
+        </scene>
+        <!--Streaming Input Controller-->
+        <scene sceneID="97U-Ng-8lB">
+            <objects>
+                <viewController id="rpB-Ce-Mn1" customClass="StreamingInputController" customModule="EScribe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Hmw-lI-2TA"/>
+                        <viewControllerLayoutGuide type="bottom" id="XBK-Sl-8Tn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MMd-X5-LlK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WBj-eg-LCS">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="RDO-IG-1xH"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Streaming input" id="Mgl-pa-7lL">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="foX-5h-MOg">
+                                            <connections>
+                                                <action selector="cancelClicked:" destination="rpB-Ce-Mn1" id="pHm-If-2mw"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording your patient note content here. Commands are similar to continuous recognition part." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RzA-3c-h27">
+                                <rect key="frame" x="8" y="80" width="304" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOS-e8-yjO">
+                                <rect key="frame" x="128" y="280" width="64" height="64"/>
+                                <state key="normal" image="play_sample"/>
+                                <connections>
+                                    <action selector="playClicked:" destination="rpB-Ce-Mn1" eventType="touchUpInside" id="Emp-dm-ptz"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can hear your record again before submitting to the recognition server" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10R-iY-xIE">
+                                <rect key="frame" x="8" y="231" width="304" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="02B-SX-0Sx">
+                                <rect key="frame" x="35" y="374" width="251" height="59"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="4RD-em-AYl"/>
+                                    <constraint firstAttribute="width" constant="251" id="ryD-lX-qE5"/>
+                                </constraints>
+                                <state key="normal" title="Submit to the recognition server">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitClicked:" destination="rpB-Ce-Mn1" eventType="touchUpInside" id="qlM-dP-Bhw"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hxk-ci-qFi">
+                                <rect key="frame" x="24" y="221" width="272" height="2"/>
+                            </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HS7-Jv-4u9">
+                                <rect key="frame" x="128" y="149" width="64" height="64"/>
+                                <state key="normal" image="microphone"/>
+                                <connections>
+                                    <action selector="recordClicked:" destination="rpB-Ce-Mn1" eventType="touchUpInside" id="bEb-6x-ZVJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="WBj-eg-LCS" secondAttribute="trailing" id="0R2-xY-NC1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Hxk-ci-qFi" secondAttribute="trailing" constant="8" id="1rQ-zC-Kl0"/>
+                            <constraint firstItem="Hxk-ci-qFi" firstAttribute="top" secondItem="HS7-Jv-4u9" secondAttribute="bottom" constant="8" id="64s-lb-v08"/>
+                            <constraint firstItem="WBj-eg-LCS" firstAttribute="leading" secondItem="MMd-X5-LlK" secondAttribute="leading" id="9vu-qM-PCZ"/>
+                            <constraint firstItem="WBj-eg-LCS" firstAttribute="top" secondItem="Hmw-lI-2TA" secondAttribute="bottom" constant="8" id="A59-58-Lj7"/>
+                            <constraint firstItem="TOS-e8-yjO" firstAttribute="centerX" secondItem="MMd-X5-LlK" secondAttribute="centerX" id="KQ1-UH-YRz"/>
+                            <constraint firstItem="02B-SX-0Sx" firstAttribute="top" secondItem="TOS-e8-yjO" secondAttribute="bottom" constant="30" id="L9P-06-wtw"/>
+                            <constraint firstAttribute="trailing" secondItem="10R-iY-xIE" secondAttribute="trailing" constant="8" id="QnF-9q-jla"/>
+                            <constraint firstItem="HS7-Jv-4u9" firstAttribute="top" secondItem="RzA-3c-h27" secondAttribute="bottom" constant="8" id="Vf5-eX-cvK"/>
+                            <constraint firstItem="10R-iY-xIE" firstAttribute="top" secondItem="Hxk-ci-qFi" secondAttribute="bottom" constant="8" id="XoE-vj-cYB"/>
+                            <constraint firstItem="RzA-3c-h27" firstAttribute="top" secondItem="WBj-eg-LCS" secondAttribute="bottom" constant="8" id="fof-FR-X3T"/>
+                            <constraint firstItem="RzA-3c-h27" firstAttribute="leading" secondItem="MMd-X5-LlK" secondAttribute="leading" constant="8" id="iaM-l4-A1G"/>
+                            <constraint firstAttribute="trailing" secondItem="RzA-3c-h27" secondAttribute="trailing" constant="8" id="jBG-re-krb"/>
+                            <constraint firstItem="10R-iY-xIE" firstAttribute="leading" secondItem="MMd-X5-LlK" secondAttribute="leading" constant="8" id="lHj-a7-Fp5"/>
+                            <constraint firstItem="02B-SX-0Sx" firstAttribute="centerX" secondItem="MMd-X5-LlK" secondAttribute="centerX" id="poP-0l-878"/>
+                            <constraint firstItem="TOS-e8-yjO" firstAttribute="top" secondItem="10R-iY-xIE" secondAttribute="bottom" constant="8" id="q1e-Uz-MS8"/>
+                            <constraint firstItem="HS7-Jv-4u9" firstAttribute="centerX" secondItem="MMd-X5-LlK" secondAttribute="centerX" id="rfK-N5-tG3"/>
+                            <constraint firstItem="Hxk-ci-qFi" firstAttribute="leading" secondItem="MMd-X5-LlK" secondAttribute="leadingMargin" constant="8" id="ugL-1R-vtQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="decibelMeasureBar" destination="Hxk-ci-qFi" id="NWb-5Q-gZH"/>
+                        <outlet property="recordButton" destination="HS7-Jv-4u9" id="4bx-Xx-rKG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Zr-7c-7T8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3716.25" y="397.18309859154931"/>
         </scene>
         <!--Parse Audio Controller-->
         <scene sceneID="bn7-lq-ybY">
@@ -553,7 +655,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qz8-r8-2uu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3699.375" y="420.42253521126759"/>
+            <point key="canvasLocation" x="2738" y="54"/>
         </scene>
         <!--PCP / Cardiology-->
         <scene sceneID="tne-QT-ifu">
@@ -4255,8 +4357,10 @@
         <image name="ico_new patient" width="32" height="32"/>
         <image name="ico_upload" width="64" height="64"/>
         <image name="man" width="512" height="512"/>
+        <image name="microphone" width="64" height="64"/>
         <image name="patient" width="34" height="34"/>
         <image name="patient-1" width="34" height="34"/>
+        <image name="play_sample" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Wku-lJ-68i"/>

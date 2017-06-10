@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -89,7 +89,7 @@
                 <constraint firstItem="0eg-7l-zz0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="PDo-zB-e6k"/>
                 <constraint firstItem="UhK-xd-YCH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="QXk-wf-qFh"/>
                 <constraint firstItem="ALi-J6-tAa" firstAttribute="top" secondItem="0eg-7l-zz0" secondAttribute="bottom" id="Qz8-dg-ZaM"/>
-                <constraint firstItem="vDT-zo-z3q" firstAttribute="top" secondItem="ALi-J6-tAa" secondAttribute="bottom" constant="8" id="RHe-xW-aV6"/>
+                <constraint firstAttribute="bottom" secondItem="As1-vh-xQJ" secondAttribute="bottom" constant="15" id="R8d-TW-ylj"/>
                 <constraint firstItem="vDT-zo-z3q" firstAttribute="top" secondItem="ZFr-vn-KK2" secondAttribute="bottom" constant="8" id="Ria-HR-Pru"/>
                 <constraint firstItem="vAW-eC-Vp8" firstAttribute="top" secondItem="vDT-zo-z3q" secondAttribute="bottom" constant="10" id="Swq-eh-tFF"/>
                 <constraint firstAttribute="trailing" secondItem="WjA-f5-9NI" secondAttribute="trailing" constant="8" id="WE0-di-JRE"/>
@@ -100,6 +100,7 @@
                 <constraint firstItem="ALi-J6-tAa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="bM8-sL-JEE"/>
                 <constraint firstItem="As1-vh-xQJ" firstAttribute="top" secondItem="vDT-zo-z3q" secondAttribute="bottom" constant="10" id="f5L-Ec-gXN"/>
                 <constraint firstItem="vDT-zo-z3q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="pcc-37-C4I"/>
+                <constraint firstAttribute="bottom" secondItem="vAW-eC-Vp8" secondAttribute="bottom" constant="15" id="qaR-Cp-Mwp"/>
                 <constraint firstAttribute="trailing" secondItem="vDT-zo-z3q" secondAttribute="trailing" constant="8" id="wAP-QU-qhr"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

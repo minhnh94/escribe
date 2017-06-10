@@ -13,6 +13,7 @@ import AudioToolbox
 protocol NowPlayingUpdateDelegate: class {
     func playerDidGetDuration(duration: TimeInterval)
     func playerDidUpdateTime(timeInterval: TimeInterval)
+    func didUpdateSoundDecibel(value: Float)
 }
 
 class AudioRecordHelper: NSObject, AVAudioRecorderDelegate {
@@ -68,6 +69,40 @@ class AudioRecordHelper: NSObject, AVAudioRecorderDelegate {
         }
     }
     
+    func recordToWavFormat(filename: String) {
+        let docDirect = VariousHelper.shared.getDocumentPath()
+        
+        let writePath = docDirect.appendingPathComponent(filename + ".wav")
+        let audioUrl = URL.init(fileURLWithPath: writePath.path)
+        
+        let settings: [String: Any] = [
+            AVFormatIDKey: NSNumber(value: kAudioFormatLinearPCM),
+            AVNumberOfChannelsKey: 1,
+            AVSampleRateKey: 16000.0,
+//            AVEncoderBitRateKey: 16,
+            AVEncoderAudioQualityKey: AVAudioQuality.medium.rawValue
+        ]
+        
+        do {
+            audioRec = try AVAudioRecorder(url: audioUrl, settings: settings)
+            audioRec?.delegate = self
+            audioRec?.isMeteringEnabled = true
+            audioRec?.prepareToRecord()
+            audioRec?.record()
+            
+            Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(self.levelTimerCallback), userInfo: nil, repeats: true)
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    func levelTimerCallback() {
+        if let uAudioRec = audioRec {
+            uAudioRec.updateMeters()
+            delegate?.didUpdateSoundDecibel(value: uAudioRec.averagePower(forChannel: 0))
+        }
+    }
+    
     func stopRecording() {
         guard let audioRecUnwrapped = audioRec else {
             return
@@ -115,7 +150,7 @@ class AudioRecordHelper: NSObject, AVAudioRecorderDelegate {
     }
     
     func setupAudio(filename: String) {
-        let url = VariousHelper.shared.getDocumentPath().appendingPathComponent("\(filename).m4a")
+        let url = VariousHelper.shared.getDocumentPath().appendingPathComponent("\(filename)")
         do {
             try AVAudioSession.sharedInstance().overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
             audioPlayer = try AVAudioPlayer(contentsOf: url)

@@ -178,7 +178,7 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func updateInterfaceOfMiniPlayer(playerView: MiniPlayerView, data: PatientNote) {
-        AudioRecordHelper.shared.setupAudio(filename: filenameToPlay)
+        AudioRecordHelper.shared.setupAudio(filename: "\(filenameToPlay).m4a")
         playerView.datetimeLabel.text = data.datetime
         playerView.noteTypeLabel.text = data.allNoteContents.first!.noteType
         playerView.slider.value = 0
@@ -215,6 +215,10 @@ class PatientDetailController: UIViewController, UITableViewDataSource, UITableV
     
     func playerDidUpdateTime(timeInterval: TimeInterval) {
         playerView?.slider.value = Float(timeInterval)
+    }
+    
+    func didUpdateSoundDecibel(value: Float) {
+        // Fuck swift no optional, leave this blank
     }
     
     // MARK: - Table view delegates

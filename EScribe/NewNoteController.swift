@@ -10,7 +10,7 @@ import UIKit
 import MediaPlayer
 import SVProgressHUD
 
-class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDelegate, AudioSelectionDelegate {
+class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDelegate, SubmitAudioDelegate {
 
     let newNoteTypeArray = ["General", "PCP", "Cardiology", "Blank note", "Continue editing"]     // More will be added on demand
     var currentPatient: Patient!
@@ -101,14 +101,19 @@ class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDel
     
     // MARK: - Parse audio delegate
     
-    func didSelectAudioFileWithPath(_ path: String) {
-        let api = ApiHelper()
-        SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.show(withStatus: "Generating form...")
-        api.sendAudioFileToNuance(fileUrl: URL(fileURLWithPath: path)) { (response) in
-            if let uString = response {
-                self.usedParseFunction = 1
-                self.performSegue(withIdentifier: "ToInputNoteVC", sender: uString)
+    func didSubmitAudioFileWithPath(_ path: String) {
+        if path == "" {
+            UIAlertView(title: "", message: "We found no recorded file to submit. Maybe you haven't recorded yet.", delegate: nil, cancelButtonTitle: "OK").show()
+        } else {
+            let api = ApiHelper()
+            SVProgressHUD.setDefaultStyle(.dark)
+            SVProgressHUD.show(withStatus: "Generating form...")
+            api.sendAudioFileToNuance(fileUrl: URL(fileURLWithPath: path)) { (response) in
+                if let uString = response {
+                    self.usedParseFunction = 1
+                    try! FileManager.default.removeItem(atPath: path)
+                    self.performSegue(withIdentifier: "ToInputNoteVC", sender: uString)
+                }
             }
         }
     }
@@ -133,7 +138,7 @@ class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDel
                 vc.editedPatientNote = toBeEditedPatientNote
             }
         } else {
-            let vc = segue.destination as! ParseAudioController
+            let vc = segue.destination as! StreamingInputController
             vc.delegate = self
         }
     }
@@ -156,13 +161,26 @@ class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDel
                     if detachedSentence.hasPrefix(fieldKey) {
                         detachedSentence = detachedSentence.replacingOccurrences(of: fieldKey, with: "")
                         indexOfField = NameTagAssociation.nameTagDictionary[fieldKey]!
-                        let textField = vc.view.viewWithTag(indexOfField) as! UITextField
-                        textField.text = detachedSentence
+                        
+                        let inputField = vc.view.viewWithTag(indexOfField)
+                        if inputField is UITextField {
+                            let textField = inputField as! UITextField
+                            textField.text = detachedSentence
+                        } else if inputField is UITextView {
+                            let textView = inputField as! UITextView
+                            textView.text = detachedSentence
+                        }
                     }
                 }
             } else {
-                let textField = vc.view.viewWithTag(indexOfField) as! UITextField
-                textField.text = sentence
+                let inputField = vc.view.viewWithTag(indexOfField)
+                if inputField is UITextField {
+                    let textField = inputField as! UITextField
+                    textField.text = sentence
+                } else if inputField is UITextView {
+                    let textView = inputField as! UITextView
+                    textView.text = sentence
+                }
             }
         }
     }
