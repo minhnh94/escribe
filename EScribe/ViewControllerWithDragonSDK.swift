@@ -31,6 +31,7 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UIText
     
     // MARK: - UI properties
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var statusNotifyTextField: UILabel!
     @IBOutlet weak var patientNameLabel: UILabel!
@@ -142,7 +143,7 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UIText
         }
     }
     
-    @IBAction func saveClicked(_ sender: UIBarButtonItem) {
+    @IBAction func saveClicked(_ sender: UIButton) {
         var result = 0
         if editedPatientNote == nil {
             result = PatientNote.savePatientNoteToDisk(patient: currentPatient, storedType: tagDictionaryChoice, voiceRecIndex: numOfRecording)
@@ -218,7 +219,9 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UIText
         numOfRecording += 1
         AudioRecordHelper.shared.record(filename: "\(uuid)-p\(numOfRecording)")
         submitButton.isEnabled = false
+        saveButton.isEnabled = false
         submitButton.backgroundColor = UIColor(red:204.0/255.0, green:204.0/255.0, blue:204.0/255.0, alpha:255.0/255.0)
+        saveButton.backgroundColor = UIColor(red:204.0/255.0, green:204.0/255.0, blue:204.0/255.0, alpha:255.0/255.0)
     }
     
     func sessionDidStopRecording() {
@@ -227,7 +230,9 @@ class ViewControllerWithDragonSDK: UIViewController, UITextFieldDelegate, UIText
         currentProcessingText?.resignFirstResponder()
         currentProcessingText = nil
         submitButton.isEnabled = true
+        saveButton.isEnabled = true
         submitButton.backgroundColor = UIColor(red:0.0/255.0, green:123.0/255.0, blue:207.0/255.0, alpha:255.0/255.0)
+        saveButton.backgroundColor = UIColor(red:0.0/255.0, green:123.0/255.0, blue:207.0/255.0, alpha:255.0/255.0)
         AudioRecordHelper.shared.stopRecording()
     }
     

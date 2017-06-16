@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		64045CD91EDDB79800B51333 /* audio_16k16bit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 64045CD81EDDB79800B51333 /* audio_16k16bit.wav */; };
 		640917DB1E535368002C7F2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640917DA1E535368002C7F2B /* AppDelegate.swift */; };
 		640917E01E535368002C7F2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 640917DE1E535368002C7F2B /* Main.storyboard */; };
 		640917E21E535368002C7F2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 640917E11E535368002C7F2B /* Assets.xcassets */; };
@@ -59,7 +58,6 @@
 /* Begin PBXFileReference section */
 		0679408E1B091A3190AA6917 /* Pods_EScribe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EScribe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		124BE651028E7797A39D0A6A /* Pods-EScribe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EScribe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EScribe/Pods-EScribe.debug.xcconfig"; sourceTree = "<group>"; };
-		64045CD81EDDB79800B51333 /* audio_16k16bit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = audio_16k16bit.wav; sourceTree = "<group>"; };
 		640917D71E535368002C7F2B /* EScribe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EScribe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		640917DA1E535368002C7F2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		640917DF1E535368002C7F2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -243,7 +241,6 @@
 		64C774561E77F3FB00751936 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				64045CD81EDDB79800B51333 /* audio_16k16bit.wav */,
 				64C7745B1E78015B00751936 /* escribe.db */,
 				64C774571E77F40A00751936 /* Patient.swift */,
 				64F6AD9B1E7C21DA00ED8509 /* PatientNote.swift */,
@@ -359,7 +356,6 @@
 				6497B4E51E92373A0070DC35 /* MiniPlayerView.xib in Resources */,
 				640917E51E535368002C7F2B /* LaunchScreen.storyboard in Resources */,
 				640917E21E535368002C7F2B /* Assets.xcassets in Resources */,
-				64045CD91EDDB79800B51333 /* audio_16k16bit.wav in Resources */,
 				640917E01E535368002C7F2B /* Main.storyboard in Resources */,
 				64C7745C1E78015B00751936 /* escribe.db in Resources */,
 			);

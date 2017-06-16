@@ -31,11 +31,6 @@ class StreamingInputController: UIViewController, NowPlayingUpdateDelegate, Mini
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        do {
-            try FileManager.default.removeItem(at: VariousHelper.shared.getDocumentPath().appendingPathComponent("StreamInput.wav"))
-        } catch let error {
-            print("error: \(error.localizedDescription)")
-        }
         AudioRecordHelper.shared.delegate = nil
     }
     
@@ -125,7 +120,7 @@ class StreamingInputController: UIViewController, NowPlayingUpdateDelegate, Mini
     }
     
     func didUpdateSoundDecibel(value: Float) {
-        decibelMeasureBar.progress = (value + 7) / 4
+        decibelMeasureBar.progress = -1 / value
     }
     
 }

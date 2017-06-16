@@ -28,6 +28,11 @@ class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDel
         // Do any additional setup after loading the view.
         setupInterface()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        usedParseFunction = 0
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -150,6 +155,8 @@ class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDel
         
         var indexOfField = 100
         
+        print(transcribedString)
+        
         for sentence in tokenizeString(aString: sentencifyString(aString: transcribedString)) {
             if sentence.hasPrefix("next field") {
                 indexOfField = indexOfField + 1 > 141 ? 100 : indexOfField + 1
@@ -165,10 +172,10 @@ class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDel
                         let inputField = vc.view.viewWithTag(indexOfField)
                         if inputField is UITextField {
                             let textField = inputField as! UITextField
-                            textField.text = detachedSentence
+                            textField.text = textField.text! + detachedSentence + ". "
                         } else if inputField is UITextView {
                             let textView = inputField as! UITextView
-                            textView.text = detachedSentence
+                            textView.text = textView.text! + detachedSentence + ". "
                         }
                     }
                 }
@@ -176,10 +183,10 @@ class NewNoteController: UIViewController, UITableViewDataSource, UITableViewDel
                 let inputField = vc.view.viewWithTag(indexOfField)
                 if inputField is UITextField {
                     let textField = inputField as! UITextField
-                    textField.text = sentence
+                    textField.text = textField.text! + sentence + ". "
                 } else if inputField is UITextView {
                     let textView = inputField as! UITextView
-                    textView.text = sentence
+                    textView.text = textView.text! + sentence + ". "
                 }
             }
         }

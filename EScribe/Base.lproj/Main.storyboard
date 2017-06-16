@@ -666,14 +666,14 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="64" width="320" height="7036"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="8036"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jlt-Dq-eTx">
-                                <rect key="frame" x="0.0" y="120" width="320" height="6866"/>
+                                <rect key="frame" x="0.0" y="120" width="320" height="7866"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RcV-AA-ZYR">
-                                        <rect key="frame" x="8" y="8" width="304" height="6800"/>
+                                        <rect key="frame" x="8" y="8" width="304" height="7800"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vital" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yta-Bi-5ij">
                                                 <rect key="frame" x="8" y="8" width="38" height="24"/>
@@ -1477,7 +1477,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6C-eF-Oif" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="2220" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="2220" width="288" height="110"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="General" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYv-ly-0Sh">
                                                         <rect key="frame" x="5" y="2" width="53" height="18"/>
@@ -1485,28 +1485,26 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="124" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E.g. something" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nlW-du-NUD">
-                                                        <rect key="frame" x="8" y="28" width="272" height="30"/>
-                                                        <nil key="textColor"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="124" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zIv-KK-e5C" customClass="InputWrapperTextView" customModule="EScribe" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="28" width="272" height="74"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="YJn-dA-LnR"/>
-                                                        </connections>
-                                                    </textField>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
+                                                    <constraint firstItem="zIv-KK-e5C" firstAttribute="top" secondItem="DYv-ly-0Sh" secondAttribute="bottom" constant="8" id="BzL-ys-CAk"/>
                                                     <constraint firstItem="DYv-ly-0Sh" firstAttribute="top" secondItem="Q6C-eF-Oif" secondAttribute="top" constant="2" id="LDw-re-1Wg"/>
-                                                    <constraint firstAttribute="height" constant="76" id="OXH-mn-ZrU"/>
-                                                    <constraint firstItem="nlW-du-NUD" firstAttribute="top" secondItem="DYv-ly-0Sh" secondAttribute="bottom" constant="8" id="aFD-kF-TlW"/>
+                                                    <constraint firstAttribute="bottom" secondItem="zIv-KK-e5C" secondAttribute="bottom" constant="8" id="LXi-ac-2T7"/>
+                                                    <constraint firstAttribute="height" constant="110" id="OXH-mn-ZrU"/>
+                                                    <constraint firstItem="zIv-KK-e5C" firstAttribute="leading" secondItem="Q6C-eF-Oif" secondAttribute="leading" constant="8" id="Rko-rm-ele"/>
                                                     <constraint firstItem="DYv-ly-0Sh" firstAttribute="leading" secondItem="Q6C-eF-Oif" secondAttribute="leading" constant="5" id="azn-Nb-ct0"/>
-                                                    <constraint firstItem="nlW-du-NUD" firstAttribute="leading" secondItem="Q6C-eF-Oif" secondAttribute="leading" constant="8" id="hv5-Xc-CKp"/>
-                                                    <constraint firstAttribute="trailing" secondItem="nlW-du-NUD" secondAttribute="trailing" constant="8" id="q7r-ZN-Ncd"/>
+                                                    <constraint firstAttribute="trailing" secondItem="zIv-KK-e5C" secondAttribute="trailing" constant="8" id="dEz-n9-Dej"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56I-md-UzD" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="2304" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="2338" width="288" height="110"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Depression" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WhE-uK-yKx">
                                                         <rect key="frame" x="5" y="2" width="77" height="18"/>
@@ -1514,28 +1512,26 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="125" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E.g. something" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RiB-6q-ctn">
-                                                        <rect key="frame" x="8" y="28" width="272" height="30"/>
-                                                        <nil key="textColor"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="125" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="W35-RG-okn" customClass="InputWrapperTextView" customModule="EScribe" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="28" width="272" height="74"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="kUa-WJ-v3M"/>
-                                                        </connections>
-                                                    </textField>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="RiB-6q-ctn" secondAttribute="trailing" constant="8" id="HvB-hI-C1a"/>
+                                                    <constraint firstAttribute="bottom" secondItem="W35-RG-okn" secondAttribute="bottom" constant="8" id="4Mm-gY-7lI"/>
                                                     <constraint firstItem="WhE-uK-yKx" firstAttribute="top" secondItem="56I-md-UzD" secondAttribute="top" constant="2" id="J7S-lu-kY3"/>
-                                                    <constraint firstItem="RiB-6q-ctn" firstAttribute="leading" secondItem="56I-md-UzD" secondAttribute="leading" constant="8" id="YAa-y7-9xB"/>
-                                                    <constraint firstItem="RiB-6q-ctn" firstAttribute="top" secondItem="WhE-uK-yKx" secondAttribute="bottom" constant="8" id="Ya7-rf-XPK"/>
+                                                    <constraint firstAttribute="trailing" secondItem="W35-RG-okn" secondAttribute="trailing" constant="8" id="hr8-HM-AtG"/>
+                                                    <constraint firstItem="W35-RG-okn" firstAttribute="top" secondItem="WhE-uK-yKx" secondAttribute="bottom" constant="8" id="j9P-bR-ziF"/>
+                                                    <constraint firstItem="W35-RG-okn" firstAttribute="leading" secondItem="56I-md-UzD" secondAttribute="leading" constant="8" id="s8k-K0-XS0"/>
                                                     <constraint firstItem="WhE-uK-yKx" firstAttribute="leading" secondItem="56I-md-UzD" secondAttribute="leading" constant="5" id="tVb-Iy-9yD"/>
-                                                    <constraint firstAttribute="height" constant="76" id="wDv-vo-rAg"/>
+                                                    <constraint firstAttribute="height" constant="110" id="wDv-vo-rAg"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yz-qA-p6V" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="2388" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="2456" width="288" height="110"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eyes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0e2-2t-UYt">
                                                         <rect key="frame" x="5" y="2" width="32" height="18"/>
@@ -1543,28 +1539,26 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="126" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E.g. something" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vmu-93-1ZF">
-                                                        <rect key="frame" x="8" y="28" width="272" height="30"/>
-                                                        <nil key="textColor"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="126" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ziw-Jc-kfc" customClass="InputWrapperTextView" customModule="EScribe" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="28" width="272" height="74"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="0XP-vW-9eC"/>
-                                                        </connections>
-                                                    </textField>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="0e2-2t-UYt" firstAttribute="leading" secondItem="0yz-qA-p6V" secondAttribute="leading" constant="5" id="4Ml-fg-Atf"/>
                                                     <constraint firstItem="0e2-2t-UYt" firstAttribute="top" secondItem="0yz-qA-p6V" secondAttribute="top" constant="2" id="9F7-cQ-Wgn"/>
-                                                    <constraint firstAttribute="height" constant="76" id="bTT-2q-1bv"/>
-                                                    <constraint firstItem="vmu-93-1ZF" firstAttribute="leading" secondItem="0yz-qA-p6V" secondAttribute="leading" constant="8" id="lrX-hG-xwV"/>
-                                                    <constraint firstAttribute="trailing" secondItem="vmu-93-1ZF" secondAttribute="trailing" constant="8" id="mjy-3u-5aP"/>
-                                                    <constraint firstItem="vmu-93-1ZF" firstAttribute="top" secondItem="0e2-2t-UYt" secondAttribute="bottom" constant="8" id="rRg-Jd-iXk"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ziw-Jc-kfc" secondAttribute="trailing" constant="8" id="KK8-0Z-Xdy"/>
+                                                    <constraint firstItem="ziw-Jc-kfc" firstAttribute="leading" secondItem="0yz-qA-p6V" secondAttribute="leading" constant="8" id="NSN-pA-5r2"/>
+                                                    <constraint firstItem="ziw-Jc-kfc" firstAttribute="top" secondItem="0e2-2t-UYt" secondAttribute="bottom" constant="8" id="RbS-ub-kDY"/>
+                                                    <constraint firstAttribute="height" constant="110" id="bTT-2q-1bv"/>
+                                                    <constraint firstAttribute="bottom" secondItem="ziw-Jc-kfc" secondAttribute="bottom" constant="8" id="plN-rd-TrP"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sUN-LX-ZbJ" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="2472" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="2574" width="288" height="110"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pulmonary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="naT-mj-l1H">
                                                         <rect key="frame" x="5" y="2" width="72" height="18"/>
@@ -1572,28 +1566,26 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="127" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E.g. something" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VeP-a4-rso">
-                                                        <rect key="frame" x="8" y="28" width="272" height="30"/>
-                                                        <nil key="textColor"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="127" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FEI-q1-dmz" customClass="InputWrapperTextView" customModule="EScribe" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="28" width="272" height="74"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="L1a-z4-fQq"/>
-                                                        </connections>
-                                                    </textField>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="76" id="AHc-Hk-Zax"/>
+                                                    <constraint firstItem="FEI-q1-dmz" firstAttribute="leading" secondItem="sUN-LX-ZbJ" secondAttribute="leading" constant="8" id="4hw-ZO-bEp"/>
+                                                    <constraint firstAttribute="height" constant="110" id="AHc-Hk-Zax"/>
+                                                    <constraint firstItem="FEI-q1-dmz" firstAttribute="top" secondItem="naT-mj-l1H" secondAttribute="bottom" constant="8" id="Q1I-C8-nUp"/>
                                                     <constraint firstItem="naT-mj-l1H" firstAttribute="leading" secondItem="sUN-LX-ZbJ" secondAttribute="leading" constant="5" id="V1i-Fe-3VQ"/>
-                                                    <constraint firstItem="VeP-a4-rso" firstAttribute="top" secondItem="naT-mj-l1H" secondAttribute="bottom" constant="8" id="dEJ-M6-2zd"/>
+                                                    <constraint firstAttribute="bottom" secondItem="FEI-q1-dmz" secondAttribute="bottom" constant="8" id="gyr-0t-8Ai"/>
                                                     <constraint firstItem="naT-mj-l1H" firstAttribute="top" secondItem="sUN-LX-ZbJ" secondAttribute="top" constant="2" id="ltq-4i-eJP"/>
-                                                    <constraint firstItem="VeP-a4-rso" firstAttribute="leading" secondItem="sUN-LX-ZbJ" secondAttribute="leading" constant="8" id="pcH-FS-eq8"/>
-                                                    <constraint firstAttribute="trailing" secondItem="VeP-a4-rso" secondAttribute="trailing" constant="8" id="vMm-QW-kH0"/>
+                                                    <constraint firstAttribute="trailing" secondItem="FEI-q1-dmz" secondAttribute="trailing" constant="8" id="mIY-NE-AxP"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oi9-m2-8KM" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="2556" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="2692" width="288" height="110"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Back" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYF-uD-Rje">
                                                         <rect key="frame" x="5" y="2" width="34" height="18"/>
@@ -1601,28 +1593,26 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="128" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E.g. something" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ogk-tZ-Tfe">
-                                                        <rect key="frame" x="8" y="28" width="272" height="30"/>
-                                                        <nil key="textColor"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="128" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KHE-W2-UmQ" customClass="InputWrapperTextView" customModule="EScribe" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="28" width="272" height="74"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="GpE-ue-vdB"/>
-                                                        </connections>
-                                                    </textField>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="Ogk-tZ-Tfe" firstAttribute="top" secondItem="fYF-uD-Rje" secondAttribute="bottom" constant="8" id="FVP-Vr-aSk"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Ogk-tZ-Tfe" secondAttribute="trailing" constant="8" id="ZPA-Km-1fx"/>
+                                                    <constraint firstAttribute="bottom" secondItem="KHE-W2-UmQ" secondAttribute="bottom" constant="8" id="EbY-aA-gMb"/>
+                                                    <constraint firstItem="KHE-W2-UmQ" firstAttribute="leading" secondItem="oi9-m2-8KM" secondAttribute="leading" constant="8" id="LNH-dy-4Ym"/>
+                                                    <constraint firstAttribute="trailing" secondItem="KHE-W2-UmQ" secondAttribute="trailing" constant="8" id="T58-Hi-bAL"/>
                                                     <constraint firstItem="fYF-uD-Rje" firstAttribute="leading" secondItem="oi9-m2-8KM" secondAttribute="leading" constant="5" id="bai-gI-jYN"/>
-                                                    <constraint firstAttribute="height" constant="76" id="eBb-cm-XKJ"/>
-                                                    <constraint firstItem="Ogk-tZ-Tfe" firstAttribute="leading" secondItem="oi9-m2-8KM" secondAttribute="leading" constant="8" id="mDG-58-6Yf"/>
+                                                    <constraint firstAttribute="height" constant="110" id="eBb-cm-XKJ"/>
                                                     <constraint firstItem="fYF-uD-Rje" firstAttribute="top" secondItem="oi9-m2-8KM" secondAttribute="top" constant="2" id="pp6-Wc-S7L"/>
+                                                    <constraint firstItem="KHE-W2-UmQ" firstAttribute="top" secondItem="fYF-uD-Rje" secondAttribute="bottom" constant="8" id="yZF-F4-Oc4"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7LT-IQ-H8x" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="2640" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="2810" width="288" height="110"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abdomen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2V-TX-f86">
                                                         <rect key="frame" x="5" y="2" width="66" height="18"/>
@@ -1630,28 +1620,26 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="129" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E.g. something" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lzu-vf-eyp">
-                                                        <rect key="frame" x="8" y="28" width="272" height="30"/>
-                                                        <nil key="textColor"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="129" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hIz-HJ-88x" customClass="InputWrapperTextView" customModule="EScribe" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="28" width="272" height="74"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="2yw-eI-de7"/>
-                                                        </connections>
-                                                    </textField>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="76" id="D1o-Kh-aNy"/>
-                                                    <constraint firstItem="lzu-vf-eyp" firstAttribute="top" secondItem="J2V-TX-f86" secondAttribute="bottom" constant="8" id="K5m-EI-xTR"/>
-                                                    <constraint firstAttribute="trailing" secondItem="lzu-vf-eyp" secondAttribute="trailing" constant="8" id="fjN-CX-gCb"/>
+                                                    <constraint firstAttribute="bottom" secondItem="hIz-HJ-88x" secondAttribute="bottom" constant="8" id="9vc-Lo-uPW"/>
+                                                    <constraint firstAttribute="height" constant="110" id="D1o-Kh-aNy"/>
+                                                    <constraint firstItem="hIz-HJ-88x" firstAttribute="leading" secondItem="7LT-IQ-H8x" secondAttribute="leading" constant="8" id="Zvm-0z-sqj"/>
+                                                    <constraint firstAttribute="trailing" secondItem="hIz-HJ-88x" secondAttribute="trailing" constant="8" id="aqR-7K-XHE"/>
                                                     <constraint firstItem="J2V-TX-f86" firstAttribute="top" secondItem="7LT-IQ-H8x" secondAttribute="top" constant="2" id="mOp-bQ-5lN"/>
+                                                    <constraint firstItem="hIz-HJ-88x" firstAttribute="top" secondItem="J2V-TX-f86" secondAttribute="bottom" constant="8" id="uK3-sS-ich"/>
                                                     <constraint firstItem="J2V-TX-f86" firstAttribute="leading" secondItem="7LT-IQ-H8x" secondAttribute="leading" constant="5" id="yR1-Od-Zc9"/>
-                                                    <constraint firstItem="lzu-vf-eyp" firstAttribute="leading" secondItem="7LT-IQ-H8x" secondAttribute="leading" constant="8" id="ytK-Ud-yCd"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="amV-3x-CDW" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="2724" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="2928" width="288" height="110"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extremities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOw-h1-svv">
                                                         <rect key="frame" x="5" y="2" width="75" height="18"/>
@@ -1659,28 +1647,26 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="130" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E.g. something" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tGG-Ch-f3h">
-                                                        <rect key="frame" x="8" y="28" width="272" height="30"/>
-                                                        <nil key="textColor"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="130" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rCT-aj-gFj" customClass="InputWrapperTextView" customModule="EScribe" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="28" width="272" height="74"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="RqE-CD-qkK"/>
-                                                        </connections>
-                                                    </textField>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
+                                                    <constraint firstItem="rCT-aj-gFj" firstAttribute="top" secondItem="XOw-h1-svv" secondAttribute="bottom" constant="8" id="0Kg-RC-6IA"/>
                                                     <constraint firstItem="XOw-h1-svv" firstAttribute="top" secondItem="amV-3x-CDW" secondAttribute="top" constant="2" id="625-vU-wwg"/>
                                                     <constraint firstItem="XOw-h1-svv" firstAttribute="leading" secondItem="amV-3x-CDW" secondAttribute="leading" constant="5" id="EHs-9O-8cZ"/>
-                                                    <constraint firstAttribute="height" constant="76" id="NOO-q4-3vc"/>
-                                                    <constraint firstItem="tGG-Ch-f3h" firstAttribute="leading" secondItem="amV-3x-CDW" secondAttribute="leading" constant="8" id="Vi6-1m-5Qw"/>
-                                                    <constraint firstAttribute="trailing" secondItem="tGG-Ch-f3h" secondAttribute="trailing" constant="8" id="qzo-kC-Yc9"/>
-                                                    <constraint firstItem="tGG-Ch-f3h" firstAttribute="top" secondItem="XOw-h1-svv" secondAttribute="bottom" constant="8" id="skD-6L-u4M"/>
+                                                    <constraint firstItem="rCT-aj-gFj" firstAttribute="leading" secondItem="amV-3x-CDW" secondAttribute="leading" constant="8" id="JKo-9h-iJm"/>
+                                                    <constraint firstAttribute="trailing" secondItem="rCT-aj-gFj" secondAttribute="trailing" constant="8" id="MOi-uQ-jEx"/>
+                                                    <constraint firstAttribute="height" constant="110" id="NOO-q4-3vc"/>
+                                                    <constraint firstAttribute="bottom" secondItem="rCT-aj-gFj" secondAttribute="bottom" constant="8" id="WDO-rY-0tW"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8OB-cu-h8Z" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="2808" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="3046" width="288" height="110"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MI9-tU-OIs">
                                                         <rect key="frame" x="5" y="2" width="29" height="18"/>
@@ -1688,28 +1674,26 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="131" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E.g. something" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qtI-w1-KOj">
-                                                        <rect key="frame" x="8" y="28" width="272" height="30"/>
-                                                        <nil key="textColor"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="131" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="g7u-Yd-Mud" customClass="InputWrapperTextView" customModule="EScribe" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="28" width="272" height="74"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="EH0-zD-oxN"/>
-                                                        </connections>
-                                                    </textField>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="qtI-w1-KOj" firstAttribute="top" secondItem="MI9-tU-OIs" secondAttribute="bottom" constant="8" id="CyK-Gn-IJ4"/>
-                                                    <constraint firstAttribute="height" constant="76" id="VvS-t0-pAa"/>
+                                                    <constraint firstAttribute="bottom" secondItem="g7u-Yd-Mud" secondAttribute="bottom" constant="8" id="3Ub-Dd-c24"/>
+                                                    <constraint firstItem="g7u-Yd-Mud" firstAttribute="top" secondItem="MI9-tU-OIs" secondAttribute="bottom" constant="8" id="Bex-Fi-qOW"/>
+                                                    <constraint firstAttribute="height" constant="110" id="VvS-t0-pAa"/>
                                                     <constraint firstItem="MI9-tU-OIs" firstAttribute="leading" secondItem="8OB-cu-h8Z" secondAttribute="leading" constant="5" id="ZwL-hv-KWK"/>
-                                                    <constraint firstAttribute="trailing" secondItem="qtI-w1-KOj" secondAttribute="trailing" constant="8" id="kdd-dt-r04"/>
                                                     <constraint firstItem="MI9-tU-OIs" firstAttribute="top" secondItem="8OB-cu-h8Z" secondAttribute="top" constant="2" id="lRw-5m-OWD"/>
-                                                    <constraint firstItem="qtI-w1-KOj" firstAttribute="leading" secondItem="8OB-cu-h8Z" secondAttribute="leading" constant="8" id="pD6-NL-c8V"/>
+                                                    <constraint firstAttribute="trailing" secondItem="g7u-Yd-Mud" secondAttribute="trailing" constant="8" id="s2l-zh-vP6"/>
+                                                    <constraint firstItem="g7u-Yd-Mud" firstAttribute="leading" secondItem="8OB-cu-h8Z" secondAttribute="leading" constant="8" id="wgH-mC-SjR"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7fP-kz-vxI" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="2892" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="3164" width="288" height="110"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Musculoskeletal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjS-MK-ujP">
                                                         <rect key="frame" x="5" y="2" width="109" height="18"/>
@@ -1717,28 +1701,26 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="132" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E.g. something" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wVH-EE-fCZ">
-                                                        <rect key="frame" x="8" y="28" width="272" height="30"/>
-                                                        <nil key="textColor"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="132" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Hqm-SI-aJm" customClass="InputWrapperTextView" customModule="EScribe" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="28" width="272" height="74"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="Bks-Fb-scD"/>
-                                                        </connections>
-                                                    </textField>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="wVH-EE-fCZ" firstAttribute="top" secondItem="tjS-MK-ujP" secondAttribute="bottom" constant="8" id="Ajs-a5-lDW"/>
-                                                    <constraint firstAttribute="trailing" secondItem="wVH-EE-fCZ" secondAttribute="trailing" constant="8" id="LrA-zK-c1U"/>
+                                                    <constraint firstItem="Hqm-SI-aJm" firstAttribute="leading" secondItem="7fP-kz-vxI" secondAttribute="leading" constant="8" id="E9n-4z-mjr"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Hqm-SI-aJm" secondAttribute="trailing" constant="8" id="EWm-8C-5XZ"/>
                                                     <constraint firstItem="tjS-MK-ujP" firstAttribute="leading" secondItem="7fP-kz-vxI" secondAttribute="leading" constant="5" id="RP8-Nm-MSL"/>
-                                                    <constraint firstAttribute="height" constant="76" id="lbc-Ww-4Kn"/>
-                                                    <constraint firstItem="wVH-EE-fCZ" firstAttribute="leading" secondItem="7fP-kz-vxI" secondAttribute="leading" constant="8" id="niz-8U-I0l"/>
+                                                    <constraint firstItem="Hqm-SI-aJm" firstAttribute="top" secondItem="tjS-MK-ujP" secondAttribute="bottom" constant="8" id="hGj-Ej-9nd"/>
+                                                    <constraint firstAttribute="height" constant="110" id="lbc-Ww-4Kn"/>
                                                     <constraint firstItem="tjS-MK-ujP" firstAttribute="top" secondItem="7fP-kz-vxI" secondAttribute="top" constant="2" id="pSA-8A-ltm"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Hqm-SI-aJm" secondAttribute="bottom" constant="8" id="uoa-HW-81H"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sYt-P4-MFx" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="2976" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="3282" width="288" height="110"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ENMT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBa-i4-hBy">
                                                         <rect key="frame" x="5" y="2" width="42" height="18"/>
@@ -1746,28 +1728,26 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="133" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E.g. something" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Th2-KJ-hWj">
-                                                        <rect key="frame" x="8" y="28" width="272" height="30"/>
-                                                        <nil key="textColor"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="133" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4Ka-Y8-Mvu" customClass="InputWrapperTextView" customModule="EScribe" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="28" width="272" height="74"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="9hm-ET-gu1"/>
-                                                        </connections>
-                                                    </textField>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="Th2-KJ-hWj" firstAttribute="leading" secondItem="sYt-P4-MFx" secondAttribute="leading" constant="8" id="EXo-aP-VyJ"/>
+                                                    <constraint firstItem="4Ka-Y8-Mvu" firstAttribute="top" secondItem="FBa-i4-hBy" secondAttribute="bottom" constant="8" id="AGu-e4-3sr"/>
                                                     <constraint firstItem="FBa-i4-hBy" firstAttribute="leading" secondItem="sYt-P4-MFx" secondAttribute="leading" constant="5" id="Ivg-SW-b1O"/>
-                                                    <constraint firstItem="Th2-KJ-hWj" firstAttribute="top" secondItem="FBa-i4-hBy" secondAttribute="bottom" constant="8" id="Je9-ru-5eJ"/>
-                                                    <constraint firstAttribute="height" constant="76" id="Y8t-6p-NFg"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Th2-KJ-hWj" secondAttribute="trailing" constant="8" id="emD-fi-Ci8"/>
+                                                    <constraint firstAttribute="height" constant="110" id="Y8t-6p-NFg"/>
+                                                    <constraint firstItem="4Ka-Y8-Mvu" firstAttribute="leading" secondItem="sYt-P4-MFx" secondAttribute="leading" constant="8" id="bJT-u7-MjU"/>
+                                                    <constraint firstAttribute="trailing" secondItem="4Ka-Y8-Mvu" secondAttribute="trailing" constant="8" id="cXP-kB-y8S"/>
                                                     <constraint firstItem="FBa-i4-hBy" firstAttribute="top" secondItem="sYt-P4-MFx" secondAttribute="top" constant="2" id="ieK-g9-uYu"/>
+                                                    <constraint firstAttribute="bottom" secondItem="4Ka-Y8-Mvu" secondAttribute="bottom" constant="8" id="vwr-Ga-vEr"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ATH-pm-hya" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="3060" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="3400" width="288" height="110"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Head" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="weY-Nc-xHV">
                                                         <rect key="frame" x="5" y="2" width="36" height="18"/>
@@ -1775,28 +1755,26 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="134" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E.g. something" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vKV-cJ-TZY">
-                                                        <rect key="frame" x="8" y="28" width="272" height="30"/>
-                                                        <nil key="textColor"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="134" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NIX-nx-dRg" customClass="InputWrapperTextView" customModule="EScribe" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="28" width="272" height="74"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="Q9X-dH-yVv"/>
-                                                        </connections>
-                                                    </textField>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
+                                                    <constraint firstItem="NIX-nx-dRg" firstAttribute="leading" secondItem="ATH-pm-hya" secondAttribute="leading" constant="8" id="0Ao-Lu-wyi"/>
                                                     <constraint firstItem="weY-Nc-xHV" firstAttribute="leading" secondItem="ATH-pm-hya" secondAttribute="leading" constant="5" id="52a-jn-puW"/>
-                                                    <constraint firstAttribute="height" constant="76" id="63f-nx-eDa"/>
-                                                    <constraint firstItem="vKV-cJ-TZY" firstAttribute="top" secondItem="weY-Nc-xHV" secondAttribute="bottom" constant="8" id="KD8-sd-VqS"/>
+                                                    <constraint firstAttribute="height" constant="110" id="63f-nx-eDa"/>
                                                     <constraint firstItem="weY-Nc-xHV" firstAttribute="top" secondItem="ATH-pm-hya" secondAttribute="top" constant="2" id="QZ2-pT-ejE"/>
-                                                    <constraint firstAttribute="trailing" secondItem="vKV-cJ-TZY" secondAttribute="trailing" constant="8" id="WdA-qd-m7M"/>
-                                                    <constraint firstItem="vKV-cJ-TZY" firstAttribute="leading" secondItem="ATH-pm-hya" secondAttribute="leading" constant="8" id="qmc-qa-PLp"/>
+                                                    <constraint firstAttribute="bottom" secondItem="NIX-nx-dRg" secondAttribute="bottom" constant="8" id="Y3D-YE-gy4"/>
+                                                    <constraint firstAttribute="trailing" secondItem="NIX-nx-dRg" secondAttribute="trailing" constant="8" id="aPg-GU-GHM"/>
+                                                    <constraint firstItem="NIX-nx-dRg" firstAttribute="top" secondItem="weY-Nc-xHV" secondAttribute="bottom" constant="8" id="xtC-61-hMo"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7X9-FH-ZbY" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="3144" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="3518" width="288" height="110"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Neck" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWR-1W-dl1">
                                                         <rect key="frame" x="5" y="2" width="35" height="18"/>
@@ -1804,28 +1782,26 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="135" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E.g. something" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zv4-pe-0Ef">
-                                                        <rect key="frame" x="8" y="28" width="272" height="30"/>
-                                                        <nil key="textColor"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="135" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NVf-sD-fKD" customClass="InputWrapperTextView" customModule="EScribe" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="28" width="272" height="74"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="YU9-hS-n8q"/>
-                                                        </connections>
-                                                    </textField>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="zv4-pe-0Ef" firstAttribute="top" secondItem="bWR-1W-dl1" secondAttribute="bottom" constant="8" id="DRj-gc-Wzp"/>
-                                                    <constraint firstItem="zv4-pe-0Ef" firstAttribute="leading" secondItem="7X9-FH-ZbY" secondAttribute="leading" constant="8" id="bID-CJ-UzF"/>
-                                                    <constraint firstAttribute="height" constant="76" id="dqR-ST-0Og"/>
+                                                    <constraint firstAttribute="bottom" secondItem="NVf-sD-fKD" secondAttribute="bottom" constant="8" id="Azn-dm-ONw"/>
+                                                    <constraint firstItem="NVf-sD-fKD" firstAttribute="top" secondItem="bWR-1W-dl1" secondAttribute="bottom" constant="8" id="KEs-KC-eTe"/>
+                                                    <constraint firstAttribute="height" constant="110" id="dqR-ST-0Og"/>
                                                     <constraint firstItem="bWR-1W-dl1" firstAttribute="leading" secondItem="7X9-FH-ZbY" secondAttribute="leading" constant="5" id="nk5-Yb-E4E"/>
+                                                    <constraint firstAttribute="trailing" secondItem="NVf-sD-fKD" secondAttribute="trailing" constant="8" id="rU4-Te-xKU"/>
                                                     <constraint firstItem="bWR-1W-dl1" firstAttribute="top" secondItem="7X9-FH-ZbY" secondAttribute="top" constant="2" id="sgS-9k-kZG"/>
-                                                    <constraint firstAttribute="trailing" secondItem="zv4-pe-0Ef" secondAttribute="trailing" constant="8" id="ytd-a9-mkF"/>
+                                                    <constraint firstItem="NVf-sD-fKD" firstAttribute="leading" secondItem="7X9-FH-ZbY" secondAttribute="leading" constant="8" id="vJq-0e-ARZ"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pzr-7C-Nv4" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="3228" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="3636" width="288" height="110"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cardiovascular" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1J-uT-3oB">
                                                         <rect key="frame" x="5" y="2" width="101" height="18"/>
@@ -1833,28 +1809,26 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="136" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E.g. something" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="klp-Co-waE">
-                                                        <rect key="frame" x="8" y="28" width="272" height="30"/>
-                                                        <nil key="textColor"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="136" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j7o-em-1fi" customClass="InputWrapperTextView" customModule="EScribe" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="28" width="272" height="74"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="Yy2-L0-aQB"/>
-                                                        </connections>
-                                                    </textField>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="klp-Co-waE" firstAttribute="top" secondItem="g1J-uT-3oB" secondAttribute="bottom" constant="8" id="0DF-8r-aeX"/>
-                                                    <constraint firstItem="klp-Co-waE" firstAttribute="leading" secondItem="pzr-7C-Nv4" secondAttribute="leading" constant="8" id="0Q5-22-ejH"/>
                                                     <constraint firstItem="g1J-uT-3oB" firstAttribute="leading" secondItem="pzr-7C-Nv4" secondAttribute="leading" constant="5" id="3ig-JH-0SZ"/>
-                                                    <constraint firstAttribute="height" constant="76" id="A6a-Nh-AgV"/>
+                                                    <constraint firstAttribute="trailing" secondItem="j7o-em-1fi" secondAttribute="trailing" constant="8" id="5EJ-ym-5TN"/>
+                                                    <constraint firstItem="j7o-em-1fi" firstAttribute="leading" secondItem="pzr-7C-Nv4" secondAttribute="leading" constant="8" id="5oX-hp-7Ut"/>
+                                                    <constraint firstAttribute="height" constant="110" id="A6a-Nh-AgV"/>
+                                                    <constraint firstItem="j7o-em-1fi" firstAttribute="top" secondItem="g1J-uT-3oB" secondAttribute="bottom" constant="8" id="BJW-Ns-nso"/>
+                                                    <constraint firstAttribute="bottom" secondItem="j7o-em-1fi" secondAttribute="bottom" constant="8" id="Fpw-IB-3Lg"/>
                                                     <constraint firstItem="g1J-uT-3oB" firstAttribute="top" secondItem="pzr-7C-Nv4" secondAttribute="top" constant="2" id="Sjp-2x-9C3"/>
-                                                    <constraint firstAttribute="trailing" secondItem="klp-Co-waE" secondAttribute="trailing" constant="8" id="dtn-VL-aPm"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tmf-gd-clN" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="3312" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="3754" width="288" height="110"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Respiratory" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3D-Rf-pMA">
                                                         <rect key="frame" x="5" y="2" width="77" height="18"/>
@@ -1862,28 +1836,26 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="137" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E.g. something" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PPd-MO-h8V">
-                                                        <rect key="frame" x="8" y="28" width="272" height="30"/>
-                                                        <nil key="textColor"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="137" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Nsg-vQ-uOO" customClass="InputWrapperTextView" customModule="EScribe" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="28" width="272" height="74"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="uL9-0J-v3R"/>
-                                                        </connections>
-                                                    </textField>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="PPd-MO-h8V" firstAttribute="leading" secondItem="Tmf-gd-clN" secondAttribute="leading" constant="8" id="1Fm-ha-FtY"/>
-                                                    <constraint firstAttribute="height" constant="76" id="9sA-mM-60i"/>
-                                                    <constraint firstAttribute="trailing" secondItem="PPd-MO-h8V" secondAttribute="trailing" constant="8" id="YFU-ZN-ysb"/>
+                                                    <constraint firstItem="Nsg-vQ-uOO" firstAttribute="top" secondItem="s3D-Rf-pMA" secondAttribute="bottom" constant="8" id="0z8-cD-TzD"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Nsg-vQ-uOO" secondAttribute="trailing" constant="8" id="7ee-rL-sBQ"/>
+                                                    <constraint firstAttribute="height" constant="110" id="9sA-mM-60i"/>
                                                     <constraint firstItem="s3D-Rf-pMA" firstAttribute="top" secondItem="Tmf-gd-clN" secondAttribute="top" constant="2" id="bsH-cF-5gm"/>
                                                     <constraint firstItem="s3D-Rf-pMA" firstAttribute="leading" secondItem="Tmf-gd-clN" secondAttribute="leading" constant="5" id="df1-KV-EZF"/>
-                                                    <constraint firstItem="PPd-MO-h8V" firstAttribute="top" secondItem="s3D-Rf-pMA" secondAttribute="bottom" constant="8" id="yj1-WR-nA4"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Nsg-vQ-uOO" secondAttribute="bottom" constant="8" id="nVQ-NB-jao"/>
+                                                    <constraint firstItem="Nsg-vQ-uOO" firstAttribute="leading" secondItem="Tmf-gd-clN" secondAttribute="leading" constant="8" id="trp-3w-uMh"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wVX-NA-v9e" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="3396" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="3872" width="288" height="110"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Neurological" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="equ-eO-kwT">
                                                         <rect key="frame" x="5" y="2" width="85" height="18"/>
@@ -1891,28 +1863,26 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="138" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E.g. something" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AA2-ld-O4X">
-                                                        <rect key="frame" x="8" y="28" width="272" height="30"/>
-                                                        <nil key="textColor"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="138" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zPk-aj-gxc" customClass="InputWrapperTextView" customModule="EScribe" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="28" width="272" height="74"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="zy8-51-qh8"/>
-                                                        </connections>
-                                                    </textField>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="AA2-ld-O4X" secondAttribute="trailing" constant="8" id="1uq-Kw-ARu"/>
+                                                    <constraint firstAttribute="trailing" secondItem="zPk-aj-gxc" secondAttribute="trailing" constant="8" id="0DE-Kx-8kO"/>
+                                                    <constraint firstItem="zPk-aj-gxc" firstAttribute="top" secondItem="equ-eO-kwT" secondAttribute="bottom" constant="8" id="3Xe-bJ-V8f"/>
                                                     <constraint firstItem="equ-eO-kwT" firstAttribute="leading" secondItem="wVX-NA-v9e" secondAttribute="leading" constant="5" id="IoB-t4-jhO"/>
-                                                    <constraint firstItem="AA2-ld-O4X" firstAttribute="leading" secondItem="wVX-NA-v9e" secondAttribute="leading" constant="8" id="LOi-Tz-WlF"/>
-                                                    <constraint firstAttribute="height" constant="76" id="Tta-z0-gcu"/>
+                                                    <constraint firstAttribute="height" constant="110" id="Tta-z0-gcu"/>
+                                                    <constraint firstAttribute="bottom" secondItem="zPk-aj-gxc" secondAttribute="bottom" constant="8" id="iOr-cH-Fxx"/>
+                                                    <constraint firstItem="zPk-aj-gxc" firstAttribute="leading" secondItem="wVX-NA-v9e" secondAttribute="leading" constant="8" id="jah-E1-fKX"/>
                                                     <constraint firstItem="equ-eO-kwT" firstAttribute="top" secondItem="wVX-NA-v9e" secondAttribute="top" constant="2" id="sUZ-Z1-3Uo"/>
-                                                    <constraint firstItem="AA2-ld-O4X" firstAttribute="top" secondItem="equ-eO-kwT" secondAttribute="bottom" constant="8" id="sUj-av-glC"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I0C-OJ-0JE" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="3480" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="3990" width="288" height="110"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Psych" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yn9-JW-Fbx">
                                                         <rect key="frame" x="5" y="2" width="41" height="18"/>
@@ -1920,28 +1890,26 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="139" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E.g. something" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2pW-qS-8LB">
-                                                        <rect key="frame" x="8" y="28" width="272" height="30"/>
-                                                        <nil key="textColor"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="139" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u8t-Vx-oSy" customClass="InputWrapperTextView" customModule="EScribe" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="28" width="272" height="74"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="17l-6a-4hu"/>
-                                                        </connections>
-                                                    </textField>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
+                                                    <constraint firstItem="u8t-Vx-oSy" firstAttribute="leading" secondItem="I0C-OJ-0JE" secondAttribute="leading" constant="8" id="4qB-0K-mvx"/>
                                                     <constraint firstItem="yn9-JW-Fbx" firstAttribute="leading" secondItem="I0C-OJ-0JE" secondAttribute="leading" constant="5" id="6B1-gE-zR6"/>
-                                                    <constraint firstItem="2pW-qS-8LB" firstAttribute="leading" secondItem="I0C-OJ-0JE" secondAttribute="leading" constant="8" id="8j4-6V-axi"/>
+                                                    <constraint firstAttribute="trailing" secondItem="u8t-Vx-oSy" secondAttribute="trailing" constant="8" id="7zE-me-wOW"/>
                                                     <constraint firstItem="yn9-JW-Fbx" firstAttribute="top" secondItem="I0C-OJ-0JE" secondAttribute="top" constant="2" id="BRe-6f-l2M"/>
-                                                    <constraint firstAttribute="trailing" secondItem="2pW-qS-8LB" secondAttribute="trailing" constant="8" id="Lw2-lC-Vxn"/>
-                                                    <constraint firstItem="2pW-qS-8LB" firstAttribute="top" secondItem="yn9-JW-Fbx" secondAttribute="bottom" constant="8" id="iJV-kQ-1rW"/>
-                                                    <constraint firstAttribute="height" constant="76" id="p7h-QI-edh"/>
+                                                    <constraint firstItem="u8t-Vx-oSy" firstAttribute="top" secondItem="yn9-JW-Fbx" secondAttribute="bottom" constant="8" id="SPU-kz-822"/>
+                                                    <constraint firstAttribute="bottom" secondItem="u8t-Vx-oSy" secondAttribute="bottom" constant="8" id="kis-No-uQc"/>
+                                                    <constraint firstAttribute="height" constant="110" id="p7h-QI-edh"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aE7-h3-oNy" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="3564" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="4108" width="288" height="110"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lymphatic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uW8-fe-VCE">
                                                         <rect key="frame" x="5" y="2" width="70" height="18"/>
@@ -1949,28 +1917,26 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="140" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E.g. something" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="koa-32-at7">
-                                                        <rect key="frame" x="8" y="28" width="272" height="30"/>
-                                                        <nil key="textColor"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="140" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kgH-cZ-XgK" customClass="InputWrapperTextView" customModule="EScribe" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="28" width="272" height="74"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="BrA-me-NrS"/>
-                                                        </connections>
-                                                    </textField>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="koa-32-at7" firstAttribute="top" secondItem="uW8-fe-VCE" secondAttribute="bottom" constant="8" id="ASc-lW-aNE"/>
-                                                    <constraint firstAttribute="trailing" secondItem="koa-32-at7" secondAttribute="trailing" constant="8" id="GbS-x6-u0W"/>
+                                                    <constraint firstAttribute="bottom" secondItem="kgH-cZ-XgK" secondAttribute="bottom" constant="8" id="2p2-MS-Pe7"/>
                                                     <constraint firstItem="uW8-fe-VCE" firstAttribute="leading" secondItem="aE7-h3-oNy" secondAttribute="leading" constant="5" id="Pz1-vb-iSI"/>
+                                                    <constraint firstItem="kgH-cZ-XgK" firstAttribute="leading" secondItem="aE7-h3-oNy" secondAttribute="leading" constant="8" id="Slo-op-odq"/>
+                                                    <constraint firstAttribute="trailing" secondItem="kgH-cZ-XgK" secondAttribute="trailing" constant="8" id="ZD4-zX-IIR"/>
                                                     <constraint firstItem="uW8-fe-VCE" firstAttribute="top" secondItem="aE7-h3-oNy" secondAttribute="top" constant="2" id="gXF-Wp-9Jl"/>
-                                                    <constraint firstAttribute="height" constant="76" id="lVk-xv-uLG"/>
-                                                    <constraint firstItem="koa-32-at7" firstAttribute="leading" secondItem="aE7-h3-oNy" secondAttribute="leading" constant="8" id="rvF-Or-Y5y"/>
+                                                    <constraint firstAttribute="height" constant="110" id="lVk-xv-uLG"/>
+                                                    <constraint firstItem="kgH-cZ-XgK" firstAttribute="top" secondItem="uW8-fe-VCE" secondAttribute="bottom" constant="8" id="zAa-kB-p23"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rGd-yd-YPN" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="3648" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="4226" width="288" height="110"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5M-5w-xwn">
                                                         <rect key="frame" x="5" y="2" width="40" height="18"/>
@@ -1978,34 +1944,32 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="141" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E.g. something" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pbu-Ya-rA7">
-                                                        <rect key="frame" x="8" y="28" width="272" height="30"/>
-                                                        <nil key="textColor"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="141" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kpe-6d-sHg" customClass="InputWrapperTextView" customModule="EScribe" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="28" width="272" height="74"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="VbC-BV-Him"/>
-                                                        </connections>
-                                                    </textField>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="76" id="9St-fq-Db8"/>
+                                                    <constraint firstItem="Kpe-6d-sHg" firstAttribute="leading" secondItem="rGd-yd-YPN" secondAttribute="leading" constant="8" id="1Vh-IJ-LeT"/>
+                                                    <constraint firstAttribute="height" constant="110" id="9St-fq-Db8"/>
+                                                    <constraint firstItem="Kpe-6d-sHg" firstAttribute="top" secondItem="K5M-5w-xwn" secondAttribute="bottom" constant="8" id="DcP-lJ-3MC"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Kpe-6d-sHg" secondAttribute="trailing" constant="8" id="HXu-74-2Vx"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Kpe-6d-sHg" secondAttribute="bottom" constant="8" id="cyv-yH-YH4"/>
                                                     <constraint firstItem="K5M-5w-xwn" firstAttribute="top" secondItem="rGd-yd-YPN" secondAttribute="top" constant="2" id="h9T-zv-nwa"/>
                                                     <constraint firstItem="K5M-5w-xwn" firstAttribute="leading" secondItem="rGd-yd-YPN" secondAttribute="leading" constant="5" id="k22-Rb-3NK"/>
-                                                    <constraint firstAttribute="trailing" secondItem="pbu-Ya-rA7" secondAttribute="trailing" constant="8" id="mdi-6s-bNx"/>
-                                                    <constraint firstItem="pbu-Ya-rA7" firstAttribute="leading" secondItem="rGd-yd-YPN" secondAttribute="leading" constant="8" id="prq-zO-3Ff"/>
-                                                    <constraint firstItem="pbu-Ya-rA7" firstAttribute="top" secondItem="K5M-5w-xwn" secondAttribute="bottom" constant="8" id="rqG-5q-io2"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Past history" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9u0-Y8-bD9">
-                                                <rect key="frame" x="8" y="3732" width="102" height="24"/>
+                                                <rect key="frame" x="8" y="4344" width="102" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Odq-bt-M3B" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="3764" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="4376" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medical" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kaO-sb-wdG">
                                                         <rect key="frame" x="5" y="2" width="53" height="18"/>
@@ -2034,7 +1998,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dft-ln-ham" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="3848" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="4460" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Injuries" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzY-fx-J4D">
                                                         <rect key="frame" x="5" y="2" width="49" height="18"/>
@@ -2063,7 +2027,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1d7-Hv-a39" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="3932" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="4544" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hospitalization / Surgeries" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qlz-HK-7kH">
                                                         <rect key="frame" x="5" y="2" width="177" height="18"/>
@@ -2092,7 +2056,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wRg-T4-aTf" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="4016" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="4628" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Treatment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64t-MI-GSw">
                                                         <rect key="frame" x="5" y="2" width="70" height="18"/>
@@ -2121,7 +2085,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LFE-kt-ASm" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="4100" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="4712" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Family history" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwc-ta-nVx">
                                                         <rect key="frame" x="5" y="2" width="93" height="18"/>
@@ -2150,7 +2114,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y1d-Dm-mx0" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="4184" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="4796" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Social history" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4H1-6h-C8g">
                                                         <rect key="frame" x="5" y="2" width="91" height="18"/>
@@ -2179,7 +2143,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VZl-68-1Cl" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="4268" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="4880" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smoking status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBU-T8-S8n">
                                                         <rect key="frame" x="5" y="2" width="105" height="18"/>
@@ -2208,7 +2172,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pP7-x5-caK" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="4352" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="4964" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alcohol use" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNw-XM-Ru2">
                                                         <rect key="frame" x="5" y="2" width="79" height="18"/>
@@ -2237,7 +2201,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xfU-pj-uSU" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="4436" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="5048" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drugs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ot-KW-lOe">
                                                         <rect key="frame" x="5" y="2" width="41" height="18"/>
@@ -2266,7 +2230,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8BZ-am-Vr0" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="4520" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="5132" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caffeine use" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="148-d5-tgp">
                                                         <rect key="frame" x="5" y="2" width="85" height="18"/>
@@ -2295,7 +2259,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VYC-ab-tTk" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="4604" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="5216" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Employment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MT7-hb-cnp">
                                                         <rect key="frame" x="5" y="2" width="85" height="18"/>
@@ -2324,7 +2288,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mTs-b7-otH" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="4688" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="5300" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sexual activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcR-CW-UsF">
                                                         <rect key="frame" x="5" y="2" width="97" height="18"/>
@@ -2353,13 +2317,13 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assessment &amp; plan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4c-kx-WMg">
-                                                <rect key="frame" x="8" y="4772" width="169" height="24"/>
+                                                <rect key="frame" x="8" y="5384" width="169" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxA-za-K92" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="4804" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="5416" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diagnosis / Assessment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qb-yT-blz">
                                                         <rect key="frame" x="5" y="2" width="161" height="18"/>
@@ -2388,7 +2352,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="guJ-rC-WCn" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="4888" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="5500" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exZ-0y-0bs">
                                                         <rect key="frame" x="5" y="2" width="29" height="18"/>
@@ -2417,7 +2381,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DFN-vc-Hxg" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="4972" width="288" height="450"/>
+                                                <rect key="frame" x="8" y="5584" width="288" height="450"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgh-gz-4x4">
                                                         <rect key="frame" x="5" y="2" width="40" height="18"/>
@@ -2556,13 +2520,13 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visit summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAh-Gm-JpJ">
-                                                <rect key="frame" x="8" y="5430" width="124" height="24"/>
+                                                <rect key="frame" x="8" y="6042" width="124" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dfb-nF-3sM" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="5462" width="288" height="120"/>
+                                                <rect key="frame" x="8" y="6074" width="288" height="120"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NY1-Re-Srl">
                                                         <rect key="frame" x="5" y="2" width="65" height="18"/>
@@ -2592,7 +2556,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BmU-jq-WJi" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="5590" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="6202" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Physical activity counseling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sD5-Hg-T89">
                                                         <rect key="frame" x="5" y="2" width="185" height="18"/>
@@ -2621,7 +2585,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JfO-u2-xsL" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="5674" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="6286" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nutrition counseling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEQ-9E-Cxf">
                                                         <rect key="frame" x="5" y="2" width="136" height="18"/>
@@ -2650,7 +2614,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0uz-ds-6Ms" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="5758" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="6370" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fall risk assessment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdf-he-3Ae">
                                                         <rect key="frame" x="5" y="2" width="135" height="18"/>
@@ -2679,7 +2643,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uuW-ma-MdF" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="5842" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="6454" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High risk conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="co4-7u-mRv">
                                                         <rect key="frame" x="5" y="2" width="134" height="18"/>
@@ -2708,7 +2672,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COa-Fn-y89" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="5926" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="6538" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Advanced directives" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrI-PX-HyW">
                                                         <rect key="frame" x="5" y="2" width="138" height="18"/>
@@ -2737,7 +2701,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I2B-7j-fpK" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="6010" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="6622" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BNI follow up plan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFn-GW-EOy">
                                                         <rect key="frame" x="5" y="2" width="121" height="18"/>
@@ -2766,7 +2730,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scT-Gq-afm" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="6094" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="6706" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Colonoscopy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5eJ-pL-Mat">
                                                         <rect key="frame" x="5" y="2" width="89" height="18"/>
@@ -2795,7 +2759,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eju-Cc-nvI" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="6178" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="6790" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Urinary Incontinence Assessment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBB-Mq-FA5">
                                                         <rect key="frame" x="5" y="2" width="227" height="18"/>
@@ -2824,7 +2788,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ekg-eS-rv7" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="6262" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="6874" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pap pelvic exam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2V-eG-vfl">
                                                         <rect key="frame" x="5" y="2" width="110" height="18"/>
@@ -2853,7 +2817,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afu-p5-6Hn" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="6346" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="6958" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dental care" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MD-ho-gWW">
                                                         <rect key="frame" x="5" y="2" width="78" height="18"/>
@@ -2882,7 +2846,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="32A-C9-xEm" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="6430" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="7042" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ophthalmology" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xnd-NI-JLM">
                                                         <rect key="frame" x="5" y="2" width="104" height="18"/>
@@ -2911,7 +2875,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mfw-pL-90c" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="6514" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="7126" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Osteoporosis Screening" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SbM-3L-mWf">
                                                         <rect key="frame" x="5" y="2" width="162.5" height="18"/>
@@ -2940,7 +2904,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mBh-QY-N6O" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="6598" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="7210" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vaccinations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZ3-xo-UZu">
                                                         <rect key="frame" x="5" y="2" width="87" height="18"/>
@@ -2969,7 +2933,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u2A-dI-Au4" customClass="InputWrapperView" customModule="EScribe" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="6682" width="288" height="76"/>
+                                                <rect key="frame" x="8" y="7294" width="288" height="76"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breast exam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOV-4J-oLw">
                                                         <rect key="frame" x="5" y="2" width="84" height="18"/>
@@ -3205,7 +3169,7 @@
                                             <constraint firstItem="9tw-Cp-IpY" firstAttribute="leading" secondItem="RcV-AA-ZYR" secondAttribute="leading" constant="8" id="xCf-hZ-Ils"/>
                                             <constraint firstItem="LFE-kt-ASm" firstAttribute="top" secondItem="wRg-T4-aTf" secondAttribute="bottom" constant="8" id="xUl-C3-Jts"/>
                                             <constraint firstItem="dGl-mH-fmt" firstAttribute="leading" secondItem="RcV-AA-ZYR" secondAttribute="leading" constant="8" id="xnb-W8-WOL"/>
-                                            <constraint firstAttribute="height" constant="6800" id="yHu-5B-SQC"/>
+                                            <constraint firstAttribute="height" constant="7800" id="yHu-5B-SQC"/>
                                             <constraint firstAttribute="trailing" secondItem="JfO-u2-xsL" secondAttribute="trailing" constant="8" id="yLj-72-MEY"/>
                                             <constraint firstItem="oi9-m2-8KM" firstAttribute="top" secondItem="sUN-LX-ZbJ" secondAttribute="bottom" constant="8" id="yLs-nc-8e7"/>
                                             <constraint firstItem="rGd-yd-YPN" firstAttribute="top" secondItem="aE7-h3-oNy" secondAttribute="bottom" constant="8" id="yde-fw-9SI"/>
@@ -3231,14 +3195,13 @@
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oyp-oh-Mf8">
-                                <rect key="frame" x="0.0" y="6986" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="7986" width="320" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWS-Ej-KTC">
-                                        <rect key="frame" x="95" y="7.5" width="130" height="35"/>
+                                        <rect key="frame" x="8" y="8" width="130" height="34"/>
                                         <color key="backgroundColor" red="0.0" green="0.4823529411764706" blue="0.81176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="0Zc-A8-wRB"/>
-                                            <constraint firstAttribute="width" constant="130" id="7Np-Hy-cQv"/>
+                                            <constraint firstAttribute="width" constant="130" id="3pK-cS-e3J"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                         <state key="normal" title="Submit">
@@ -3248,11 +3211,29 @@
                                             <action selector="submitClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CMa-Kp-Mru"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1O-kb-urz">
+                                        <rect key="frame" x="182" y="8" width="130" height="34"/>
+                                        <color key="backgroundColor" red="0.0" green="0.4823529412" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="130" id="oCU-ef-UZK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gYc-do-UKy"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="nWS-Ej-KTC" firstAttribute="centerY" secondItem="oyp-oh-Mf8" secondAttribute="centerY" id="Hfl-Hz-fWP"/>
-                                    <constraint firstItem="nWS-Ej-KTC" firstAttribute="centerX" secondItem="oyp-oh-Mf8" secondAttribute="centerX" id="jfx-gx-JBj"/>
+                                    <constraint firstItem="nWS-Ej-KTC" firstAttribute="leading" secondItem="oyp-oh-Mf8" secondAttribute="leading" constant="8" id="9O2-6I-fQ8"/>
+                                    <constraint firstItem="nWS-Ej-KTC" firstAttribute="top" secondItem="oyp-oh-Mf8" secondAttribute="top" constant="8" id="Kak-K3-Wra"/>
+                                    <constraint firstAttribute="bottom" secondItem="nWS-Ej-KTC" secondAttribute="bottom" constant="8" id="R5h-kx-lRc"/>
+                                    <constraint firstAttribute="bottom" secondItem="K1O-kb-urz" secondAttribute="bottom" constant="8" id="Y2h-hE-QMX"/>
+                                    <constraint firstAttribute="trailing" secondItem="K1O-kb-urz" secondAttribute="trailing" constant="8" id="n9t-6e-cag"/>
+                                    <constraint firstItem="K1O-kb-urz" firstAttribute="top" secondItem="oyp-oh-Mf8" secondAttribute="top" constant="8" id="ncE-3W-nmk"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patient 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXk-oN-NE5">
@@ -3316,19 +3297,14 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="PCP / Cardiology" id="zYp-DK-sUp">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Tao-C1-bHd">
-                            <connections>
-                                <action selector="saveClicked:" destination="BYZ-38-t0r" id="PL6-EW-LM8"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="PCP / Cardiology" id="zYp-DK-sUp"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="7100"/>
+                    <size key="freeformSize" width="320" height="8100"/>
                     <connections>
                         <outlet property="dobLabel" destination="MOE-2p-mGc" id="APc-KB-qPh"/>
                         <outlet property="patientNameLabel" destination="fXk-oN-NE5" id="oUa-Fi-sUu"/>
                         <outlet property="recordButton" destination="Ydt-XH-3Pn" id="vlA-KN-lpc"/>
+                        <outlet property="saveButton" destination="K1O-kb-urz" id="wyQ-mH-Pql"/>
                         <outlet property="statusNotifyTextField" destination="JC7-IL-Nch" id="ozr-Cw-OZX"/>
                         <outlet property="submitButton" destination="nWS-Ej-KTC" id="Ex0-tD-Dc7"/>
                         <outlet property="yearsOldLabel" destination="DnF-fd-8wz" id="fFh-vY-ZLa"/>
